@@ -11,7 +11,7 @@ int main(void)
     int i;
     for(i=0;i<15;i++)
     {
-        printf("Digite o %dº número: ",i+1);
+        printf("Digite o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %f",&v[i]);
     }
     system("cls");
@@ -38,7 +38,7 @@ int main(void)
     int A[12],i=0,x=0;
     for(i=0;i<12;i++)
     {
-        printf("Insira o %dº número: ",i+1);
+        printf("Insira o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %d",&A[i]);
         while(A[i]<=0)
         {
@@ -50,10 +50,10 @@ int main(void)
     }
     system("cls");
     if(x == 12)
-        printf("Nenhum dos números digitados é maior que 121.\n");
+        printf("Nenhum dos nï¿½meros digitados ï¿½ maior que 121.\n");
     else
     {
-        printf("Os números maiores que 121 são: \n");
+        printf("Os nï¿½meros maiores que 121 sï¿½o: \n");
         for(i=0;i<12;i++)
         {
             if(A[i]>121)
@@ -70,7 +70,7 @@ int main(void)
     int A[8],B[8],i;
     for(i=0;i<8;i++)
     {
-        printf("Insira o %dº valor: ",i+1);
+        printf("Insira o %dï¿½ valor: ",i+1);
         scanf(" %d",&A[i]);
         B[i] = A[i]*3;
     }
@@ -92,23 +92,23 @@ int main(void)
         system("cls");
         for(i=0;i<6;i++)
         {
-            printf("Insira o %dº número: ",i+1);
+            printf("Insira o %dï¿½ nï¿½mero: ",i+1);
             scanf(" %f",&A[i]);
             while(A[i]>=0)
             {
-                printf("Insira apenas números negativos.\n");
-                printf("Insira o %dº número: ",i+1);
+                printf("Insira apenas nï¿½meros negativos.\n");
+                printf("Insira o %dï¿½ nï¿½mero: ",i+1);
                 scanf(" %f",&A[i]);
             }
             somq+=(A[i]*A[i]);
         }
         if(somq < 1000)
         {
-            printf("\nSoma dos quadrados é menor que 1000.\nInsira novos dados.\n");
+            printf("\nSoma dos quadrados ï¿½ menor que 1000.\nInsira novos dados.\n");
             system("Pause");
         }
     }while(somq < 1000);
-    printf("\nA soma dos quadrados é: %.2f",somq);
+    printf("\nA soma dos quadrados ï¿½: %.2f",somq);
     return 0;
 }
 #endif // ex4
@@ -122,11 +122,11 @@ int main(void)
     for(i=0;i<10;i++)
     {
         do{
-        printf("Digite o %dº número: ",i+1);
+        printf("Digite o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %f",&n[i]);
         if(n[i]<0)
         {
-            printf("Apenas números positivos!");
+            printf("Apenas nï¿½meros positivos!");
         }
         }while(n[i]<0);
     }
@@ -157,7 +157,7 @@ int main(void)
             x++;
         }
     }
-    printf("\nO maior número é %.2f, e foi digitado %d vezes nas posições:\n",maior,x);
+    printf("\nO maior nï¿½mero ï¿½ %.2f, e foi digitado %d vezes nas posiï¿½ï¿½es:\n",maior,x);
     for(i=0;i<10;i++)
     {
         if(maior == n[i])
@@ -188,11 +188,11 @@ int main(void)
     {
 
         z++;
-        printf("Digite o %dº número: ",i+1);
+        printf("Digite o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %d",&A[i]);
         system("cls");
-        printf("Você digitou %d números",z);
-        printf("\nDeseja digitar mais um número? ('S' = sim)\n");
+        printf("Vocï¿½ digitou %d nï¿½meros",z);
+        printf("\nDeseja digitar mais um nï¿½mero? ('S' = sim)\n");
         scanf(" %c", &xx);
         xx = toupper(xx);
         if(xx != 'S')
@@ -240,17 +240,17 @@ int main(void)
     for(;;)
     {
         do{
-        printf("Digite o %dº número: ",i+1);
+        printf("Digite o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %d",&A[z]);
         if((A[z]<=4)||(A[z]>20))
         {
-            printf("\tDigite um número maior que 4 e menor ou igual a 20.\n");
+            printf("\tDigite um nï¿½mero maior que 4 e menor ou igual a 20.\n");
         }
         }while((A[z]<=4)||(A[z]>20));
         system("cls");
    //     printf("%d",A[z-1]);
-        printf("Você digitou %d números",z+1);
-        printf("\nDeseja digitar mais um número? ('S' = sim)\n");
+        printf("Vocï¿½ digitou %d nï¿½meros",z+1);
+        printf("\nDeseja digitar mais um nï¿½mero? ('S' = sim)\n");
         scanf(" %c", &xx);
         xx = toupper(xx);
         if(xx != 'S')
@@ -295,21 +295,21 @@ int main(void)
     printf("Insira os valores do vetor A:\n");
     for ( i = 0; i < 5; i++)
     {
-        printf("%dº: ",i+1);
+        printf("%dï¿½: ",i+1);
         scanf(" %f",&A[i]);
     }
     system("cls");
     printf("Insira os valores do vetor B:\n");
     for ( i = 0; i < 5; i++)
     {
-        printf("%dº: ",i+1);
+        printf("%dï¿½: ",i+1);
         scanf(" %f",&B[i]);
     }
     system("cls");
     printf("Insira os valores do vetor C:\n");
     for ( i = 0; i < 5; i++)
     {
-        printf("%dº: ",i+1);
+        printf("%dï¿½: ",i+1);
         scanf(" %f",&C[i]);
     }
     system("cls");
@@ -357,11 +357,32 @@ int main(void)
             x++;
         }
     }
-    printf("O vetor D[15] possui %d números negativos.\n",x);
+    printf("O vetor D[15] possui %d nï¿½meros negativos.\n",x);
     system("pause");
     return 0;
 }
 #endif // ex8
 #ifdef ex9
+float A[10],B[10];
+int i=0;
+ScanP(float X[],int i)
+{
+    do{
+        printf("Insira o %dÂº valor: ",i+1);
+        scanf(" %f",X[i]);
+        if(X[i]<0)
+        {
+            printf("Apenas valores positivos.\n");
+        }
+    }while(X[i]<0)
+}
 
+int main(void)
+{
+    for(i;i<10;i++)
+    {
+        ScanP(A[],i);
+    }
+    return 0;
+}
 #endif
