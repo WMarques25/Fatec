@@ -365,24 +365,30 @@ int main(void)
 #ifdef ex9
 float A[10],B[10];
 int i=0;
-ScanP(float X[],int i)
+
+ScanP()
 {
+    float X;
     do{
-        printf("Insira o %dÂº valor: ",i+1);
-        scanf(" %f",X[i]);
+        printf("Insira o %dº valor: ",i+1);
+        scanf(" %f",&X);
         if(X[i]<0)
         {
             printf("Apenas valores positivos.\n");
         }
-    }while(X[i]<0)
+    }while(X[i]<0);
+    return X;
 }
 
 int main(void)
 {
+    setlocale(LC_ALL,"");
     for(i;i<10;i++)
     {
-        ScanP(A[],i);
+        A[i] = ScanP();
+        B[i] = A[i]/2;
     }
+    
     return 0;
 }
 #endif
