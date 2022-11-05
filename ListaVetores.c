@@ -1,4 +1,4 @@
-#define ex8
+#define ex9
 #include <stdio.h>
 #include <locale.h>
 #include <ctype.h>
@@ -366,17 +366,16 @@ int main(void)
 float A[10],B[10];
 int i=0;
 
-ScanP()
-{
+float ScanP(void){
     float X;
     do{
         printf("Insira o %dº valor: ",i+1);
         scanf(" %f",&X);
-        if(X[i]<0)
+        if(X<0)
         {
             printf("Apenas valores positivos.\n");
         }
-    }while(X[i]<0);
+    }while(X<0);
     return X;
 }
 
@@ -388,7 +387,11 @@ int main(void)
         A[i] = ScanP();
         B[i] = A[i]/2;
     }
-    
+    for(i=0;i<10;i++)
+    {
+        
+    }
+
     return 0;
 }
 #endif
