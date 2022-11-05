@@ -1,7 +1,9 @@
-#define ex9
+#define ex11
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 #include <ctype.h>
+#include <string.h>
 
 #ifdef ex1
 int main(void)
@@ -364,7 +366,7 @@ int main(void)
 #endif // ex8
 #ifdef ex9
 float A[10],B[10];
-int i=0;
+int i=0,n1=0,n2=0;
 
 float ScanP(void){
     float X;
@@ -385,13 +387,104 @@ int main(void)
     for(i;i<10;i++)
     {
         A[i] = ScanP();
+        if (A[i]>4)
+        {n1++;}
         B[i] = A[i]/2;
+        if (B[i]>4)
+        {n2++;}
     }
-    for(i=0;i<10;i++)
+    printf("No vetor A[10] existem %d valores maiores que 4.",n1);
+    if (n1>0)
     {
-        
+        printf("\b, nas posições:\n");
+        for(i=0;i<10;i++)
+        {
+            if (A[i]>4)
+            {
+                printf(" A[%d],",i);
+            }
+        }
+        printf("\b.");
     }
-
+    
+    printf("\nNo vetor B[10] existem %d valores maiores que 4.",n2);
+    if (n2>0)
+    {
+        printf("\b, nas posições:\n");
+        for(i=0;i<10;i++)
+        {
+            if (B[i]>4)
+            {
+                printf(" B[%d],",i);
+            }
+        }
+        printf("\b.");
+    }
     return 0;
 }
-#endif
+#endif // ex9
+#ifdef ex10
+int A[10], x, i;
+
+void Tabuada(int x)
+{
+    for (i=0;i<10;i++)
+    {
+        A[i] = x*(i+1);
+    }
+}
+
+int main(void)
+{
+    setlocale(LC_ALL, "");
+    printf("Insira o número que deseja a tabuada: ");
+    scanf(" %d", &x);
+    Tabuada(x);
+    
+    printf("A tabuada de %d é:\n", x);
+    for ( i = 0; i < 10; i++)
+    {
+         printf("%d X %d = %d\n", i+1, x, A[i]);
+    }
+}
+#endif // ex10
+#ifdef ex11
+float T[12], med=0;
+char M[12][6] = { "Jan", "Fec", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"};
+int i = 0, min=0, max=0;
+char x = 'S';
+
+int main(void)
+{
+    do{
+        system("cls");
+        setlocale(LC_ALL, "");
+        printf("Insira as temperaturas referentes aos meses o ano. (°C)\n\n");
+        for(i=0;i<12;i++)
+        {
+            printf("%s: ", M[i]);
+            scanf(" %f", &T[i]);
+            
+            med += T[i];
+            if(min>T[i])
+                {min = i;}
+            if(max<T[i])
+                {max = i;}
+        }
+        med = med/12;
+        printf("As temperaturas do ano são:\n");
+        for(i=0;i<12;i++)
+        {
+            printf("%s: %g°C ,", M[i], T[i]);
+        }
+        printf("\b.\n");
+        printf("A menor temperatura é de %s = %g°C.\n", M[min], T[min]);
+        printf("A maior temperatura é de %s = %g°C.\n", M[max], T[max]);
+        printf("A média das temperaturas é: %.2g°C.\n\n", med);
+
+        printf("Deseja fazer outra verificação? ('S' = Sim)\n");
+        scanf(" %c", &x);
+        x = toupper(x);
+    }while(x == 'S');
+}
+#endif // ex11
