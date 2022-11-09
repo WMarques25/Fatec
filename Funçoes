@@ -1,1 +1,163 @@
+#define ex3
+#include <stdio.h>
+#include <locale.h>
+#include <locale.h>
+#include <ctype.h>
 
+#ifdef ex1
+
+void verifica(int a)
+{
+   if(a<0)
+   {
+      printf("O número digitado é negativo.\n");
+   }
+   else
+   {
+      if(a>0)
+      {
+         printf("O número digitado é positivo.\n");
+      }
+      else
+      {
+         printf("O número digitado é 0.\n");
+      }
+   }
+}
+
+int main(void)
+{
+    int a;
+    setlocale(LC_ALL,"");
+    printf("Digite um número inteiro: ");
+    scanf(" %d", &a);
+    verifica(a);
+    return 0;
+}
+#endif // ex1
+#ifdef ex2
+float divisao(float a, float b)
+{
+    a = a/b;
+    return a;
+}
+
+int check(float a)
+{
+    if(a==0)
+    {
+        printf("Digite um número diferente de 0.\n");
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+int main(void)
+{
+    float x, y, div;
+    int z;
+    setlocale(LC_ALL, "");
+    do{
+    printf("Digite o primeiro número: ");
+    scanf(" %f",&x);
+    z = check(x);
+    }while(z == 0);
+    do{
+    printf("Digite o segundo número: ");
+    scanf(" %f",&y);
+    z = check(y);
+    }while(z == 0);
+    div = divisao(x,y);
+    printf("O resultado da divisão de %g por %g é igual a %g.\n", x, y, div);
+    return 0;
+}
+
+#endif // ex2
+#ifdef ex3
+int notas(float a)
+{
+    if((a<0) || (a>10))
+    {
+        printf("Apenas valores entre 0 e 10.\n");
+        return 0;
+    }
+    else
+    {
+        return 1;
+    }
+}
+
+float media(float n1, float n2, float n3, float n4)
+{
+    return (n1+n2+n3+n4)/4;
+}
+
+int main(void)
+{
+    char x;
+    float n1,n2,n3,n4,med;
+    int z=0;
+
+    setlocale(LC_ALL, "");
+    do{
+        system("cls");
+
+        // NOTA 1
+        while(z == 0){
+        printf("Digite a primeira nota: ");
+        scanf(" %f", &n1);
+        z = notas(n1);
+        }
+        z = 0;
+
+        // NOTA 2
+        while(z == 0){
+        printf("Digite a segunda nota: ");
+        scanf(" %f", &n2);
+        z = notas(n2);
+        }
+        z = 0;
+
+        // NOTA 3
+        while(z == 0){
+        printf("Digite a terceira nota: ");
+        scanf(" %f", &n3);
+        z = notas(n3);
+        }
+        z = 0;
+
+        // NOTA 4
+        while(z == 0){
+        printf("Digite a quarta nota: ");
+        scanf(" %f", &n4);
+        z = notas(n4);
+        }
+        z = 0;
+
+        // MÉDIA
+        med = media(n1,n2,n3,n4);
+        if(med>=6)
+        {
+            printf("\nMédia = %.2f.\nAprovado.\n",med);
+        }
+        else
+        {
+            printf("\nMédia = %.2f.\nReprovado.\n",med);
+        }
+
+        printf("\nDeseja realisar outra verificação? ('S' = SIM)\n");
+        scanf(" %c",&x);
+        x = toupper(x);
+    }while(x == 'S');
+    return 0;
+}
+#endif // ex3
+#ifdef ex4
+
+#endif // ex4
+#ifdef ex5
+
+#endif // ex5
