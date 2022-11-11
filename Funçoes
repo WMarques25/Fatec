@@ -1,4 +1,4 @@
-#define ex3
+#define ex6
 #include <stdio.h>
 #include <locale.h>
 #include <locale.h>
@@ -10,17 +10,17 @@ void verifica(int a)
 {
    if(a<0)
    {
-      printf("O n˙mero digitado È negativo.\n");
+      printf("O nùmero digitado ù negativo.\n");
    }
    else
    {
       if(a>0)
       {
-         printf("O n˙mero digitado È positivo.\n");
+         printf("O nùmero digitado ù positivo.\n");
       }
       else
       {
-         printf("O n˙mero digitado È 0.\n");
+         printf("O nùmero digitado ù 0.\n");
       }
    }
 }
@@ -29,7 +29,7 @@ int main(void)
 {
     int a;
     setlocale(LC_ALL,"");
-    printf("Digite um n˙mero inteiro: ");
+    printf("Digite um nùmero inteiro: ");
     scanf(" %d", &a);
     verifica(a);
     return 0;
@@ -46,7 +46,7 @@ int check(float a)
 {
     if(a==0)
     {
-        printf("Digite um n˙mero diferente de 0.\n");
+        printf("Digite um nùmero diferente de 0.\n");
         return 0;
     }
     else
@@ -55,23 +55,24 @@ int check(float a)
     }
 }
 
-int main(void)
+ ex6
+ int main(void)
 {
     float x, y, div;
     int z;
     setlocale(LC_ALL, "");
     do{
-    printf("Digite o primeiro n˙mero: ");
+    printf("Digite o primeiro nùmero: ");
     scanf(" %f",&x);
     z = check(x);
     }while(z == 0);
     do{
-    printf("Digite o segundo n˙mero: ");
+    printf("Digite o segundo nùmero: ");
     scanf(" %f",&y);
     z = check(y);
     }while(z == 0);
     div = divisao(x,y);
-    printf("O resultado da divis„o de %g por %g È igual a %g.\n", x, y, div);
+    printf("O resultado da divisùo de %g por %g ù igual a %g.\n", x, y, div);
     return 0;
 }
 
@@ -90,15 +91,16 @@ int notas(float a)
     }
 }
 
-float media(float n1, float n2, float n3, float n4)
+float media(float x1, xloat n2, float n3, float n4)
 {
-    return (n1+n2+n3+n4)/4;
+    return (x1+nx+n3+n4)/4;
 }
 
-int main(void)
+ ex6
+ int main(void)
 {
     char x;
-    float n1,n2,n3,n4,med;
+    float x1,nx,n3,n4,med;
     int z=0;
 
     setlocale(LC_ALL, "");
@@ -108,9 +110,7 @@ int main(void)
         // NOTA 1
         while(z == 0){
         printf("Digite a primeira nota: ");
-        scanf(" %f", &n1);
-        z = notas(n1);
-        }
+        scanf(" %f", &x1);x        z = notas(x1);x        }
         z = 0;
 
         // NOTA 2
@@ -137,18 +137,18 @@ int main(void)
         }
         z = 0;
 
-        // M…DIA
-        med = media(n1,n2,n3,n4);
+        // MùDIA
+        med = media(x1,nx,n3,n4);
         if(med>=6)
         {
-            printf("\nMÈdia = %.2f.\nAprovado.\n",med);
+            printf("\nMùdia = %.2f.\nAprovado.\n",med);
         }
         else
         {
-            printf("\nMÈdia = %.2f.\nReprovado.\n",med);
+            printf("\nMùdia = %.2f.\nReprovado.\n",med);
         }
 
-        printf("\nDeseja realisar outra verificaÁ„o? ('S' = SIM)\n");
+        printf("\nDeseja realisar outra verificaùùo? ('S' = SIM)\n");
         scanf(" %c",&x);
         x = toupper(x);
     }while(x == 'S');
@@ -161,3 +161,83 @@ int main(void)
 #ifdef ex5
 
 #endif // ex5
+// Tarefa algoritmo
+#ifdef ex6
+
+float positivo(void)
+{
+    float x;
+    do{
+        scanf(" %f",&x);
+        if(x<=0)
+        {printf("\tValor inv·lido!\n\tDigite um valor maior que zero.");}
+    }while(x<=0);
+    return x;
+}
+
+int Existencia_Triangulo(float x1, float x2, float x3)
+{
+    if(x1 >= (x2+x3))
+        {printf("\n\tTri‚ngulo inv·lido.\n\tUm dos lados È maior qua a soma dos outros.");
+        return 0;}
+    else
+    {
+        if(x2 >= (x1+x3))
+            {printf("\n\tTri‚ngulo inv·lido.\n\tUm dos lados È maior qua a soma dos outros.");
+            return 0;}
+        else
+        {
+            if(x3 >= (x1+x2))
+                {printf("\n\tTri‚ngulo inv·lido.\n\tUm dos lados È maior qua a soma dos outros.");
+                return 0;}
+            else
+                return 1;
+        }
+    }
+    
+}
+
+void exiba(float x1,float x2,float x3)
+{
+    if((x1==x2)&&(x1==x3))
+        {
+            printf("\nEste tri‚ngulo È equil·tero!\n");
+        }
+        else
+        {
+            if(((x1==x2)||(x2==x3))||(x1==x3))
+                printf("\nEste tri‚ngulo È isÛcele!\n");
+            else
+                printf("\nEste tri‚ngulo È escaleno!\n");
+        }
+}
+
+int main(void)
+{
+    float t1, t2, t3;
+    int triangulo = 0;
+
+    setlocale(LC_ALL, "");
+    do{
+        system('cls');
+        printf("Este programa verifica se um tri‚ngulo È isÛscele, equil·tero ou escaleno.");
+        printf("\nInforme o tamanho do primeiro lado: ");
+        t1 = positivo();
+        printf("\nInforme o tamanho do segundo lado: ");
+        t2 = positivo();
+        printf("\nInforme o tamanho do terceiro lado: ");
+        t3 = positivo();
+        triangulo = Existencia_Triangulo(t1,t2,t3);
+    }while(triangulo == 0);
+    exiba(t1, t2, t3);
+}
+#endif // ex6
+#ifdef ex7
+
+#endif // ex7
+#ifdef ex8
+
+#endif // ex8
+#ifdef ex9
+
+#endif // ex9

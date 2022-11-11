@@ -7,17 +7,17 @@ main()
 {
     setlocale(LC_ALL, "");
     do{
-    printf("Téstè\n");
+    printf("Tï¿½stï¿½\n");
     system("cls");
-    printf("Este programa contem todos os exercícios da Lista 1 de Algoritmo\n");
-    printf("Exercícios:\n");
-    printf("EX 1 Antecessor/Sucessor                        EX 7 Calculo da Média Escolar\n");
+    printf("Este programa contem todos os exercï¿½cios da Lista 1 de Algoritmo\n");
+    printf("Exercï¿½cios:\n");
+    printf("EX 1 Antecessor/Sucessor                        EX 7 Calculo da Mï¿½dia Escolar\n");
     printf("EX 2 Reajuste +10%%                              EX 8 N > 50.000?             \n");
-    printf("EX 3 Desconto de 9%%                             EX 9 São Multiplos?          \n");
-    printf("EX 4 Salário Professor                          EX 10 Inflação de Produtos   \n");
-    printf("EX 5 Carro Novo                                 EX 11 Maior Número           \n");
-    printf("EX 6 Reajuste Salárial                          EX 12 Média + Conceito Escolar\n");
-    printf("\nDigite o número do exercício: ");
+    printf("EX 3 Desconto de 9%%                             EX 9 Sï¿½o Multiplos?          \n");
+    printf("EX 4 Salï¿½rio Professor                          EX 10 Inflaï¿½ï¿½o de Produtos   \n");
+    printf("EX 5 Carro Novo                                 EX 11 Maior Nï¿½mero           \n");
+    printf("EX 6 Reajuste Salï¿½rial                          EX 12 Mï¿½dia + Conceito Escolar\n");
+    printf("\nDigite o nï¿½mero do exercï¿½cio: ");
     scanf("%d",&p);
     getchar();
     //
@@ -90,13 +90,13 @@ ex1()
     char z;
     do{
     system("cls");
-    printf("Este programa mostra o sucessor e o antecessor do número digitado.\n");
-    printf("Digite o primeiro número: ");
+    printf("Este programa mostra o sucessor e o antecessor do nï¿½mero digitado.\n");
+    printf("Digite o primeiro nï¿½mero: ");
     scanf("%d",&x);
     a=x-1;
     s=x+1;
-    printf("O antecessor é: %d\n",a);
-    printf("O sucessor é: %d\n",s);
+    printf("O antecessor ï¿½: %d\n",a);
+    printf("O sucessor ï¿½: %d\n",s);
     printf("\n\nDeseja fazer outra consulta? ('N' para sair)\n\t");
     scanf("%c", &z);
     z=getchar();
@@ -114,7 +114,7 @@ ex2()
     printf("Este programa reajusta um valor em 10%%\n");
     printf("Digite um valor para ser reajustado: ");
     scanf("%f",&x);
-    printf("O valor reajustado é: %.2f\n",x*1.1);
+    printf("O valor reajustado ï¿½: %.2f\n",x*1.1);
     printf("\n\nDeseja fazer outra consulta? ('N' para sair)\n\t");
     scanf("%c", &z);
     z=getchar();
@@ -129,16 +129,16 @@ ex3()
     char z;
     do{
     system("cls");
-    printf("Este programa desconta 9%% do preço de um produto.\n");
-    printf("Digite o preço do produto: R$");
+    printf("Este programa desconta 9%% do preï¿½o de um produto.\n");
+    printf("Digite o preï¿½o do produto: R$");
     scanf("%f",&x);
     while(x<=0)
     {
-        printf("Valor Inválido!");
-        printf("Digite o preço do produto: R$");
+        printf("Valor Invï¿½lido!");
+        printf("Digite o preï¿½o do produto: R$");
         scanf("%f",&x);
     }
-    printf("O valor com desconto é: R$%.2f\n",x*.91);
+    printf("O valor com desconto ï¿½: R$%.2f\n",x*.91);
 
     printf("\nDeseja fazer outra consulta? ('N' para sair)\n\t");
     scanf("%c", &z);
@@ -155,12 +155,12 @@ ex4()
     char z;
     do{
     system("cls");
-    printf("Este programa calcula o salário de professor.\n");
+    printf("Este programa calcula o salï¿½rio de professor.\n");
     printf("Insira o valor da Hora/Aula: R$");
     scanf("%f",&x);
     while(x<=0)
     {
-        printf("Valor Inválido!");
+        printf("Valor Invï¿½lido!");
         printf("Insira um valor maior que 0: R$");
         scanf("%f",&x);
     }
@@ -168,7 +168,7 @@ ex4()
     scanf("%d",&n);
     while(n<=0)
     {
-        printf("Valor Inválido!");
+        printf("Valor Invï¿½lido!");
         printf("Insira um valor maior que 0: ");
         scanf("%d",&n);
     }
@@ -176,11 +176,11 @@ ex4()
     scanf("%f",&i);
     while(i<=0)
     {
-        printf("Valor Inválido!");
+        printf("Valor Invï¿½lido!");
         printf("Insira um valor maior que 0: ");
         scanf("%f",&i);
     }
-    printf("\nO salário é: R$%.2f",(x*n*(1-(i/100))));
+    printf("\nO salï¿½rio ï¿½: R$%.2f",(x*n*(1-(i/100))));
     printf("\n\nDeseja fazer outra consulta? ('N' para sair)\n\t");
     scanf("%c", &z);
     z=getchar();
@@ -191,20 +191,20 @@ ex4()
 ex5()
 {
     float vfab, imp, luc;
-char zn;
+    char zn;
 
     setlocale(LC_ALL, "");
     do{
     system("cls");
     printf("Este programa calcula o custo de um carro novo.\n");
 
-    //Entrada Preço
-    printf("Informe o preço de fábrica: R$");
+    //Entrada Preï¿½o
+    printf("Informe o preï¿½o de fï¿½brica: R$");
     scanf("%f",&vfab);
     getchar();
     while(vfab<=0)
     {
-        printf("Valor Inválido!\nInforme um valor maior que 0: R$");
+        printf("Valor Invï¿½lido!\nInforme um valor maior que 0: R$");
         scanf("%f",&vfab);
         getchar();
     }
@@ -215,7 +215,7 @@ char zn;
     getchar();
     while(luc<=0)
     {
-        printf("Valor Inválido!\nInforme um valor maior que 0: ");
+        printf("Valor Invï¿½lido!\nInforme um valor maior que 0: ");
         scanf("%f",&luc);
         getchar();
     }
@@ -226,15 +226,15 @@ char zn;
     getchar();
     while(imp<=0)
     {
-        printf("Valor Inválido!\nInforme um valor maior que 0: ");
+        printf("Valor Invï¿½lido!\nInforme um valor maior que 0: ");
         scanf("%f",&imp);
         getchar();
     }
 
-    //Saída
-    printf("O lucro do distribuidor é: R$%.2f",(vfab*(luc/100)));
-    printf("\nO valor dos impostos é   : R$%.2f",(vfab*(imp/100)));
-    printf("\nO valor final do carro é : R$%.2f",(vfab*(1+imp/100)*(1+luc/100)));
+    //Saï¿½da
+    printf("O lucro do distribuidor ï¿½: R$%.2f",(vfab*(luc/100)));
+    printf("\nO valor dos impostos ï¿½   : R$%.2f",(vfab*(imp/100)));
+    printf("\nO valor final do carro ï¿½ : R$%.2f",(vfab*(1+imp/100)*(1+luc/100)));
 
     printf("\n\nDeseja repetir? (S/N)\n");
     scanf("%c", &zn);
@@ -247,35 +247,35 @@ char zn;
 ex6()
 {
     float valor;
-char zn;
+    char zn;
 
     setlocale(LC_ALL, "Portuguese");
     do{
     system("cls");
-    printf("Este programa calcula o reajuste do salário dependendo de seu valor.\n");
-    printf("Insira o salário para reajuste: R$");
+    printf("Este programa calcula o reajuste do salï¿½rio dependendo de seu valor.\n");
+    printf("Insira o salï¿½rio para reajuste: R$");
     scanf("%f", &valor);
     getchar();
     while(valor<=0)
     {
-        printf("Valor Inválido!");
-        printf("\nInsira um salário válido(>0): ");
+        printf("Valor Invï¿½lido!");
+        printf("\nInsira um salï¿½rio vï¿½lido(>0): ");
         scanf("%f", &valor);
         getchar();
     }
     if(valor<800)
     {
-        printf("De R$%.2f, o salário foi reajustado para R$%.2f.",valor,valor*1.15);
+        printf("De R$%.2f, o salï¿½rio foi reajustado para R$%.2f.",valor,valor*1.15);
     }
     else
     {
         if(valor>1000)
         {
-            printf("De R$%.2f, o salário foi reajustado para R$%.2f.",valor,valor*1.05);
+            printf("De R$%.2f, o salï¿½rio foi reajustado para R$%.2f.",valor,valor*1.05);
         }
         else
         {
-            printf("De R$%.2f, o salário foi reajustado para R$%.2f.",valor,valor*1.1);
+            printf("De R$%.2f, o salï¿½rio foi reajustado para R$%.2f.",valor,valor*1.1);
         }
     }
 
@@ -290,15 +290,15 @@ char zn;
 ex7()
 {
     float n1, n2, n3, n4, ma;
-char zn;
+    char zn;
 
     setlocale(LC_ALL, "Portuguese");
     do{
     system("cls");
-    printf("Este programa calcula a média das notas de 4 avaliações.\n");
+    printf("Este programa calcula a mï¿½dia das notas de 4 avaliaï¿½ï¿½es.\n");
    //Entrada de dados
    //N1
-   printf("Insira a nota da Primeira Avaliação: ");
+   printf("Insira a nota da Primeira Avaliaï¿½ï¿½o: ");
    scanf("%f", &n1);
    getchar();
     while((10 < n1) || (n1 < 0))
@@ -309,7 +309,7 @@ char zn;
          getchar();
       }
    //N2
-   printf("Insira a nota da Segunda Avaliação: ");
+   printf("Insira a nota da Segunda Avaliaï¿½ï¿½o: ");
    scanf("%f", &n2);
    while((10<n2) || (n2<0))
       {
@@ -319,7 +319,7 @@ char zn;
          getchar();
       }
    //N3
-   printf("Insira a nota da Terceira Avaliação: ");
+   printf("Insira a nota da Terceira Avaliaï¿½ï¿½o: ");
    scanf("%f", &n3);
    while((10<n3) || (n3<0))
       {
@@ -329,7 +329,7 @@ char zn;
          getchar();
       }
    //n4
-   printf("Insira a nota da Quarta Avaliação: ");
+   printf("Insira a nota da Quarta Avaliaï¿½ï¿½o: ");
    scanf("%f", &n4);
    while((10<n4) || (n4<0))
       {
@@ -342,7 +342,7 @@ char zn;
    ma = ((n1+n2+n3+n4)/4);
 
    //Saida de dados
-   printf("Média: %.2f\n", ma);
+   printf("Mï¿½dia: %.2f\n", ma);
    if(ma>=6)
    {
       printf("Aprovado! \n");
@@ -422,20 +422,20 @@ ex9()
     setlocale(LC_ALL, "Portuguese");
     do{
     system("cls");
-    printf("Este programa determina se dois valores são multiplos.\n");
-    printf("Insira o primeiro número: ");
+    printf("Este programa determina se dois valores sï¿½o multiplos.\n");
+    printf("Insira o primeiro nï¿½mero: ");
     scanf("%d", &a);
     getchar();
-    printf("Insira o segundo número: ");
+    printf("Insira o segundo nï¿½mero: ");
     scanf("%d", &b);
     getchar();
     if((a % b == 0)||(b % a == 0))
         {
-        printf("\nOs números são multiplos!");
+        printf("\nOs nï¿½meros sï¿½o multiplos!");
     }
     else
     {
-        printf("\nOs números não são multiplos!");
+        printf("\nOs nï¿½meros nï¿½o sï¿½o multiplos!");
     }
     printf("\nDeseja repetir? (S/N)\n");
     scanf("%c", &zn);
@@ -452,23 +452,23 @@ ex10()
     //Loop
     do{
     system("cls");
-    printf("Este programa calcula o preço reajustado de um produto.\n");
+    printf("Este programa calcula o preï¿½o reajustado de um produto.\n");
     //Entrada de dados
-    printf("Insira o preço do produto: R$");
+    printf("Insira o preï¿½o do produto: R$");
     scanf("%f", &valor);
     getchar();
     while(valor<=0)
     {
-        printf("Preço Inválido");
+        printf("Preï¿½o Invï¿½lido");
         printf("Insira um valor maior que 0: R$");
         scanf("%f", &valor);
         getchar();
     }
     //Processamento
     if(valor<100)
-        printf("\nPreço reajustado: R$%.2f",valor*1.1);
+        printf("\nPreï¿½o reajustado: R$%.2f",valor*1.1);
     else
-        printf("\nPreço reajustado: R$%.2f",valor*1.2);
+        printf("\nPreï¿½o reajustado: R$%.2f",valor*1.2);
     //Loop ou fim
     printf("\nDeseja repetir? (S/N)\n");
     scanf("%c", &zn);
@@ -479,18 +479,18 @@ ex10()
 }
 ex11()
 {
-//seção de Declarações das variáveis
+//seï¿½ï¿½o de Declaraï¿½ï¿½es das variï¿½veis
 int n1, n2;
 char zn;
 
     setlocale(LC_ALL, "Portuguese");
     do{
     system("cls");
-    printf("Este programa determina o maior de dois números\n");
-    printf("Insira o primeiro número: ");
+    printf("Este programa determina o maior de dois nï¿½meros\n");
+    printf("Insira o primeiro nï¿½mero: ");
     scanf("%d",&n1);
     getchar();
-    printf("Insira o segundo número : ");
+    printf("Insira o segundo nï¿½mero : ");
     scanf("%d",&n2);
     getchar();
     if(n1>n2)
@@ -510,7 +510,7 @@ char zn;
 }
 ex12()
 {
-//seção de Declarações das variáveis
+//seï¿½ï¿½o de Declaraï¿½ï¿½es das variï¿½veis
 int id;
 float n1, n2, n3, me, ma;
 char x, zn;
@@ -519,12 +519,12 @@ char x, zn;
     do{
             system("cls");
    //Entrada de dados  ID
-   printf("Digite sua Identificação:");
+   printf("Digite sua Identificaï¿½ï¿½o:");
    scanf("%d", &id);
    getchar();
 
    //N1
-   printf("Insira a nota da Primeira Avaliação:");
+   printf("Insira a nota da Primeira Avaliaï¿½ï¿½o:");
    scanf("%f", &n1);
    getchar();
 
@@ -538,7 +538,7 @@ char x, zn;
 
 
    //N2
-   printf("Insira a nota da Segunda Avaliação:");
+   printf("Insira a nota da Segunda Avaliaï¿½ï¿½o:");
    scanf("%f", &n2);
    while((10<n2) || (n2<0))
       {
@@ -549,7 +549,7 @@ char x, zn;
       }
 
    //N3
-   printf("Insira a nota da Terceira Avaliação:");
+   printf("Insira a nota da Terceira Avaliaï¿½ï¿½o:");
    scanf("%f", &n3);
    while((10<n3) || (n3<0))
       {
