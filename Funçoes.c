@@ -1,4 +1,4 @@
-#define ex7
+#define ex8
 #include <stdio.h>
 #include <locale.h>
 #include <locale.h>
@@ -316,6 +316,69 @@ int main(void)
 #endif // ex7
 #ifdef ex8
 
+float Sal[10], SalNovo[10];
+
+void sal(int k)
+{
+    int i=0;
+    for(i; i<k; i++)
+    {
+        system("cls");
+        do{
+        printf("Digite o salário do %dº funcionário: R$",i+1);
+        scanf(" %f",&Sal[i]);
+        if (Sal[i]<=0)
+        {
+            printf("Digite um valor maior que 0.\n");
+        }
+        }while(Sal[i]<=0);
+    }
+}
+
+void ReajSalNovo(int k)
+{
+    int i=0;
+    for(i=0; i<k; i++)
+    {
+        if(Sal[i]<800)
+            {SalNovo[i]=1.15*Sal[i];}
+        else
+            if(Sal[i]>1000)
+                {SalNovo[i]=1.05*Sal[i];}
+            else
+                SalNovo[i]=1.1*Sal[i];
+    }
+}
+
+int main(void)
+{
+    int k=0, i;
+
+    setlocale(LC_ALL, "");
+    printf("Este programa reajusta o salário de até 10 funcionários.\n");
+    printf("Digite a quantidade de funcionários que deseja reajustar o salário.\nMax 10 : ");
+    while(k<=0||k>10)
+    {
+        scanf("%d",&k);
+        printf("\tDigite um valor válido.\n");
+    }
+    sal(k);
+    ReajSalNovo(k);
+    system("cls");
+    printf("* Funcionários  |  Salário   |  Reajustado *\n");
+    for(i=0; i<k; i++)
+    {
+        if (i < k-1)    
+            printf("|%dº Funcionário:  R$%.2f  -  R$%.2f |\n",i+1,Sal[i],SalNovo[i]);
+        else
+        {
+            printf("|%dº Funcionário: R$%.2f  -  R$%.2f |\n",k,Sal[9],SalNovo[9]);
+        }
+    }
+    printf("*-----------------------------------------*");
+
+    return 0;
+}
 #endif // ex8
 #ifdef ex9
 
