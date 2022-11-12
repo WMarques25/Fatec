@@ -365,10 +365,10 @@ int main(void)
     sal(k);
     ReajSalNovo(k);
     system("cls");
-    printf("* Funcionários  |  Salário   |  Reajustado *\n");
+    printf("* Funcionários |   Salário   | Reajustado *\n");
     for(i=0; i<k; i++)
     {
-        if (i < k-1)    
+        if (i < 9)    
             printf("|%dº Funcionário:  R$%.2f  -  R$%.2f |\n",i+1,Sal[i],SalNovo[i]);
         else
         {
