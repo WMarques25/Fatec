@@ -10,17 +10,17 @@ void verifica(int a)
 {
    if(a<0)
    {
-      printf("O nùmero digitado ù negativo.\n");
+      printf("O n˙mero digitado È negativo.\n");
    }
    else
    {
       if(a>0)
       {
-         printf("O nùmero digitado ù positivo.\n");
+         printf("O n˙mero digitado È positivo.\n");
       }
       else
       {
-         printf("O nùmero digitado ù 0.\n");
+         printf("O n˙mero digitado È 0.\n");
       }
    }
 }
@@ -29,7 +29,7 @@ int main(void)
 {
     int a;
     setlocale(LC_ALL,"");
-    printf("Digite um nùmero inteiro: ");
+    printf("Digite um n˙mero inteiro: ");
     scanf(" %d", &a);
     verifica(a);
     return 0;
@@ -46,7 +46,7 @@ int check(float a)
 {
     if(a==0)
     {
-        printf("Digite um nùmero diferente de 0.\n");
+        printf("Digite um n˙mero diferente de 0.\n");
         return 0;
     }
     else
@@ -62,17 +62,17 @@ int check(float a)
     int z;
     setlocale(LC_ALL, "");
     do{
-    printf("Digite o primeiro nùmero: ");
+    printf("Digite o primeiro n˙mero: ");
     scanf(" %f",&x);
     z = check(x);
     }while(z == 0);
     do{
-    printf("Digite o segundo nùmero: ");
+    printf("Digite o segundo n˙mero: ");
     scanf(" %f",&y);
     z = check(y);
     }while(z == 0);
     div = divisao(x,y);
-    printf("O resultado da divisùo de %g por %g ù igual a %g.\n", x, y, div);
+    printf("O resultado da divis„o de %g por %g È igual a %g.\n", x, y, div);
     return 0;
 }
 
@@ -141,14 +141,14 @@ float media(float x1, xloat n2, float n3, float n4)
         med = media(x1,nx,n3,n4);
         if(med>=6)
         {
-            printf("\nMùdia = %.2f.\nAprovado.\n",med);
+            printf("\nMÈdia = %.2f.\nAprovado.\n",med);
         }
         else
         {
-            printf("\nMùdia = %.2f.\nReprovado.\n",med);
+            printf("\nMÈdia = %.2f.\nReprovado.\n",med);
         }
 
-        printf("\nDeseja realisar outra verificaùùo? ('S' = SIM)\n");
+        printf("\nDeseja realisar outra verificaÁ„o? ('S' = SIM)\n");
         scanf(" %c",&x);
         x = toupper(x);
     }while(x == 'S');
