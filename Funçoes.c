@@ -1,4 +1,4 @@
-#define ex8
+#define ex9
 #include <stdio.h>
 #include <locale.h>
 #include <locale.h>
@@ -259,25 +259,25 @@ char Sexo()
 
 classifica(float imc)
 {
-if(imc<17)
-    printf("Muito abaixo do peso!\n");
-else
-    if(imc<18.49)
-        printf("Abaixo do peso!\n");
+    if(imc<17)
+        printf("Muito abaixo do peso!\n");
     else
-        if(imc<24.99)
-            printf("Peso normal!\n");
+        if(imc<18.49)
+            printf("Abaixo do peso!\n");
         else
-            if(imc<29.99)
-                printf("Acima do peso!\n");
+            if(imc<24.99)
+                printf("Peso normal!\n");
             else
-                if(imc<34.99)
-                    printf("Obesidade 1!\n");
+                if(imc<29.99)
+                    printf("Acima do peso!\n");
                 else
-                    if(imc<39.99)
-                        printf("Obesidade 2!\n");
+                    if(imc<34.99)
+                        printf("Obesidade 1!\n");
                     else
-                        printf("Obesidade 3!\n");
+                        if(imc<39.99)
+                            printf("Obesidade 2!\n");
+                        else
+                            printf("Obesidade 3!\n");
 }
 
 peso(char x, float a)
@@ -316,70 +316,132 @@ int main(void)
 #endif // ex7
 #ifdef ex8
 
-float Sal[10], SalNovo[10];
+    float Sal[10], SalNovo[10];
 
-void sal(int k)
-{
-    int i=0;
-    for(i; i<k; i++)
+    void sal(int k)
     {
-        system("cls");
-        do{
-        printf("Digite o salário do %dº funcionário: R$",i+1);
-        scanf(" %f",&Sal[i]);
-        if (Sal[i]<=0)
+        int i=0;
+        for(i; i<k; i++)
         {
-            printf("Digite um valor maior que 0.\n");
+            system("cls");
+            do{
+            printf("Digite o salário do %dº funcionário: R$",i+1);
+            scanf(" %f",&Sal[i]);
+            if (Sal[i]<=0)
+            {
+                printf("Digite um valor maior que 0.\n");
+            }
+            }while(Sal[i]<=0);
         }
-        }while(Sal[i]<=0);
     }
-}
 
-void ReajSalNovo(int k)
-{
-    int i=0;
-    for(i=0; i<k; i++)
+    void ReajSalNovo(int k)
     {
-        if(Sal[i]<800)
-            {SalNovo[i]=1.15*Sal[i];}
-        else
-            if(Sal[i]>1000)
-                {SalNovo[i]=1.05*Sal[i];}
+        int i=0;
+        for(i=0; i<k; i++)
+        {
+            if(Sal[i]<800)
+                {SalNovo[i]=1.15*Sal[i];}
             else
-                SalNovo[i]=1.1*Sal[i];
-    }
-}
-
-int main(void)
-{
-    int k=0, i;
-
-    setlocale(LC_ALL, "");
-    printf("Este programa reajusta o salário de até 10 funcionários.\n");
-    printf("Digite a quantidade de funcionários que deseja reajustar o salário.\nMax 10 : ");
-    while(k<=0||k>10)
-    {
-        scanf("%d",&k);
-        printf("\tDigite um valor válido.\n");
-    }
-    sal(k);
-    ReajSalNovo(k);
-    system("cls");
-    printf("* Funcionários |   Salário   | Reajustado *\n");
-    for(i=0; i<k; i++)
-    {
-        if (i < 9)    
-            printf("|%dº Funcionário:  R$%.2f  -  R$%.2f |\n",i+1,Sal[i],SalNovo[i]);
-        else
-        {
-            printf("|%dº Funcionário: R$%.2f  -  R$%.2f |\n",k,Sal[9],SalNovo[9]);
+                if(Sal[i]>1000)
+                    {SalNovo[i]=1.05*Sal[i];}
+                else
+                    SalNovo[i]=1.1*Sal[i];
         }
     }
-    printf("*-----------------------------------------*");
 
-    return 0;
-}
+    int main(void)
+    {
+        int k=0, i;
+
+        setlocale(LC_ALL, "");
+        printf("Este programa reajusta o salário de até 10 funcionários.\n");
+        printf("Digite a quantidade de funcionários que deseja reajustar o salário.\nMax 10 : ");
+        while(k<=0||k>10)
+        {
+            scanf("%d",&k);
+            printf("\tDigite um valor válido.\n");
+        }
+        sal(k);
+        ReajSalNovo(k);
+        system("cls");
+        printf("* Funcionários |   Salário   | Reajustado *\n");
+        for(i=0; i<k; i++)
+        {
+            if (i < 9)    
+                printf("|%dº Funcionário:  R$%.2f  -  R$%.2f |\n",i+1,Sal[i],SalNovo[i]);
+            else
+            {
+                printf("|%dº Funcionário: R$%.2f  -  R$%.2f |\n",k,Sal[9],SalNovo[9]);
+            }
+        }
+        printf("*-----------------------------------------*");
+
+        return 0;
+    }
 #endif // ex8
 #ifdef ex9
+    float Salarios_Antigo[10], Salarios_Novo[10];
 
+    void sal(int k)
+    {
+        int i=0;
+        for(i; i<k; i++)
+        {
+            system("cls");
+            do{
+            printf("Digite o salário do %dº funcionário: R$",i+1);
+            scanf(" %f",&Salarios_Antigo[i]);
+            if (Salarios_Antigo[i]<=0)
+            {
+                printf("Digite um valor maior que 0.\n");
+            }
+            }while(Salarios_Antigo[i]<=0);
+        }
+    }
+
+    void ReajSalNovo(int k)
+    {
+        int i=0;
+        for(i=0; i<k; i++)
+        {
+            if(Salarios_Antigo[i]<800)
+                {Salarios_Novo[i]=1.15*Salarios_Antigo[i];}
+            else
+                if(Salarios_Antigo[i]>1000)
+                    {Salarios_Novo[i]=1.05*Salarios_Antigo[i];}
+                else
+                    Salarios_Novo[i]=1.1*Salarios_Antigo[i];
+        }
+    }
+
+    int main(void)
+    {
+        int k=0, i;
+
+        setlocale(LC_ALL, "");
+        printf("Este programa reajusta o salário de até 10 funcionários.\n");
+        printf("Digite a quantidade de funcionários que deseja reajustar o salário.\nMin 5, Max 20 : ");
+        while(k<5||k>=20)
+        {
+            scanf("%d",&k);
+            printf("\tDigite um valor válido.\n");
+        }
+        sal(k);
+        ReajSalNovo(k);
+        system("cls");
+        printf("* Funcionários |   Salário   | Reajustado *\n");
+        for(i=0; i<k; i++)
+        {
+            if (i < 9)    
+                printf("|%dº Funcionário:  R$%.2f  -  R$%.2f |\n",i+1,Salarios_Antigo[i],Salarios_Novo[i]);
+            else
+            {
+                printf("|%dº Funcionário: R$%.2f  -  R$%.2f |\n",i+1,Salarios_Antigo[i],Salarios_Novo[i]);
+            }
+        }
+        printf("*-----------------------------------------*");
+
+        return 0;
+    }
 #endif // ex9
