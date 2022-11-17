@@ -472,10 +472,11 @@ int main(void)
                 {max = i;}
         }
         med = med/12;
+        system("cls");
         printf("As temperaturas do ano são:\n");
         for(i=0;i<12;i++)
         {
-            printf("%s: %g°C ,", M[i], T[i]);
+            printf("%s: %g°C, ", M[i], T[i]);
         }
         printf("\b.\n");
         printf("A menor temperatura é de %s = %g°C.\n", M[min], T[min]);

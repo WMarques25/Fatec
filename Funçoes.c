@@ -1,4 +1,4 @@
-#define ex9
+#define ex4
 #include <stdio.h>
 #include <locale.h>
 #include <locale.h>
@@ -55,7 +55,8 @@ int check(float a)
     }
 }
 
- ex6
+ ex4
+
  int main(void)
 {
     float x, y, div;
@@ -96,7 +97,8 @@ float media(float x1, xloat n2, float n3, float n4)
     return (x1+nx+n3+n4)/4;
 }
 
- ex6
+ ex4
+
  int main(void)
 {
     char x;
@@ -155,14 +157,8 @@ float media(float x1, xloat n2, float n3, float n4)
     return 0;
 }
 #endif // ex3
-#ifdef ex4
-
-#endif // ex4
-#ifdef ex5
-
-#endif // ex5
 // Tarefa algoritmo
-#ifdef ex6
+#ifdef ex4
 float positivo(void)
 {
     float x;
@@ -232,8 +228,8 @@ int main(void)
     system("pause");
     return 0;
 }
-#endif // ex6
-#ifdef ex7
+#endif // ex4
+#ifdef ex5
 float positivo(void)
 {
     float x;
@@ -313,8 +309,8 @@ int main(void)
     printf("\n\tFIM");
     return 0;
 }
-#endif // ex7
-#ifdef ex8
+#endif // ex5
+#ifdef ex6
 
     float Sal[10], SalNovo[10];
 
@@ -379,8 +375,8 @@ int main(void)
 
         return 0;
     }
-#endif // ex8
-#ifdef ex9
+#endif // ex6
+#ifdef ex7
     float Salarios_Antigo[10], Salarios_Novo[10];
 
     void sal(int k)
@@ -444,4 +440,4 @@ int main(void)
 
         return 0;
     }
-#endif // ex9
+#endif // ex7

@@ -46,7 +46,7 @@ void setup() {
   lcd_1.print("SOL  LA  SI  LDd");
 }
 
-// FunÃ§Ã£o para limpeza do indicador da nota tocada.
+// Função para limpeza do indicador da nota tocada.
 void limpa()
 {
   lcd_1.setCursor(2, 0);
@@ -65,7 +65,7 @@ void limpa()
   lcd_1.print(" ");
 }
 
-// FunÃ§Ã£o para ligar o led e indicar na tela lcd.
+// Função para ligar o led e indicar na tela lcd.
 void led_on()
 {
   digitalWrite(led, HIGH);
