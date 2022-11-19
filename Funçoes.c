@@ -55,7 +55,7 @@ int check(float a)
     }
 }
 
- ex4
+ 
 
  int main(void)
 {
@@ -97,7 +97,7 @@ float media(float x1, xloat n2, float n3, float n4)
     return (x1+nx+n3+n4)/4;
 }
 
- ex4
+ 
 
  int main(void)
 {
