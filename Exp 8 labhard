@@ -1,0 +1,142 @@
+#define ex4
+#ifdef ex1
+// Daremos um nome ao pino que está conectado o LED 
+int ledPin = 11; 
+int ledPin2 = 10;
+int pwmPin = A0; 
+unsigned int valorLido; 
+unsigned int pwm;
+
+//Função "setup" roda uma vez quando a placa e ligada ou resetada 
+void setup() { 
+pinMode(ledPin, OUTPUT); 
+pinMode(ledPin2, OUTPUT);
+Serial.begin(9600); 
+} 
+// Função que se repete infinitamente quando a placa é ligada 
+void loop() { 
+valorLido = analogRead(pwmPin); // valor entre 0 e 1023 
+//mostra o valor lido na porta analógica 
+Serial.println(valorLido); 
+pwm = map(valorLido, 0, 1023, 0, 255); // Mudança de escala 
+//Escreve no led um sinal PWM proporcional ao valor Lido 
+analogWrite(ledPin,pwm);
+analogWrite(ledPin2,pwm);
+}
+#endif
+#ifdef ex2
+// Daremos um nome ao pino que está conectado o LED 
+int ledPin = 11; 
+int ledPin2 = 10;
+int pwmPin = A0; 
+unsigned int valorLido; 
+unsigned int pwm; 
+unsigned int pwm2;
+//Função "setup" roda uma vez quando a placa e ligada ou resetada 
+void setup() { 
+pinMode(ledPin, OUTPUT); 
+pinMode(ledPin2, OUTPUT);
+Serial.begin(9600); 
+} 
+// Função que se repete infinitamente quando a placa é ligada 
+void loop() { 
+valorLido = analogRead(pwmPin); // valor entre 0 e 1023 
+//mostra o valor lido na porta analógica 
+Serial.println(valorLido); 
+pwm = map(valorLido, 0, 1023, 0, 255); // Mudança de escala
+pwm2 = map(valorLido, 0, 1023, 255, 0);
+//Escreve no led um sinal PWM proporcional ao valor Lido 
+analogWrite(ledPin,pwm);
+analogWrite(ledPin2,pwm2);
+}
+#endif
+#ifdef ex3
+// Daremos um nome ao pino que está conectado o LED 
+int ledPin = 11; 
+int ledPin2 = 10;
+int ledPin3 = 9;
+int pwmPin = A0; 
+unsigned int valorLido; 
+unsigned int pwm; 
+unsigned int pwm2;
+unsigned int pwm3;
+//Função "setup" roda uma vez quando a placa e ligada ou resetada 
+void setup() { 
+pinMode(ledPin, OUTPUT); 
+pinMode(ledPin2, OUTPUT);
+pinMode(ledPin3, OUTPUT);
+Serial.begin(9600); 
+} 
+// Função que se repete infinitamente quando a placa é ligada 
+void loop() { 
+valorLido = analogRead(pwmPin); // valor entre 0 e 1023 
+//mostra o valor lido na porta analógica 
+Serial.println(valorLido); 
+pwm = map(valorLido, 0, 1023, 0, 255); // Mudança de escala
+pwm2 = map(valorLido, 0, 1023, 0, 255);
+pwm3 = map(valorLido, 0, 1023, 0, 255);
+//Escreve no led um sinal PWM proporcional ao valor Lido 
+analogWrite(ledPin,pwm);
+if(valorLido > 300)
+{analogWrite(ledPin2,pwm2);}
+else
+{
+  analogWrite(ledPin2,0);
+}
+if(valorLido > 600)
+{
+  analogWrite(ledPin3,pwm3);
+}
+else
+{
+  analogWrite(ledPin3,0);
+}
+}
+#endif
+#ifdef ex4
+// Daremos um nome ao pino que está conectado o LED 
+int ledPin = 11; 
+int ledPin2 = 10;
+int ledPin3 = 9;
+int buzz = 7;
+int pwmPin = A0; 
+unsigned int valorLido; 
+unsigned int pwm; 
+unsigned int pwm2;
+unsigned int pwm3;
+//Função "setup" roda uma vez quando a placa e ligada ou resetada 
+void setup() { 
+pinMode(ledPin, OUTPUT); 
+pinMode(ledPin2, OUTPUT);
+pinMode(ledPin3, OUTPUT);
+pinMode(buzz, OUTPUT);
+Serial.begin(9600); 
+} 
+// Função que se repete infinitamente quando a placa é ligada 
+void loop() { 
+valorLido = analogRead(pwmPin); // valor entre 0 e 1023 
+//mostra o valor lido na porta analógica 
+Serial.println(valorLido); 
+pwm = map(valorLido, 0, 1023, 0, 255); // Mudança de escala
+pwm2 = map(valorLido, 0, 1023, 0, 255);
+pwm3 = map(valorLido, 0, 1023, 0, 255);
+//Escreve no led um sinal PWM proporcional ao valor Lido 
+analogWrite(ledPin,pwm);
+if(valorLido > 300)
+{analogWrite(ledPin2,pwm2);}
+else
+{
+  analogWrite(ledPin2,0);
+}
+if(valorLido > 600)
+{
+  analogWrite(ledPin3,pwm3);
+  tone(buzz, 350);
+}
+else
+{
+  analogWrite(ledPin3,0);
+  noTone(buzz);
+}
+}
+#endif
