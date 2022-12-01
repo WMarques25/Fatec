@@ -35,6 +35,15 @@
     lcd_1.print("TP:       PT:   ");
   }
 
+    void Limpa(){
+      lcd_1.setCursor(2, 0);
+      lcd_1.print("     ");
+      lcd_1.setCursor(3, 1);
+      lcd_1.print("       ");
+      lcd_1.setCursor(13, 1);
+      lcd_1.print("   ");
+    }
+
   void EscreveLed(int a){
     if(a == 1){
       if(Bt1 == LOW){
@@ -46,7 +55,7 @@
         lcd_1.print("D");
       }
     }
-    if(a == 2){
+    else{
       if(Bt2 == LOW){
         lcd_1.setCursor(15, 0);
         lcd_1.print("L");
@@ -67,7 +76,7 @@
         digitalWrite(led1, LOW);
       }
     }
-    if(a == 2){
+    else{
       if(Bt2 == LOW){
         digitalWrite(led2, HIGH);
       }
@@ -81,7 +90,7 @@
     if(a == 1){
       Bt1 = digitalRead(BT1);
     }
-    if(a == 2){
+    else{
       Bt2 = digitalRead(BT2);
     }
   }
@@ -128,6 +137,8 @@
   }
 
   void loop(){
+    Limpa();
+
     // LED 1
     LerBT(1);
     LedON(1);
