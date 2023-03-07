@@ -175,7 +175,30 @@
 
         do
         {
-            
+            float gas, km, consumo;
+            system("cls");
+
+            do{
+            printf("Insira a quantidade de litros de gasolina gastos: ");
+            scanf(" %f", &gas);
+            }while(gas <= 0);
+
+            do{
+            printf("Insira a distancia percorrida em km: ");
+            scanf(" %f", &km);
+            }while(km <= 0);
+
+            consumo = km/gas;
+
+            if(consumo < 8){
+                printf("\nVenda o carro!");
+            }
+            else if (consumo < 14){
+                printf("\nEconomico!");
+            }
+            else{
+                printf("Super economico!");
+            }
 
             printf("\nDeseja continuar? ('S' / 'N')\n");
             scanf(" %c", &c);
