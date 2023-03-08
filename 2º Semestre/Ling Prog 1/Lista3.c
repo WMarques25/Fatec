@@ -99,7 +99,7 @@
         // for de fatorial
         for(int i=x-1 ; i>1 ; i--){
             x *= i;
-            printf(" %d", x);
+            printf(" %d", x); // remover
         }
         // for de soma dos alg (y = x % 10; soma += y; x = x/10)
     }
