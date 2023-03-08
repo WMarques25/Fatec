@@ -1,4 +1,4 @@
-#define ex1
+#define ex2
 #include <stdio.h>
 #include <ctype.h>
 
@@ -95,7 +95,29 @@
     }
 #endif // ex1
 #ifdef ex2
+    int func(int x){
+        // for de fatorial
+        for(int i=x-1 ; i>1 ; i--){
+            x *= i;
+            printf(" %d", x);
+        }
+        // for de soma dos alg (y = x % 10; soma += y; x = x/10)
+    }
 
+    int main(void){
+        char c;
+
+        do{
+
+            printf("\nDeseja continuar? ('S' / 'N')\n");
+            scanf(" %c", &c);
+            c = toupper(c);
+
+        } while (c == 'S');
+
+        return 0;
+
+    }
 #endif // ex2
 #ifdef ex3
 
