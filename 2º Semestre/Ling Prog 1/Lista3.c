@@ -4,38 +4,29 @@
 #include <locale.h>
 
 #ifdef ex1
-int verifica(int a)
-{
-    if (a == 0)
-    {
+int verifica(int a){
+    if (a == 0){
         return -1;
     }
-    else if (a < 0)
-    {
+    else if (a < 0){
         return 0;
     }
-    else
-    {
+    else{
         return 1;
     }
 }
 
-int soma(int a, int b)
-{
+int soma(int a, int b){
     int somat = 0;
 
-    if (a < b)
-    {
-        for (a; a + 1 < b;)
-        {
+    if (a < b){
+        for (a; a + 1 < b;){
             a++;
             somat += a;
         }
     }
-    else if (a > b)
-    {
-        for (b; b + 1 < a;)
-        {
+    else if (a > b){
+        for (b; b + 1 < a;){
             b++;
             somat += b;
         }
@@ -44,21 +35,16 @@ int soma(int a, int b)
     return somat;
 }
 
-int mult(int a, int b)
-{
+int mult(int a, int b){
     int multi = 1;
-    if (a < b)
-    {
-        for (a; a + 1 < b;)
-        {
+    if (a < b){
+        for (a; a + 1 < b;){
             a++;
             multi *= a;
         }
     }
-    else if (a > b)
-    {
-        for (b; b + 1 < a;)
-        {
+    else if (a > b){
+        for (b; b + 1 < a;){
             b++;
             multi *= b;
         }
@@ -67,18 +53,15 @@ int mult(int a, int b)
     return multi;
 }
 
-float div(int a, int b)
-{
+float div(int a, int b){
 
     return ((float)a / (float)b);
 }
 
-int main(void)
-{
+int main(void){
     char c;
 
-    do
-    {
+    do{
         int x, y, v1, v2;
         system("cls");
 
@@ -90,16 +73,13 @@ int main(void)
         scanf(" %d", &y);
         v2 = verifica(y);
 
-        if (v1 == 1 && v2 == 1)
-        {
+        if (v1 == 1 && v2 == 1){
             printf("A soma dos numeros entre %d e %d e´ %d", x, y, soma(x, y));
         }
-        else if (v1 == 0 && v2 == 0)
-        {
+        else if (v1 == 0 && v2 == 0){
             printf("A multiplicacao dos numeros entre %d e %d e´ %d", x, y, mult(x, y));
         }
-        else if ((v1 == 1 && v2 == 0) || (v1 == 0 && v2 == 1))
-        {
+        else if ((v1 == 1 && v2 == 0) || (v1 == 0 && v2 == 1)){
             printf("A divisao dos numeros entre %d e %d e´ %f", x, y, div(x, y));
         }
 
@@ -113,31 +93,26 @@ int main(void)
 }
 #endif // ex1
 #ifdef ex2
-int func(int x)
-{
+int func(int x){
     int soma = 0;
     // for de fatorial
-    for (int i = x - 1; i > 1; i--)
-    {
+    for (int i = x - 1; i > 1; i--){
         x *= i;
         printf(" %d", x); // remover
     }
     // for de soma dos alg (y = x % 10; soma += y; x = x/10)
-    while (x > 0)
-    {
+    while (x > 0){
         soma += x % 10;
         x /= 10;
     }
     return soma;
 }
 
-int main(void)
-{
+int main(void){
     char c;
     int x;
 
-    do
-    {
+    do{
         system("cls");
         printf("Digite um numero: ");
         scanf(" %d", &x);
@@ -154,29 +129,23 @@ int main(void)
 }
 #endif // ex2
 #ifdef ex3
-int Soma(int x, int y)
-{
+int Soma(int x, int y){
     return (x + y);
 }
-int Sub(int x, int y)
-{
+int Sub(int x, int y){
     return (x - y);
 }
-int Mult(int x, int y)
-{
+int Mult(int x, int y){
     return (x * y);
 }
-float Div(int x, int y)
-{
+float Div(int x, int y){
     return ((float)x / (float)y);
 }
 
-int main(void)
-{
+int main(void){
     int x, y;
     char c;
-    do
-    {
+    do{
         system("cls");
         printf("Digite o primeiro valor: ");
         scanf(" %d", &x);
