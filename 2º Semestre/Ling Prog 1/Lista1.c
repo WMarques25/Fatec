@@ -92,13 +92,12 @@ int main()
 }
 #endif // ex4
 #ifdef ex5
-int main(void)
-{
+int main(void){
     int x, x1, x2, x3, y;
     setlocale(LC_ALL, "");
     do
     {
-        printf("Insira um número de 3 digitos: ");
+        printf("Insira um número de 3 dígitos: ");
         scanf(" %d", &x);
     } while (x < 100 || x > 999);
     x1 = x / 100;

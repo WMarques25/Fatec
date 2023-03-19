@@ -1,10 +1,12 @@
 #define ex4
 #include <stdio.h>
 #include <ctype.h>
+#include <locale.h>
 
 #ifdef ex1
     int main(void)
     {
+        setlocale(LC_ALL, "");
         char c;
         int h1, h2, m1, m2, s1, s2;
 
@@ -39,7 +41,7 @@
             m1 = (s1 % 3600) / 60;
             s1 = (s1 % 3600) % 60;
 
-            printf("A duracao da ligacao eh de: %d horas %d minutos %d segundos.", h1, m1, s1);
+            printf("A duração da ligação eh de: %d horas %d minutos %d segundos.", h1, m1, s1);
 
             printf("\nDeseja continuar? ('S' / 'N')\n");
             scanf(" %c", &c);
@@ -52,6 +54,7 @@
     int main(void)
     {
         char c, s = 'x';
+        setlocale(LC_ALL, "");
         do
         {
             int min = 1, max = 99, chute;
@@ -78,7 +81,7 @@
                 }
                 else
                 {
-                    printf("Opcao invalida\n");
+                    printf("Opção invalida\n");
                 }
             }
 
@@ -93,6 +96,7 @@
     int main(void)
     {
         char c, s = 'x';
+        setlocale(LC_ALL, "");
         do
         {
             int min = 1, max = 99, chute, tentativa = 0;
@@ -121,7 +125,7 @@
                     break;
 
                 default:
-                    printf("Opcao invalida\n");
+                    printf("Opção invalida\n");
                 }
             }
 
@@ -138,6 +142,7 @@
     {
 
         char c;
+        setlocale(LC_ALL, "");
 
         do
         {
@@ -172,6 +177,7 @@
     int main(void)
     {
         char c;
+        setlocale(LC_ALL, "");
 
         do
         {
@@ -194,10 +200,10 @@
                 printf("\nVenda o carro!");
             }
             else if (consumo < 14){
-                printf("\nEconomico!");
+                printf("\nEconômico!");
             }
             else{
-                printf("Super economico!");
+                printf("Super econômico!");
             }
 
             printf("\nDeseja continuar? ('S' / 'N')\n");
