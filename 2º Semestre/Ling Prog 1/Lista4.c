@@ -150,6 +150,7 @@ int main() {
     unsigned unsig[3];
     float flutuante[3];
     double duplo[3];
+    char c;
 
     do{
 

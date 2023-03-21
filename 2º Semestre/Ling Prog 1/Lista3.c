@@ -1,4 +1,4 @@
-#define ex5
+#define ex1
 #include <stdio.h>
 #include <ctype.h>
 #include <locale.h>
