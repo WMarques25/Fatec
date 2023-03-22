@@ -1,4 +1,4 @@
-#define ex4
+#define ex5
 #include <stdio.h>
 #include <ctype.h>
 #include <locale.h>
@@ -120,11 +120,21 @@ int main(void){
 }
 #endif // ex4
 #ifdef ex5
+char str[100];
+int comp(){
+    // TODO contar o comprimento da string
+}
 int main(void){
-    char c, nomes [5][8];
+    char c;
+    int comprim;
     setlocale(LC_ALL,"");
 
     do{
+        printf("Digite uma string: ");
+        gets(str);
+        comprim = comp();
+        printf("\nComprimento da string: %d", comprim);
+
         printf("\nDeseja continuar? ('S' / 'N')\n");
         scanf(" %c", &c);
         c = toupper(c);
