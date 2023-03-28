@@ -120,10 +120,17 @@ int main(void){
 }
 #endif // ex4
 #ifdef ex5
-char str[100];
+int i;
+char x[100];
 int comp(){
-    // TODO contar o comprimento da string
+    
+    for(i = 0; ; i++){
+        if(x[i] == '\0'){
+            return i;
+        }
+    }
 }
+
 int main(void){
     char c;
     int comprim;
@@ -131,7 +138,7 @@ int main(void){
 
     do{
         printf("Digite uma string: ");
-        gets(str);
+        scanf("%s", &x[0]);
         comprim = comp();
         printf("\nComprimento da string: %d", comprim);
 
