@@ -80,19 +80,35 @@ int main(void){
 }
 #endif // ex2
 #ifdef ex3
-int toDia(int dia, int mes, int ano){
-    
+int diasNoMes(int mes, int ano) {
+    int dias;
+
+    if (mes == 2) {
+        if ((ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0) {
+            dias = 29;
+        } else {
+            dias = 28;
+        }
+    } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+        dias = 30;
+    } else {
+        dias = 31;
+    }
+
+    return dias;
 }
+
 int main(void){
     char c, v;
     int d1,d2,d3,m1,m2,m3,a1,a2,a3;
     setlocale(LC_ALL, "");
-    
+
     do{
         do{
             printf("Insira a data de nascimento (DD/MM/AAAA): ");
             scanf(" %2d/%2d/%4d",&d1,&m1,&a1);
-            if(d1 >= 32 || m1 >= 13 || d1 < 1 || m1 < 0){
+
+            if(d1 > diasNoMes(m1, a1) || m1 > 12 || d1 < 1 || m1 < 1){
                 printf("Data inválida.");
                 v = 'i';
             } else{
@@ -104,7 +120,7 @@ int main(void){
         do{
             printf("Insira a data de hoje (DD/MM/AAAA): ");
             scanf(" %2d/%2d/%4d",&d2,&m2,&a2);
-            if(d2 >= 32 || m2 >= 13 || d2 < 1 || m2 < 0){
+            if(d2 > diasNoMes(m2, a2) || m2 > 12 || d2 < 1 || m2 < 1){
                 printf("Data inválida.");
                 v = 'i';
             } else{
@@ -121,17 +137,19 @@ int main(void){
         a3 = a2 - a1;
 
         if(d3 < 0){
-            d3 = 31 + d3;
-            m3 -= 1;
-            if(m3 < 1)
-                m3 = 12 + m3;
-
-            if(m3 > 11)
-                m3 = 0;
-                a3 += 1;
+            m2 -= 1;
+            if (m2 < m1) {
+                m2 += 12;
+                a2 -= 1;
+            }
+            d3 = d2 + diasNoMes(m2, a2) - d1;
+            m3 = m2 - m1;
+            a3 = a2 - a1;
         }
-        if(m3 < 1){
-            a3 -= 1;
+
+        if(m3 < 0){
+            a3--;
+            m3 += 12;
         }
 
         printf("Idade: %d Dias %d Meses %d Anos", d3, m3, a3);
