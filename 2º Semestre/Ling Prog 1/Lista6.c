@@ -1,4 +1,4 @@
-#define ex3
+#define ex5
 #include <stdio.h>
 #include <ctype.h>
 #include <locale.h>
@@ -80,16 +80,16 @@ int main(void){
 }
 #endif // ex2
 #ifdef ex3
-int diasNoMes(int mes, int ano) {
+int diasNoMes(int m, int a) {
     int dias;
 
-    if (mes == 2) {
-        if ((ano % 4 == 0 && ano % 100 != 0) || ano % 400 == 0) {
+    if (m == 2) {
+        if ((a % 4 == 0 && a % 100 != 0) || a % 400 == 0) {
             dias = 29;
         } else {
             dias = 28;
         }
-    } else if (mes == 4 || mes == 6 || mes == 9 || mes == 11) {
+    } else if (m == 4 || m == 6 || m == 9 || m == 11) {
         dias = 30;
     } else {
         dias = 31;
@@ -164,8 +164,81 @@ int main(void){
 }
 #endif // ex3
 #ifdef ex4
+int main(){
+    int a, b;
+    char c;
+    do{
+        printf("Insira o valor de 'a': ");
+        scanf(" %d",&a);
+        printf("Insira o valor de 'b': ");
+        scanf(" %d",&b);
 
+        printf(" Valor de 'a'= %3d         -->      0x%x\n",a , a);
+        printf(" Valor de 'b'= %3d         -->      0x%x\n",b , b);
+        printf(" Operadores bit-a-bit\n");
+        printf(" AND                 a & b --> %3d  0x%x\n",a & b,a & b); /* 0x20 */
+        printf(" OU                  a | b --> %3d  0x%x\n",a | b,a | b); /* 0x76 */
+        printf(" OU EXCLUSIVO        a ^ b --> %3d  0x%x\n",a ^ b,a ^ b); /* 0x56 */
+        printf(" NOT 'a'                ~a -->      0x%x\n",~a);
+        printf(" NOT 'b'                ~b -->      0x%x\n",~b);
+
+        printf("\nDeseja continuar? ('S' / 'N')\n");
+        scanf(" %c", &c);
+        c = toupper(c);
+
+    } while (c == 'S');
+
+    return 0;
+
+}
 #endif // ex4
 #ifdef ex5
+int main() {
+    int d, m, a;
+    char c;
+    do{
 
+        printf("Digite a data (DD/MM/AAAA): ");
+        scanf(" %d/%d/%d", &d, &m, &a);
+
+        int K = a % 100;
+        int J = a / 100;
+
+        int h = (d + (13*(m+1)/5) + K + (K/4) + (J/4) - 2*J) % 7;
+
+        switch(h) {
+            case 0:
+                printf("Sábado\n");
+                break;
+            case 1:
+                printf("Domingo\n");
+                break;
+            case 2:
+                printf("Segunda\n");
+                break;
+            case 3:
+                printf("Terça\n");
+                break;
+            case 4:
+                printf("Quarta\n");
+                break;
+            case 5:
+                printf("Quinta\n");
+                break;
+            case 6:
+                printf("Sexta\n");
+                break;
+            default:
+                printf("Erro\n");
+                break;
+        }
+
+        printf("\nDeseja continuar? ('S' / 'N')\n");
+        scanf(" %c", &c);
+        c = toupper(c);
+
+    } while (c == 'S');
+
+    return 0;
+}
 #endif // ex5
