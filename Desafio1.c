@@ -15,17 +15,21 @@ char pesq_livro[20];
 void Entrada(){
     printf("Entre com o nome do primeiro livro:");
     gets(livro1);
-    printf("%s\n", livro1);
 
     printf("Entre com o nome do autor:");
     gets(autor1);
 
     printf("Entre com o nome do segundo livro:");
     gets(livro2);
-    printf("%s\n", livro2);
 
     printf("Entre com o nome do autor:");
     gets(autor2);
+
+    printf("Entre com o nome do terceiro livro:");
+    gets(livro3);
+
+    printf("Entre com o nome do autor:");
+    gets(autor3);
 }
 
 void Listar(){}
@@ -51,7 +55,9 @@ void AlteraDados(){}
 
 void ExcluirDados(){}
 
-void Sair(){}
+char Sair(){
+    return 
+}
 
 int main(void){
 
@@ -60,7 +66,8 @@ int main(void){
     setlocale(LC_ALL, "");
 
     do{
-        // system("cls");
+        system("cls");
+        
         // print menu
         printf(" * - Biblioteca - *\n\n");
         printf(" 1 - Entrar com os livros.\n");
@@ -101,7 +108,7 @@ int main(void){
                 break;
 
             case 7:
-                Sair();
+                c = Sair();
                 break;
 
             default:
