@@ -11,52 +11,66 @@ char autor2[20];
 char autor3[20];
 char pesq_livro[20];
 
-// Fun��es do Menu
+// Funcoes do Menu
 void Entrada(){
-    printf("Entre com o nome do primeiro livro:");
+    printf("Entre com o nome do primeiro livro: ");
     gets(livro1);
 
-    printf("Entre com o nome do autor:");
+    printf("Entre com o nome do autor: ");
     gets(autor1);
 
-    printf("Entre com o nome do segundo livro:");
+    printf("Entre com o nome do segundo livro: ");
     gets(livro2);
 
-    printf("Entre com o nome do autor:");
+    printf("Entre com o nome do autor: ");
     gets(autor2);
 
-    printf("Entre com o nome do terceiro livro:");
+    printf("Entre com o nome do terceiro livro: ");
     gets(livro3);
 
-    printf("Entre com o nome do autor:");
+    printf("Entre com o nome do autor: ");
     gets(autor3);
 }
 
-void Listar(){}
+void Listar(){
+    printf("\n\t 1 - %s - %s.", livro1, autor1);
+    printf("\n\t 1 - %s - %s.", livro2, autor2);
+    printf("\n\t 1 - %s - %s.\n", livro3, autor3);
+    system("pause");
+}
 
 void PesquisaLivro(){
+    // TODO
+    // comparar tds os caracteres -- Lista 5 ex 1
 
-    printf("Digite o livro que vc quer pesquisar:");
+    printf("Digite o livro que vc quer pesquisar: ");
     gets(pesq_livro);
 
-    if(pesq_livro==livro1 || pesq_livro==livro2 || pesq_livro==livro3){
+    if(pesq_livro == livro1 || pesq_livro == livro2 || pesq_livro == livro3){
 
-        printf("Correspondecia encontrada");
+        printf("Correspondecia encontrada\n");
     }
 
     else{
-        printf("Livro n encontrado");
+        printf("Livro n encontrado\n");
     }
+    system("pause");
 }
 
-void PesquisaAutor(){}
+void PesquisaAutor(){
+    // TODO
+}
 
-void AlteraDados(){}
+void AlteraDados(){
+    // TODO
+}
 
-void ExcluirDados(){}
+void ExcluirDados(){
+    // TODO
+}
 
 char Sair(){
-    return 
+    return 'S';
 }
 
 int main(void){
@@ -77,7 +91,7 @@ int main(void){
         printf(" 5 - Alterar livro.\n");
         printf(" 6 - Excluir livro.\n");
         printf(" 7 - Sair.\n\n");
-        printf("Insira a op��o desejada: ");
+        printf("Insira a opção desejada: ");
         scanf(" %d", &op);
         getchar();
 
@@ -112,7 +126,7 @@ int main(void){
                 break;
 
             default:
-                printf("\nOp��o Inv�lida.\n");
+                printf("\nOpção Inválida.\n");
                 break;
         }
 
