@@ -43,17 +43,48 @@ void PesquisaLivro(){
     // TODO
     // comparar tds os caracteres -- Lista 5 ex 1
 
+    //FUNCAO DA LISTA 5 EX 1 PARA COMPARAR STRINGS
+
+    // int compara(){
+    //     int c;
+    // for(int i=0;i<11;i++){
+
+    //     if (a[i] != b[i]){
+    //      c = 0;
+    //     break;}
+
+    //     else{
+    //         c = 1;
+    //     }
+
+    // }
+
+    // return c;
+
+
+    // }
+
     printf("Digite o livro que vc quer pesquisar: ");
     gets(pesq_livro);
+    int a;
 
-    if(pesq_livro == livro1 || pesq_livro == livro2 || pesq_livro == livro3){
+   for(int i=0;i<20;i++){
 
-        printf("Correspondecia encontrada\n");
-    }
+        if (pesq_livro[i] != livro1[i] && pesq_livro[i]!=livro2[i] && pesq_livro[i]!= livro3[i]){
+        
+         a=0;
+        break;
+        
+        }
+        else{
+                a=1;
+        }
+        }
 
-    else{
-        printf("Livro n encontrado\n");
-    }
+        if(a==0)
+        printf("Sem corrrespondencia");
+        else
+        printf("Livro encontrado");
     system("pause");
 }
 
