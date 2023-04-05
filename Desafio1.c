@@ -9,8 +9,9 @@ char livro3[20];
 char autor1[20];
 char autor2[20];
 char autor3[20];
+char pesq_livro[20];
 
-// Funções do Menu
+// Funï¿½ï¿½es do Menu
 void Entrada(){
     printf("Entre com o nome do primeiro livro:");
     gets(livro1);
@@ -29,7 +30,20 @@ void Entrada(){
 
 void Listar(){}
 
-void PesquisaLivro(){}
+void PesquisaLivro(){
+
+    printf("Digite o livro que vc quer pesquisar:");
+    gets(pesq_livro);
+
+    if(pesq_livro==livro1 || pesq_livro==livro2 || pesq_livro==livro3){
+
+        printf("Correspondecia encontrada");
+    }
+
+    else{
+        printf("Livro n encontrado");
+    }
+}
 
 void PesquisaAutor(){}
 
@@ -56,7 +70,7 @@ int main(void){
         printf(" 5 - Alterar livro.\n");
         printf(" 6 - Excluir livro.\n");
         printf(" 7 - Sair.\n\n");
-        printf("Insira a opção desejada: ");
+        printf("Insira a opï¿½ï¿½o desejada: ");
         scanf(" %d", &op);
         getchar();
 
@@ -91,7 +105,7 @@ int main(void){
                 break;
 
             default:
-                printf("\nOpção Inválida.\n");
+                printf("\nOpï¿½ï¿½o Invï¿½lida.\n");
                 break;
         }
 
