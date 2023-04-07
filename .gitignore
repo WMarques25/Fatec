@@ -1,4 +1,12 @@
+.vscode
+.vscode/tasks.json
 .vscode/c_cpp_properties.json
 .vscode/launch.json
 .vscode/settings.json
-2º Semestre/Ling Prog 1/output
+2ï¿½ Semestre/Ling Prog 1/output
+**/.exe
+**/output
+**output
+.dist
+**/.gitignore
+.gitignore

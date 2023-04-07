@@ -68,7 +68,7 @@ void PesquisaLivro(){
     gets(pesq_livro);
     int a;
 
-   for(int i=0;i<20;i++){
+    for(int i=0;i<20;i++){
 
         if (pesq_livro[i] != livro1[i] && pesq_livro[i]!=livro2[i] && pesq_livro[i]!= livro3[i]){
         
@@ -82,14 +82,55 @@ void PesquisaLivro(){
         }
 
         if(a==0)
-        printf("Sem corrrespondencia");
+        printf("Sem corrrespondencia\n");
         else
-        printf("Livro encontrado");
+        printf("Livro encontrado\n");
     system("pause");
 }
 
 void PesquisaAutor(){
-    // TODO
+    char inicial;
+    int a = 1, b = 1, c = 1; // Boleanos
+    
+    system("cls");
+    
+    printf("Insira a inicial do autor: ");
+    inicial = getchar();
+
+    for(int i=0;i<20;i++){
+
+        if (autor1[i] != autor2[i]){
+            a = 0;
+        }
+        if (autor1[i] != autor3[i]){
+            b = 0;
+        }
+        if (autor2[i] != autor3[i]){
+            c = 0;
+        }
+    }
+
+    // livro = inicial == livro1[0] ? 1 : (inicial == livro2[0] ? 2 : (inicial == livro3[0] ? 3 : 0));
+    
+    if (inicial == autor1[0]){
+        printf("\nAutor: %s",autor1);
+        printf("\n\t1 - %s",livro1);
+
+        a == 1 ? printf("\n\t2 - %s",livro2): 0;
+        b == 1 ? printf("\n\t3 - %s",livro3): 0;
+    }
+    if(inicial == autor2[0] && a == 0){
+        printf("\nAutor: %s",autor2);
+        printf("\n\t2 - %s",livro2);
+
+        c == 1 ? printf("\n\t3 - %s",livro3): 0;
+    }
+    if(inicial == autor3[0] && b == 0 && c == 0){
+        printf("\nAutor: %s",autor3);
+        printf("\n\t3 - %s",livro3);
+    }
+    printf("\n");
+    system("pause");
 }
 
 void AlteraDados(){
