@@ -36,7 +36,7 @@ void Listar(){
     printf("\n\t 1 - %s - %s.", livro1, autor1);
     printf("\n\t 1 - %s - %s.", livro2, autor2);
     printf("\n\t 1 - %s - %s.\n", livro3, autor3);
-    system("pause");
+    // system("pause");
 }
 
 void PesquisaLivro(){
@@ -60,8 +60,6 @@ void PesquisaLivro(){
     // }
 
     // return c;
-
-
     // }
 
     printf("Digite o livro que vc quer pesquisar: ");
@@ -85,7 +83,7 @@ void PesquisaLivro(){
         printf("Sem corrrespondencia\n");
         else
         printf("Livro encontrado\n");
-    system("pause");
+    // system("pause");
 }
 
 void PesquisaAutor(){
@@ -130,7 +128,7 @@ void PesquisaAutor(){
         printf("\n\t3 - %s",livro3);
     }
     printf("\n");
-    system("pause");
+    // system("pause");
 }
 
 void AlteraDados(){
@@ -138,7 +136,34 @@ void AlteraDados(){
 }
 
 void ExcluirDados(){
-    // TODO
+    Listar();
+    int op;
+    printf("Digite o numero do livro que deseja excluir: ");
+    scanf(" %d", &op);
+
+    switch(op){
+        case 1:
+            livro1[0] = '\0';
+            autor1[0] = '\0';
+            printf("Livro 1 excluido com sucesso.\n");
+            break;
+        
+        case 2:
+            livro2[0] = '\0';
+            autor2[0] = '\0';
+            printf("Livro 2 excluido com sucesso.\n");
+            break;
+        
+        case 3:
+            livro3[0] = '\0';
+            autor3[0] = '\0';
+            printf("Livro 3 excluido com sucesso.\n");
+            break;
+        
+        default:
+            printf("Opção inválida.\n");
+            break;
+    }
 }
 
 char Sair(){
@@ -163,7 +188,7 @@ int main(void){
         printf(" 5 - Alterar livro.\n");
         printf(" 6 - Excluir livro.\n");
         printf(" 7 - Sair.\n\n");
-        printf("Insira a opÃ§Ã£o desejada: ");
+        printf("Insira a opção desejada: ");
         scanf(" %d", &op);
         getchar();
 
@@ -198,11 +223,11 @@ int main(void){
                 break;
 
             default:
-                printf("\nOpÃ§Ã£o InvÃ¡lida.\n");
+                printf("\nOpção Inválida.\n");
                 break;
         }
 
-        //  
+        system("pause");
     }while(c != 'S');
 
     return 0;
