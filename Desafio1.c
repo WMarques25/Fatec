@@ -10,6 +10,7 @@ char autor1[20];
 char autor2[20];
 char autor3[20];
 char pesq_livro[20];
+char alt_livro[20];
 
 // Funcoes do Menu
 void Entrada(){
@@ -140,6 +141,40 @@ void PesquisaAutor(){
 
 void AlteraDados(){
     // TODO
+   Listar();
+    int op;
+    printf("Digite o numero do livro que deseja alterar: ");
+    scanf(" %d", &op);
+
+   
+
+    switch(op){
+        case 1:
+            printf("Digite o novo nome do livro:\n");
+            gets(livro1[20]);
+            printf("Digite o novo nome do autor:\n");
+            gets(autor1[20]);
+            break;
+        
+        case 2:
+            printf("Digite o novo nome do livro:\n");
+            gets(livro2[20]);
+            printf("Digite o novo nome do autor:\n");
+            gets(autor2[20]);
+            break;
+        
+        case 3:
+            printf("Digite o novo nome do livro:\n");
+            gets(livro3[20]);
+            printf("Digite o novo nome do autor:\n");
+            gets(autor3[20]);
+            break;
+        
+        default:
+            printf("Opção inválida.\n");
+            break;
+    }
+
 }
 
 void ExcluirDados(){
