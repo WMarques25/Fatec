@@ -13,6 +13,9 @@ char pesq_livro[20];
 
 // Funcoes do Menu
 void Entrada(){
+    FILE * f;
+    f = fopen("livros.txt", "w");
+
     printf("Entre com o nome do primeiro livro: ");
     gets(livro1);
 
@@ -34,8 +37,8 @@ void Entrada(){
 
 void Listar(){
     printf("\n\t 1 - %s - %s.", livro1, autor1);
-    printf("\n\t 1 - %s - %s.", livro2, autor2);
-    printf("\n\t 1 - %s - %s.\n", livro3, autor3);
+    printf("\n\t 2 - %s - %s.", livro2, autor2);
+    printf("\n\t 3 - %s - %s.\n", livro3, autor3);
     // system("pause");
 }
 
@@ -161,7 +164,7 @@ void ExcluirDados(){
             break;
         
         default:
-            printf("OpÁ„o inv·lida.\n");
+            printf("Op√ß√£o inv√°lida.\n");
             break;
     }
 }
@@ -188,7 +191,7 @@ int main(void){
         printf(" 5 - Alterar livro.\n");
         printf(" 6 - Excluir livro.\n");
         printf(" 7 - Sair.\n\n");
-        printf("Insira a opÁ„o desejada: ");
+        printf("Insira a op√ß√£o desejada: ");
         scanf(" %d", &op);
         getchar();
 
@@ -223,7 +226,7 @@ int main(void){
                 break;
 
             default:
-                printf("\nOpÁ„o Inv·lida.\n");
+                printf("\nOp√ß√£o Inv√°lida.\n");
                 break;
         }
 
