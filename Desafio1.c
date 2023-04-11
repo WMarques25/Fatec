@@ -141,29 +141,30 @@ void AlteraDados(){
     int op;
     printf("Digite o numero do livro que deseja alterar: ");
     scanf(" %d", &op);
+    getchar();
 
    
 
     switch(op){
         case 1:
             printf("Digite o novo nome do livro:\n");
-            gets(livro1[20]);
+            gets(livro1);
             printf("Digite o novo nome do autor:\n");
-            gets(autor1[20]);
+            gets(autor1);
             break;
         
         case 2:
             printf("Digite o novo nome do livro:\n");
-            gets(livro2[20]);
+            gets(livro2);
             printf("Digite o novo nome do autor:\n");
-            gets(autor2[20]);
+            gets(autor2);
             break;
         
         case 3:
             printf("Digite o novo nome do livro:\n");
-            gets(livro3[20]);
+            gets(livro3);
             printf("Digite o novo nome do autor:\n");
-            gets(autor3[20]);
+            gets(autor3);
             break;
         
         default:
@@ -178,6 +179,7 @@ void ExcluirDados(){
     int op;
     printf("Digite o numero do livro que deseja excluir: ");
     scanf(" %d", &op);
+    getchar();
 
     switch(op){
         case 1:
@@ -205,7 +207,9 @@ void ExcluirDados(){
 }
 
 char Sair(){
-    return 'S';
+    // return 'S';
+    exit(0);
+
 }
 
 int main(void){
