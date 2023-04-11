@@ -19,22 +19,27 @@ void Entrada(){
 
     printf("Entre com o nome do primeiro livro: ");
     gets(livro1);
-    fwrite(livro1, 1, 20, f);
+    fwrite(livro1, 0, sizeof(livro1), f);
 
     printf("Entre com o nome do autor: ");
     gets(autor1);
+    fwrite(autor1, 1, 20, f);
 
     printf("Entre com o nome do segundo livro: ");
     gets(livro2);
+    fwrite(livro2, 1, 20, f);
 
     printf("Entre com o nome do autor: ");
     gets(autor2);
+    fwrite(autor2, 1, 20, f);
 
     printf("Entre com o nome do terceiro livro: ");
     gets(livro3);
+    fwrite(livro3, 1, 20, f);
 
     printf("Entre com o nome do autor: ");
     gets(autor3);
+    fwrite(autor3, 1, 20, f);
 
     fclose(f);
 
@@ -172,7 +177,7 @@ void AlteraDados(){
             break;
         
         default:
-            printf("Opção inválida.\n");
+            printf("Opï¿½ï¿½o invï¿½lida.\n");
             break;
     }
 
