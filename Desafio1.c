@@ -14,10 +14,11 @@ char pesq_livro[20];
 // Funcoes do Menu
 void Entrada(){
     FILE * f;
-    f = fopen("livros.txt", "w");
+    f = fopen("livros", "w+");
 
     printf("Entre com o nome do primeiro livro: ");
     gets(livro1);
+    fwrite(livro1, 0, sizeof(livro1), f);
 
     printf("Entre com o nome do autor: ");
     gets(autor1);
@@ -33,6 +34,9 @@ void Entrada(){
 
     printf("Entre com o nome do autor: ");
     gets(autor3);
+
+    fclose(f);
+
 }
 
 void Listar(){
