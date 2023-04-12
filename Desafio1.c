@@ -13,7 +13,13 @@ char pesq_livro[20];
 char alt_livro[20];
 
 void Atualizar(){
+
     FILE * f;
+    f = fopen("livros", "r");
+     if (f == NULL) {
+        printf("Erro ao abrir arquivo.\n");
+        Entrada();
+    }
     livro1[20] = '\0';
     livro2[20] = '\0';
     livro3[20] = '\0';
@@ -21,7 +27,7 @@ void Atualizar(){
     autor2[20] = '\0';
     autor3[20] = '\0';
     
-    f = fopen("livros", "r");
+    
 
     fread(livro1, 1, 20, f);
     fread(autor1, 1, 20, f);
@@ -177,34 +183,46 @@ void AlteraDados(){
     scanf(" %d", &op);
     getchar();
 
+    FILE * f;
+    f = fopen("livros", "r+");
+
    
 
     switch(op){
         case 1:
             printf("Digite o novo nome do livro:\n");
             gets(livro1);
+            fwrite(livro1, sizeof(char), sizeof(livro1), f);
             printf("Digite o novo nome do autor:\n");
             gets(autor1);
+            fwrite(autor1, 1, 20, f);
             break;
         
         case 2:
             printf("Digite o novo nome do livro:\n");
             gets(livro2);
+            fwrite(livro2, 1, 20, f);
             printf("Digite o novo nome do autor:\n");
             gets(autor2);
+            fwrite(autor2, 1, 20, f);
             break;
         
         case 3:
             printf("Digite o novo nome do livro:\n");
             gets(livro3);
+            fwrite(livro3, 1, 20, f);
             printf("Digite o novo nome do autor:\n");
             gets(autor3);
+            fwrite(autor3, 1, 20, f);
+
             break;
         
         default:
             printf("Op��o inv�lida.\n");
             break;
     }
+
+    fclose(f);
 
 }
 
