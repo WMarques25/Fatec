@@ -75,9 +75,13 @@ void PesquisaLivro(){
     // return c;
     // }
 
+
+
+
     printf("Digite o livro que vc quer pesquisar: ");
     gets(pesq_livro);
     int a;
+    
 
     for(int i=0;i<20;i++){
 
@@ -96,7 +100,7 @@ void PesquisaLivro(){
         printf("Sem corrrespondencia\n");
         else
         printf("Livro encontrado\n");
-    // system("pause");
+        
 }
 
 void PesquisaAutor(){
