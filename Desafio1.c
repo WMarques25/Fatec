@@ -12,6 +12,27 @@ char autor3[20];
 char pesq_livro[20];
 char alt_livro[20];
 
+void Atualizar(){
+    FILE * f;
+    livro1[20] = '\0';
+    livro2[20] = '\0';
+    livro3[20] = '\0';
+    autor1[20] = '\0';
+    autor2[20] = '\0';
+    autor3[20] = '\0';
+    
+    f = fopen("livros", "r");
+
+    fread(livro1, 1, 20, f);
+    fread(autor1, 1, 20, f);
+    fread(livro2, 1, 20, f);
+    fread(autor2, 1, 20, f);
+    fread(livro3, 1, 20, f);
+    fread(autor3, 1, 20, f);
+    
+    fclose(f);
+}
+
 // Funcoes do Menu
 void Entrada(){
     FILE * f;
@@ -19,7 +40,7 @@ void Entrada(){
 
     printf("Entre com o nome do primeiro livro: ");
     gets(livro1);
-    fwrite(livro1, 1, 20, f);
+    fwrite(livro1, sizeof(char), sizeof(livro1), f);
 
     printf("Entre com o nome do autor: ");
     gets(autor1);
@@ -49,7 +70,7 @@ void Listar(){
     printf("\n\t 1 - %s - %s.", livro1, autor1);
     printf("\n\t 2 - %s - %s.", livro2, autor2);
     printf("\n\t 3 - %s - %s.\n", livro3, autor3);
-    // system("pause");
+    
 }
 
 void PesquisaLivro(){
@@ -228,6 +249,7 @@ int main(void){
     setlocale(LC_ALL, "");
 
     do{
+        Atualizar();
         system("cls");
         
         // print menu
