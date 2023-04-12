@@ -80,7 +80,7 @@ void Listar(){
 }
 
 void PesquisaLivro(){
-    // TODO
+    // TODO att qual livro corresponde a pesquisa
     // comparar tds os caracteres -- Lista 5 ex 1
 
     //FUNCAO DA LISTA 5 EX 1 PARA COMPARAR STRINGS
@@ -176,7 +176,7 @@ void PesquisaAutor(){
 }
 
 void AlteraDados(){
-    // TODO
+    // TODO alterar ordem no switch case
    Listar();
     int op;
     printf("Digite o numero do livro que deseja alterar: ");
@@ -227,6 +227,7 @@ void AlteraDados(){
 }
 
 void ExcluirDados(){
+    // TODO escrever '\0' no arquivo
     Listar();
     int op;
     printf("Digite o numero do livro que deseja excluir: ");
@@ -259,7 +260,6 @@ void ExcluirDados(){
 }
 
 char Sair(){
-    // return 'S';
     exit(0);
 
 }
