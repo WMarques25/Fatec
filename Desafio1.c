@@ -157,6 +157,9 @@ void PesquisaAutor(){
         printf("\nAutor: %s",autor3);
         printf("\n\t3 - %s",livro3);
     }
+    if(inicial != autor1[0] && inicial != autor2[0] && inicial != autor3[0]){
+        printf("\nAutor não encontrado!");
+    }
     printf("\n");
     
 }
@@ -231,8 +234,8 @@ void ExcluirDados(){
         case 1:
             livro1[0] = '\0';
             autor1[0] = '\0';
-             fwrite(livro1, sizeof(livro1), 1, f);
-             fwrite(autor1, sizeof(autor1), 1, f);
+            fwrite(livro1, sizeof(livro1), 1, f);
+            fwrite(autor1, sizeof(autor1), 1, f);
 
             printf("Livro 1 excluido com sucesso.\n");
             break;
