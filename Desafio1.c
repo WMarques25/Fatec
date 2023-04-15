@@ -44,7 +44,7 @@ void Entrada(){
 
     printf("Entre com o nome do primeiro livro: ");
     gets(livro1);
-    fwrite(livro1, sizeof(char), sizeof(livro1), f);
+    fwrite(livro1, sizeof(livro1), 20, f);
 
     printf("Entre com o nome do autor: ");
     gets(autor1);
