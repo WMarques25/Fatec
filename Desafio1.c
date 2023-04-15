@@ -17,7 +17,7 @@ void Atualizar(){
     FILE * f;
     f = fopen("livros", "r");
      if (f == NULL) {
-        printf("Erro ao abrir arquivo.\n");
+        printf("\n\tArquivo não encontrado.\n\n");
         Entrada();
     }
     livro1[20] = '\0';
@@ -26,8 +26,6 @@ void Atualizar(){
     autor1[20] = '\0';
     autor2[20] = '\0';
     autor3[20] = '\0';
-    
-    
 
     fread(livro1, 1, 20, f);
     fread(autor1, 1, 20, f);
