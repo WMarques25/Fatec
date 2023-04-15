@@ -35,7 +35,7 @@ void Atualizar(){
     fread(autor3, sizeof(autor3), 1, f);
     
     fclose(f);
-    
+
 }
 
 // Funcoes do Menu
@@ -80,61 +80,37 @@ void Listar(){
 
 void PesquisaLivro(){
     // TODO att qual livro corresponde a pesquisa
-    // comparar tds os caracteres -- Lista 5 ex 1
-
-    //FUNCAO DA LISTA 5 EX 1 PARA COMPARAR STRINGS
-
-    // int compara(){
-    //     int c;
-    // for(int i=0;i<11;i++){
-
-    //     if (a[i] != b[i]){
-    //      c = 0;
-    //     break;}
-
-    //     else{
-    //         c = 1;
-    //     }
-
-    // }
-
-    // return c;
-    // }
-
-
-
-
-    printf("Digite o livro que vc quer pesquisar: ");
-    gets(pesq_livro);
-    int a;
+        printf("Digite o livro que vc quer pesquisar: ");
+        gets(pesq_livro);
+        int a;
     
 
-    for(int i=0;i<20;i++){
+        for(int i=0;i<20;i++){
 
-        if (pesq_livro[i] != livro1[i] && pesq_livro[i]!=livro2[i] && pesq_livro[i]!= livro3[i]){
-        
-         a=0;
-         printf("Livro não encontrado!\n");
-        break;
-        
-        }
-        else{
-                a=1;
-        }
-            if(a==1 && pesq_livro[i]==livro1[i]){
-            printf("O Livro %s do autor %s foi encontrado \n",livro1, autor1);
+            if (pesq_livro[i] != livro1[i] && pesq_livro[i]!=livro2[i] && pesq_livro[i]!= livro3[i]){
+            
+            a=0;
+            printf("Livro não encontrado!\n");
             break;
+            
             }
+            else{
+                    a=1;
+            }
+                if(a==1 && pesq_livro[i]==livro1[i]){
+                printf("O Livro %s do autor %s foi encontrado \n",livro1, autor1);
+                break;
+                }
 
-             if(a==1 && pesq_livro[i]==livro2[i]){
-            printf("O Livro %s foi encontrado \n",livro2, autor2);
-            break;
-            }
+                if(a==1 && pesq_livro[i]==livro2[i]){
+                printf("O Livro %s foi encontrado \n",livro2, autor2);
+                break;
+                }
 
-               if(a==1 && pesq_livro[i]==livro3[i]){
-            printf("O Livro %s foi encontrado \n",livro3, autor3);
-            break;
-            }
+                if(a==1 && pesq_livro[i]==livro3[i]){
+                printf("O Livro %s foi encontrado \n",livro3, autor3);
+                break;
+                }
 
 
 
@@ -142,17 +118,7 @@ void PesquisaLivro(){
 
         }
 
-        
-
-         
-
-
-
-
-
-        }
-        
-
+    }
 
 void PesquisaAutor(){
     char inicial;
