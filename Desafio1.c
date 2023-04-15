@@ -79,40 +79,57 @@ void Listar(){
 }
 
 void PesquisaLivro(){
-    // TODO att qual livro corresponde a pesquisa
+    
         printf("Digite o livro que vc quer pesquisar: ");
         gets(pesq_livro);
-        int a;
+        int a=1,b=1,c=1;
     
 
         for(int i=0;i<20;i++){
 
-            if (pesq_livro[i] != livro1[i] && pesq_livro[i]!=livro2[i] && pesq_livro[i]!= livro3[i]){
             
-            a=0;
-            printf("Livro não encontrado!\n");
-            break;
-            
-            } else{
-                a=1;
+            if(pesq_livro[i] != livro1[i]){
+
+                a=0;
             }
 
-            if(a==1 && pesq_livro[i]==livro1[i]){
-                printf("O Livro %s do autor %s foi encontrado \n",livro1, autor1);
-                break;
+            if(pesq_livro[i] != livro2[i]){
+
+                b=0;
             }
 
-            if(a==1 && pesq_livro[i]==livro2[i]){
-                printf("O Livro %s do autor %s foi encontrado \n",livro2, autor2);
-                break;
-            }
+            if(pesq_livro[i] != livro3[i]){
 
-            if(a==1 && pesq_livro[i]==livro3[i]){
-                printf("O Livro %s do autor %s foi encontrado \n",livro3, autor3);
-                break;
+                c=0;
             }
-
         }
+
+        if(a==0 && b==0 && c==0)
+       { 
+        printf("Livro nao encontrado!");
+       
+       }
+
+       if(a==1){
+
+        printf("Livro encontrado! %s de %s \n",livro1,autor1);
+       }
+
+       if(b==1){
+
+        printf("Livro encontrado! %s de %s \n",livro2,autor2);
+       }
+
+         if(c==1){
+
+        printf("Livro encontrado! %s de %s \n",livro3,autor3);
+       }
+
+
+            
+           
+
+        
 
     }
 
@@ -219,7 +236,7 @@ void AlteraDados(){
 }
 
 void ExcluirDados(){
-    // TODO escrever '\0' no arquivo
+    
     Listar();
     int op;
     printf("Digite o numero do livro que deseja excluir: ");
