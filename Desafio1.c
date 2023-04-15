@@ -35,6 +35,7 @@ void Atualizar(){
     fread(autor3, sizeof(autor3), 1, f);
     
     fclose(f);
+    
 }
 
 // Funcoes do Menu
