@@ -79,7 +79,6 @@ void Listar(){
 }
 
 void PesquisaLivro(){
-    // TODO att qual livro corresponde a pesquisa
         printf("Digite o livro que vc quer pesquisar: ");
         gets(pesq_livro);
         int a;
@@ -219,7 +218,6 @@ void AlteraDados(){
 }
 
 void ExcluirDados(){
-    // TODO escrever '\0' no arquivo
     Listar();
     int op;
     printf("Digite o numero do livro que deseja excluir: ");
