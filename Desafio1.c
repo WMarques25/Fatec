@@ -17,7 +17,7 @@ void Atualizar(){
     FILE * f;
     f = fopen("livros", "r");
      if (f == NULL) {
-        printf("\n\tArquivo não encontrado.\n\n");
+        printf("\n\tArquivo nï¿½o encontrado.\n\n");
         Entrada();
     }
     livro1[20] = '\0';
@@ -193,7 +193,7 @@ void AlteraDados(){
             gets(livro2);
             fwrite(livro2, sizeof(livro2), 1, f);
             printf("Digite o novo nome do autor:\n");
-            gets(autor1);
+            gets(autor2);
             fwrite(autor2, sizeof(autor2), 1, f);
             break;
         
@@ -206,12 +206,12 @@ void AlteraDados(){
             gets(livro3);
             fwrite(livro3, sizeof(livro3), 1, f);
             printf("Digite o novo nome do autor:\n");
-            gets(autor1);
+            gets(autor3);
             fwrite(autor3, sizeof(autor3), 1, f);
             break;
         
         default:
-            printf("Opção inválida.\n");
+            printf("Opï¿½ï¿½o invï¿½lida.\n");
             break;
 
     }
@@ -228,11 +228,16 @@ void ExcluirDados(){
     scanf(" %d", &op);
     getchar();
 
+    FILE * f;
+    f = fopen("livros", "r+");  
+
 
     switch(op){
         case 1:
             livro1[0] = '\0';
             autor1[0] = '\0';
+             fwrite(livro1, sizeof(livro1), 1, f);
+             fwrite(autor1, sizeof(autor1), 1, f);
 
             printf("Livro 1 excluido com sucesso.\n");
             break;
@@ -240,17 +245,28 @@ void ExcluirDados(){
         case 2:
             livro2[0] = '\0';
             autor2[0] = '\0';
+            // fwrite(livro1, sizeof(livro1), 1, f);
+            // fwrite(autor1, sizeof(autor1), 1, f);
+            // fwrite(livro2, sizeof(livro2), 1, f);
+            // fwrite(autor2,sizeof(autor2),1,f);
             printf("Livro 2 excluido com sucesso.\n");
             break;
         
         case 3:
             livro3[0] = '\0';
             autor3[0] = '\0';
+            // fwrite(livro1, sizeof(livro1), 1, f);
+            // fwrite(autor1, sizeof(autor1), 1, f);
+            // fwrite(livro2, sizeof(livro2), 1, f);
+            // fwrite(autor2, sizeof(autor2), 1, f);
+            // fwrite(livro3, sizeof(livro3), 1, f);
+            // fwrite(autor3, sizeof(autor3), 1, f);
+
             printf("Livro 3 excluido com sucesso.\n");
             break;
         
         default:
-            printf("Opção inválida.\n");
+            printf("Opï¿½ï¿½o invï¿½lida.\n");
             break;
     }
 }
@@ -279,7 +295,7 @@ int main(void){
         printf(" 5 - Alterar livro.\n");
         printf(" 6 - Excluir livro.\n");
         printf(" 7 - Sair.\n\n");
-        printf("Insira a opção desejada: ");
+        printf("Insira a opï¿½ï¿½o desejada: ");
         scanf(" %d", &op);
         getchar();
 
@@ -314,7 +330,7 @@ int main(void){
                 break;
 
             default:
-                printf("\nOpção Inválida.\n");
+                printf("\nOpï¿½ï¿½o Invï¿½lida.\n");
                 break;
         }
 
