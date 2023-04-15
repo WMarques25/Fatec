@@ -224,7 +224,7 @@ void ExcluirDados(){
     getchar();
 
     FILE * f;
-    f = fopen("livros", "r+");  
+    f = fopen("livros", "w+");  
 
 
     switch(op){
@@ -240,22 +240,22 @@ void ExcluirDados(){
         case 2:
             livro2[0] = '\0';
             autor2[0] = '\0';
-            // fwrite(livro1, sizeof(livro1), 1, f);
-            // fwrite(autor1, sizeof(autor1), 1, f);
-            // fwrite(livro2, sizeof(livro2), 1, f);
-            // fwrite(autor2,sizeof(autor2),1,f);
+            fwrite(livro1, sizeof(livro1), 1, f);
+            fwrite(autor1, sizeof(autor1), 1, f);
+            fwrite(livro2, sizeof(livro2), 1, f);
+            fwrite(autor2,sizeof(autor2),1,f);
             printf("Livro 2 excluido com sucesso.\n");
             break;
         
         case 3:
             livro3[0] = '\0';
             autor3[0] = '\0';
-            // fwrite(livro1, sizeof(livro1), 1, f);
-            // fwrite(autor1, sizeof(autor1), 1, f);
-            // fwrite(livro2, sizeof(livro2), 1, f);
-            // fwrite(autor2, sizeof(autor2), 1, f);
-            // fwrite(livro3, sizeof(livro3), 1, f);
-            // fwrite(autor3, sizeof(autor3), 1, f);
+            fwrite(livro1, sizeof(livro1), 1, f);
+            fwrite(autor1, sizeof(autor1), 1, f);
+            fwrite(livro2, sizeof(livro2), 1, f);
+            fwrite(autor2, sizeof(autor2), 1, f);
+            fwrite(livro3, sizeof(livro3), 1, f);
+            fwrite(autor3, sizeof(autor3), 1, f);
 
             printf("Livro 3 excluido com sucesso.\n");
             break;
