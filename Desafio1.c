@@ -113,20 +113,45 @@ void PesquisaLivro(){
         if (pesq_livro[i] != livro1[i] && pesq_livro[i]!=livro2[i] && pesq_livro[i]!= livro3[i]){
         
          a=0;
+         printf("Livro não encontrado!\n");
         break;
         
         }
         else{
                 a=1;
         }
+            if(a==1 && pesq_livro[i]==livro1[i]){
+            printf("O Livro %s do autor %s foi encontrado \n",livro1, autor1);
+            break;
+            }
+
+             if(a==1 && pesq_livro[i]==livro2[i]){
+            printf("O Livro %s foi encontrado \n",livro2, autor2);
+            break;
+            }
+
+               if(a==1 && pesq_livro[i]==livro3[i]){
+            printf("O Livro %s foi encontrado \n",livro3, autor3);
+            break;
+            }
+
+
+
+
+
         }
 
-        if(a==0)
-        printf("Sem corrrespondencia\n");
-        else
-        printf("Livro encontrado\n");
         
-}
+
+         
+
+
+
+
+
+        }
+        
+
 
 void PesquisaAutor(){
     char inicial;
@@ -232,10 +257,12 @@ void ExcluirDados(){
     scanf(" %d", &op);
     getchar();
 
+
     switch(op){
         case 1:
             livro1[0] = '\0';
             autor1[0] = '\0';
+
             printf("Livro 1 excluido com sucesso.\n");
             break;
         
