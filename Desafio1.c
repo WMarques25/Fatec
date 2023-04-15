@@ -17,7 +17,7 @@ void Atualizar(){
     FILE * f;
     f = fopen("livros", "r");
      if (f == NULL) {
-        printf("\n\tArquivo n„o encontrado.\n\n");
+        printf("\n\tArquivo n√£o encontrado.\n\n");
         Entrada();
     }
     livro1[20] = '\0';
@@ -45,27 +45,27 @@ void Entrada(){
 
     printf("Entre com o nome do primeiro livro: ");
     gets(livro1);
-    fwrite(livro1, sizeof(livro1), 20, f);
+    fwrite(livro1, sizeof(livro1), 1, f);
 
     printf("Entre com o nome do autor: ");
     gets(autor1);
-    fwrite(autor1, 1, 20, f);
+    fwrite(autor1, sizeof(autor1), 1, f);
 
     printf("Entre com o nome do segundo livro: ");
     gets(livro2);
-    fwrite(livro2, 1, 20, f);
+    fwrite(livro2, sizeof(livro2), 1, f);
 
     printf("Entre com o nome do autor: ");
     gets(autor2);
-    fwrite(autor2, 1, 20, f);
+    fwrite(autor2, sizeof(autor2), 1, f);
 
     printf("Entre com o nome do terceiro livro: ");
     gets(livro3);
-    fwrite(livro3, 1, 20, f);
+    fwrite(livro3, sizeof(livro3), 1, f);
 
     printf("Entre com o nome do autor: ");
     gets(autor3);
-    fwrite(autor3, 1, 20, f);
+    fwrite(autor3, sizeof(autor3), 1, f);
 
     fclose(f);
 
@@ -93,28 +93,24 @@ void PesquisaLivro(){
             printf("Livro n√£o encontrado!\n");
             break;
             
+            } else{
+                a=1;
             }
-            else{
-                    a=1;
-            }
-                if(a==1 && pesq_livro[i]==livro1[i]){
+
+            if(a==1 && pesq_livro[i]==livro1[i]){
                 printf("O Livro %s do autor %s foi encontrado \n",livro1, autor1);
                 break;
-                }
+            }
 
-                if(a==1 && pesq_livro[i]==livro2[i]){
-                printf("O Livro %s foi encontrado \n",livro2, autor2);
+            if(a==1 && pesq_livro[i]==livro2[i]){
+                printf("O Livro %s do autor %s foi encontrado \n",livro2, autor2);
                 break;
-                }
+            }
 
-                if(a==1 && pesq_livro[i]==livro3[i]){
-                printf("O Livro %s foi encontrado \n",livro3, autor3);
+            if(a==1 && pesq_livro[i]==livro3[i]){
+                printf("O Livro %s do autor %s foi encontrado \n",livro3, autor3);
                 break;
-                }
-
-
-
-
+            }
 
         }
 
@@ -129,6 +125,7 @@ void PesquisaAutor(){
     printf("Insira a inicial do autor: ");
     inicial = getchar();
 
+    // verificando se os autores tem o mesmo nome
     for(int i=0;i<20;i++){
 
         if (autor1[i] != autor2[i]){
@@ -142,8 +139,7 @@ void PesquisaAutor(){
         }
     }
 
-    // livro = inicial == livro1[0] ? 1 : (inicial == livro2[0] ? 2 : (inicial == livro3[0] ? 3 : 0));
-    
+    // Imprimindo o autor e seus livros
     if (inicial == autor1[0]){
         printf("\nAutor: %s",autor1);
         printf("\n\t1 - %s",livro1);
@@ -166,8 +162,7 @@ void PesquisaAutor(){
 }
 
 void AlteraDados(){
-    // TODO alterar ordem no switch case
-   Listar();
+    Listar();
     int op;
     printf("Digite o numero do livro que deseja alterar: ");
     scanf(" %d", &op);
@@ -193,7 +188,7 @@ void AlteraDados(){
             gets(livro2);
             fwrite(livro2, sizeof(livro2), 1, f);
             printf("Digite o novo nome do autor:\n");
-            gets(autor1);
+            gets(autor2);
             fwrite(autor2, sizeof(autor2), 1, f);
             break;
         
@@ -206,12 +201,12 @@ void AlteraDados(){
             gets(livro3);
             fwrite(livro3, sizeof(livro3), 1, f);
             printf("Digite o novo nome do autor:\n");
-            gets(autor1);
+            gets(autor3);
             fwrite(autor3, sizeof(autor3), 1, f);
             break;
         
         default:
-            printf("OpÁ„o inv·lida.\n");
+            printf("Op√ß√£o inv√°lida.\n");
             break;
 
     }
@@ -250,7 +245,7 @@ void ExcluirDados(){
             break;
         
         default:
-            printf("OpÁ„o inv·lida.\n");
+            printf("Op√ß√£o inv√°lida.\n");
             break;
     }
 }
@@ -262,9 +257,8 @@ char Sair(){
 
 int main(void){
 
-    char c = 'a';
     int op;
-    setlocale(LC_ALL, "");
+    setlocale(LC_ALL, "Portuguese");
 
     do{
         Atualizar();
@@ -279,7 +273,7 @@ int main(void){
         printf(" 5 - Alterar livro.\n");
         printf(" 6 - Excluir livro.\n");
         printf(" 7 - Sair.\n\n");
-        printf("Insira a opÁ„o desejada: ");
+        printf("Insira a op√ß√£o desejada: ");
         scanf(" %d", &op);
         getchar();
 
@@ -310,16 +304,16 @@ int main(void){
                 break;
 
             case 7:
-                c = Sair();
+                Sair();
                 break;
 
             default:
-                printf("\nOpÁ„o Inv·lida.\n");
+                printf("\nOp√ß√£o Inv√°lida.\n");
                 break;
         }
 
         system("pause");
-    }while(c != 'S');
+    }while(1);
 
     return 0;
 }
