@@ -142,9 +142,35 @@ struct pessoa{
 
 struct pessoa p[4];
 
-void Entrada(){}
-void Imprime(){}
-void CalcularIMC(){}
+void Entrada(){
+	for(int i = 0; i < 4; i++){
+		printf("Insira os dados da %dª pessoa:\n", i+1);
+		printf("Nome: ");
+		scanf(" %s", p[i].nome);
+		printf("Altura: ");
+		scanf(" %f", &p[i].altura);
+		printf("Peso: ");
+		scanf(" %f", &p[i].peso);
+		printf("\n");
+	}
+}
+void Imprime(){
+	for(int i = 0; i < 4; i++){
+		printf("Pessoa %d:\n", i+1);
+		printf("Nome: %s\n", p[i].nome);
+		printf("Altura: %.2f\n", p[i].altura);
+		printf("Peso: %.2f\n", p[i].peso);
+		printf("\n");
+	}
+}
+void CalcularIMC(){
+	float imc;
+	for(int i = 0; i < 4; i++){
+		imc = p[i].peso / (p[i].altura * p[i].altura);
+		printf("IMC da pessoa %d: %.2f\n", i+1, imc);
+	}
+	
+}
 
 int main(void){
 	int op;
@@ -185,8 +211,97 @@ int main(void){
 	return 0;
 }
 
-
 #endif  //ex3
 #ifdef  ex4
+struct data{
+    int dia;
+    int mes;
+    int ano;
+};
 
+struct data datas[3];
+
+int diasNoMes(int m, int a) {
+    int dias;
+
+    if (m == 2) {
+        if ((a % 4 == 0 && a % 100 != 0) || a % 400 == 0) {
+            dias = 29;
+        } else {
+            dias = 28;
+        }
+    } else if (m == 4 || m == 6 || m == 9 || m == 11) {
+        dias = 30;
+    } else {
+        dias = 31;
+    }
+
+    return dias;
+}
+
+int main(void){
+    char c, v;
+    setlocale(LC_ALL, "");
+
+    do{
+        do{
+            printf("Insira a data de nascimento (DD/MM/AAAA): ");
+            scanf(" %2d/%2d/%4d",&datas[1].dia,&datas[1].mes,&datas[1].ano);
+
+            if(datas[1].dia > diasNoMes(datas[1].mes, datas[1].ano) 
+				|| datas[1].mes > 12 || datas[1].dia < 1 || datas[1].mes < 1){
+                printf("Data inválida.");
+                v = 'i';
+            } else{
+                v = 'v';
+            }
+        }while(v == 'i');
+        system("cls");
+
+        do{
+            printf("Insira a data de hoje (DD/MM/AAAA): ");
+            scanf(" %2d/%2d/%4d",&datas[2].dia,&datas[2].mes,&datas[2].ano);
+            if(datas[2].dia > diasNoMes(datas[2].mes, datas[2].ano) 
+				|| datas[2].mes > 12 || datas[2].dia < 1 || datas[2].mes < 1){
+                printf("Data inválida.");
+                v = 'i';
+            } else{
+                v = 'v';
+            }
+        }while(v == 'i');
+        system("cls");
+
+        printf("Nasc: %2d/%2d/%4d\n",datas[1].dia,datas[1].mes,datas[1].ano);
+        printf("Hoje: %2d/%2d/%4d\n",datas[2].dia,datas[2].mes,datas[2].ano);
+
+        datas[3].dia = datas[2].dia - datas[1].dia;
+        datas[3].mes = datas[2].mes - datas[1].mes;
+        datas[3].ano = datas[2].ano - datas[1].ano;
+
+        if(datas[3].dia < 0){
+            datas[2].mes -= 1;
+            if (datas[2].mes < datas[1].mes) {
+                datas[2].mes += 12;
+                datas[2].ano -= 1;
+            }
+            datas[3].dia = datas[2].dia + diasNoMes(datas[2].mes, datas[2].ano) - datas[1].dia;
+            datas[3].mes = datas[2].mes - datas[1].mes;
+            datas[3].ano = datas[2].ano - datas[1].ano;
+        }
+
+        if(datas[3].dia < 0){
+            datas[3].ano--;
+            datas[3].mes += 12;
+        }
+
+        printf("Idade: %d Dias %d Meses %d Anos", datas[3].dia, datas[3].mes, datas[3].ano);
+
+        printf("\nDeseja continuar? ('S' / 'N')\n");
+        scanf(" %c", &c);
+        c = toupper(c);
+
+    } while (c == 'S');
+
+    return 0;
+}
 #endif  //ex4
