@@ -147,9 +147,42 @@ void Imprime(){}
 void CalcularIMC(){}
 
 int main(void){
+	int op;
 	setlocale(LC_ALL, "PORTUGUESE");
 	
+	do{
+		printf("1 - Receber todos os dados\n");
+		printf("2 - Imprimir os dados\n");
+		printf("3 - Calcular o IMC\n");
+		printf("4 - Sair\n");
 
+		printf("Insira a opção desejada: ");
+		scanf(" %d", &op);
+
+		switch (op){
+		case 1:
+			Entrada();
+			break;
+		
+		case 2:
+			Imprime();
+			break;
+
+		case 3:
+			CalcularIMC();
+			break;
+
+		case 4:
+			exit(0);
+			break;
+
+		default:
+			printf("Opção inválida!\n");
+			break;
+		}
+	} while (1);
+
+	return 0;
 }
 
 
