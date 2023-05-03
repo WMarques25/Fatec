@@ -1,4 +1,4 @@
-#define ex2
+#define ex3
 
 #include <stdio.h>
 #include <ctype.h>
@@ -134,6 +134,24 @@ int main(void){
 } 
 #endif  //ex2
 #ifdef  ex3
+struct pessoa{
+	char nome[50];
+	float altura;
+	float peso;
+};
+
+struct pessoa p[4];
+
+void Entrada(){}
+void Imprime(){}
+void CalcularIMC(){}
+
+int main(void){
+	setlocale(LC_ALL, "PORTUGUESE");
+	
+
+}
+
 
 #endif  //ex3
 #ifdef  ex4
