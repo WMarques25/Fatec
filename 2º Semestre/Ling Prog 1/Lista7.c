@@ -1,4 +1,4 @@
-#define ex3
+#define ex4
 
 #include <stdio.h>
 #include <ctype.h>
@@ -75,7 +75,7 @@ void Cadastrar(){
 	for(int i = 0; i < 4; i++){
 		printf("\nInsira o nome da pessoa %d: ", i+1);
 		scanf(" %s", p[i].nome);
-		printf("Insira o endereÃ§o da pessoa %d: ", i+1);
+		printf("Insira o endereço da pessoa %d: ", i+1);
 		scanf(" %s", p[i].end);
 		printf("Insira a cidade da pessoa %d: ", i+1);
 		scanf(" %s", p[i].cidade);
@@ -90,7 +90,7 @@ void Consultar(){
 	for(int i = 0; i < 4; i++){
 		printf("\nPessoa %d:\n", i+1);
 		printf("Nome: %s\n", p[i].nome);
-		printf("EndereÃ§o: %s\n", p[i].end);
+		printf("Endereço: %s\n", p[i].end);
 		printf("Cidade: %s\n", p[i].cidade);
 		printf("Estado: %s\n", p[i].estado);
 		printf("CEP: %s\n", p[i].cep);
@@ -107,7 +107,7 @@ int main(void){
 		printf("1 - Cadastrar\n");
 		printf("2 - Consultar\n");
 		printf("3 - Sair\n");
-		printf("Insira a opÃ§Ã£o desejada: ");
+		printf("Insira a opção desejada: ");
 		scanf(" %d", &op);
 
 		switch (op){
@@ -124,7 +124,7 @@ int main(void){
 			break;
 		
 		default:
-			printf("OpÃ§Ã£o invÃ¡lida!\n");
+			printf("Opção inválida!\n");
 			break;
 		}
 
@@ -144,7 +144,7 @@ struct pessoa p[4];
 
 void Entrada(){
 	for(int i = 0; i < 4; i++){
-		printf("Insira os dados da %dÂª pessoa:\n", i+1);
+		printf("Insira os dados da %dª pessoa:\n", i+1);
 		printf("Nome: ");
 		scanf(" %s", p[i].nome);
 		printf("Altura: ");
@@ -174,7 +174,7 @@ void CalcularIMC(){
 
 int main(void){
 	int op;
-	setlocale(LC_ALL, "PORTUGUESE");
+	setlocale(LC_ALL, "");
 	
 	do{
 		printf("1 - Receber todos os dados\n");
@@ -182,7 +182,7 @@ int main(void){
 		printf("3 - Calcular o IMC\n");
 		printf("4 - Sair\n");
 
-		printf("Insira a opÃ§Ã£o desejada: ");
+		printf("Insira a opção desejada: ");
 		scanf(" %d", &op);
 
 		switch (op){
@@ -203,7 +203,7 @@ int main(void){
 			break;
 
 		default:
-			printf("OpÃ§Ã£o invÃ¡lida!\n");
+			printf("Opção inválida!\n");
 			break;
 		}
 	} while (1);
@@ -250,7 +250,7 @@ int main(void){
 
             if(datas[1].dia > diasNoMes(datas[1].mes, datas[1].ano) 
 				|| datas[1].mes > 12 || datas[1].dia < 1 || datas[1].mes < 1){
-                printf("Data invÃ¡lida.");
+                printf("Data inválida.");
                 v = 'i';
             } else{
                 v = 'v';
@@ -263,7 +263,7 @@ int main(void){
             scanf(" %2d/%2d/%4d",&datas[2].dia,&datas[2].mes,&datas[2].ano);
             if(datas[2].dia > diasNoMes(datas[2].mes, datas[2].ano) 
 				|| datas[2].mes > 12 || datas[2].dia < 1 || datas[2].mes < 1){
-                printf("Data invÃ¡lida.");
+                printf("Data inválida.");
                 v = 'i';
             } else{
                 v = 'v';
