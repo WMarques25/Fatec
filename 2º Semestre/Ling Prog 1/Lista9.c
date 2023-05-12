@@ -1,11 +1,11 @@
-#define ex3
+#define ex4
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <locale.h>
 
-#ifdef  ex1
+#ifdef ex1
 void entrada(float *valor, char *op) {
     printf("Digite uma operação (+ - * / =): ");
     scanf(" %c", op);
@@ -126,7 +126,6 @@ int	main(void){
 }
 #endif  //ex2
 #ifdef  ex3
-
 void entrada(char *str1, char *str2){
     printf("Digite a primeira string: ");
     scanf(" %s", str1);    
@@ -173,7 +172,61 @@ int main(void){
 }
 #endif  //ex3
 #ifdef  ex4
+int main(void){
+    setlocale(LC_ALL, "");
+    char op, *pa, a;
+    int *pb, b;
+    long *pc, c;
+    float *pd, d;
+    double *pe, e;
+    unsigned char *pf, f;
+    unsigned int *pg, g;
+    unsigned long *ph, h;
 
+    pa = &a;
+    pb = &b;
+    pc = &c;
+    pd = &d;
+    pe = &e;
+    pf = &f;
+    pg = &g;
+    ph = &h;
+
+    do{
+        system("cls");
+
+        printf("Insira um caractere: ");
+        scanf(" %c", pa);
+        printf("Insira um inteiro: ");
+        scanf(" %d", pb);
+        printf("Insira um long: ");
+        scanf(" %ld", pc);
+        printf("Insira um float: ");
+        scanf(" %f", pd);
+        printf("Insira um double: ");
+        scanf(" %lf", pe);
+        printf("Insira um unsigned char: ");
+        scanf(" %c", pf);
+        printf("Insira um unsigned int: ");
+        scanf(" %d", pg);
+        printf("Insira um unsigned long: ");
+        scanf(" %ld", ph);
+
+        printf("        10        20        30        40        50        60\n123456789012345678901234567890123456789012345678901234567890\n");
+        printf("    %d%20ld%20d\n", *pb, *pc, *pg);
+        printf("    %10f%10lf%10c\n", *pd, *pe, *pa);
+        printf("         %ld%20lc\n", *ph, *pf);
+
+        printf("Deseja continuar? (S/N): ");
+        scanf(" %c", &op);
+
+        if(toupper(op) == 'N'){
+            exit(0);
+        }
+    }while(1);
+
+    return 0;
+ }
 #endif  //ex4
 #ifdef  ex5
 

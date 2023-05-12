@@ -96,8 +96,7 @@ int	main(void){
 }
 #endif  //ex2 
 #ifdef  ex3 
-
- int main(void){
+int main(void){
     setlocale(LC_ALL, "");
     char op, *pa, a;
     int *pb, b;
@@ -185,7 +184,7 @@ int main(void){
 }
 #endif  //ex4 
 #ifdef  ex5 
- struct data {
+struct data {
     int dia;
     int mes;
     int ano;
@@ -257,7 +256,7 @@ int main() {
 }
 #endif  //ex5 
 #ifdef  ex6 
- struct pessoa{
+struct pessoa{
 	char nome[50];
 	char end[50];
 	char cidade[50];
