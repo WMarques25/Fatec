@@ -341,7 +341,6 @@ void Consultar(struct pessoa *pp){
 
 void Pesquisar(struct pessoa *pp){
     char nome[50], *str1, *str2;
-    str1 = nome;
     
     system("cls");
     printf("Digite o nome a ser pesquisado: ");
@@ -349,6 +348,7 @@ void Pesquisar(struct pessoa *pp){
 
     for(int i = 0; i < 4; i++, pp++){
         str2 = pp->nome;
+        str1 = nome;
         while(*str1 == *str2 && *str1 != '\0' && *str2 != '\0'){
             str1++;
             str2++;
@@ -371,6 +371,43 @@ void Pesquisar(struct pessoa *pp){
 }
 
 void Alterar(struct pessoa *pp){
+    char nome[50], *str1, *str2;
+    
+    system("cls");
+    printf("Digite o nome a ser pesquisado: ");
+    gets(nome);
+
+    for(int i = 0; i < 4; i++, pp++){
+        str2 = pp->nome;
+        str1 = nome;
+        while(*str1 == *str2 && *str1 != '\0' && *str2 != '\0'){
+            str1++;
+            str2++;
+            
+            if(*str1 == '\0' && *str2 == '\0'){
+                printf("\nNome encontrado! Insira novos dados\n");
+                
+                printf("\nInsira o nome da pessoa %d: ", i+1);
+                gets((pp)->nome);
+                printf("Insira o endereço da pessoa %d: ", i+1);
+                gets((pp)->end);
+                printf("Insira a cidade da pessoa %d: ", i+1);
+                gets((pp)->cidade);
+                printf("Insira o estado da pessoa %d: ", i+1);
+                gets((pp)->estado);
+                printf("Insira o CEP da pessoa %d: ", i+1);
+                gets((pp)->cep);
+                system("pause");
+                return;
+            }
+        }
+    }
+    printf("Nome não encontrado!\n");
+    system("pause");
+
+}
+
+void Excluir(struct pessoa *pp){
     char nome[50], *str1, *str2;
     str1 = nome;
     
@@ -404,10 +441,6 @@ void Alterar(struct pessoa *pp){
     }
     printf("Nome não encontrado!\n");
     system("pause");
-
-}
-
-void Excluir(struct pessoa *pp){
 
 }
 
