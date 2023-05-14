@@ -1,4 +1,4 @@
-#define ex4
+#define ex2
 
 #include <stdio.h>
 #include <ctype.h>
@@ -74,15 +74,15 @@ struct pessoa p[4];
 void Cadastrar(){
 	for(int i = 0; i < 4; i++){
 		printf("\nInsira o nome da pessoa %d: ", i+1);
-		scanf(" %s", p[i].nome);
+		gets(p[i].nome);
 		printf("Insira o endereço da pessoa %d: ", i+1);
-		scanf(" %s", p[i].end);
+		gets(p[i].end);
 		printf("Insira a cidade da pessoa %d: ", i+1);
-		scanf(" %s", p[i].cidade);
+		gets(p[i].cidade);
 		printf("Insira o estado da pessoa %d: ", i+1);
-		scanf(" %s", p[i].estado);
+		gets(p[i].estado);
 		printf("Insira o CEP da pessoa %d: ", i+1);
-		scanf(" %s", p[i].cep);
+		gets(p[i].cep);
 	}
 }
 

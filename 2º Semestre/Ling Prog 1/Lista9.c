@@ -409,31 +409,26 @@ void Alterar(struct pessoa *pp){
 
 void Excluir(struct pessoa *pp){
     char nome[50], *str1, *str2;
-    str1 = nome;
     
     system("cls");
     printf("Digite o nome a ser pesquisado: ");
     gets(nome);
 
     for(int i = 0; i < 4; i++, pp++){
+        str1 = nome;
         str2 = pp->nome;
         while(*str1 == *str2 && *str1 != '\0' && *str2 != '\0'){
             str1++;
             str2++;
             
             if(*str1 == '\0' && *str2 == '\0'){
-                printf("\nNome encontrado! Insira novos dados\n");
-                
-                printf("\nInsira o nome da pessoa %d: ", i+1);
-                gets((pp+i)->nome);
-                printf("Insira o endereço da pessoa %d: ", i+1);
-                gets((pp+i)->end);
-                printf("Insira a cidade da pessoa %d: ", i+1);
-                gets((pp+i)->cidade);
-                printf("Insira o estado da pessoa %d: ", i+1);
-                gets((pp+i)->estado);
-                printf("Insira o CEP da pessoa %d: ", i+1);
-                gets((pp+i)->cep);
+                printf("\nNome encontrado! Excluindo dados\n");
+                char x = '\0';
+                *pp->nome = x;
+                *pp->end = x;
+                *pp->cidade = x;
+                *pp->estado = x;
+                *pp->cep = x;
                 system("pause");
                 return;
             }

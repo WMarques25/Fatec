@@ -271,15 +271,15 @@ void Cadastrar(){
         struct pessoa *pp;
         pp = &p[i];
 		printf("\nInsira o nome da pessoa %d: ", i+1);
-		scanf(" %s", pp->nome);
+        gets((pp+i)->nome);
         printf("Insira o endereço da pessoa %d: ", i+1);
-		scanf(" %s", pp->end);
+        gets((pp+i)->end);
 		printf("Insira a cidade da pessoa %d: ", i+1);
-		scanf(" %s", pp->cidade);
+        gets((pp+i)->cidade);
         printf("Insira o estado da pessoa %d: ", i+1);
-		scanf(" %s", pp->estado);
+        gets((pp+i)->estado);
 		printf("Insira o CEP da pessoa %d: ", i+1);
-		scanf(" %s", pp->cep);
+        gets((pp+i)->cep);
 	}
 }
 
