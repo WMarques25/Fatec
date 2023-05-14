@@ -1,4 +1,4 @@
-#define ex4
+#define ex6
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -172,50 +172,52 @@ int main(void){
 }
 #endif  //ex3
 #ifdef  ex4
+struct tipos{
+    char a;
+    int b;
+    long c;
+    float d;
+    double e;
+    unsigned char f;
+    unsigned int g;
+    unsigned long h;
+};
+
+void entrada(struct tipos *p){
+    printf("Insira um caractere: ");
+    scanf(" %c", &p->a);
+    printf("Insira um inteiro: ");
+    scanf(" %d", &p->b);
+    printf("Insira um long: ");
+    scanf(" %ld", &p->c);
+    printf("Insira um float: ");
+    scanf(" %f", &p->d);
+    printf("Insira um double: ");
+    scanf(" %lf", &p->e);
+    printf("Insira um unsigned char: ");
+    scanf(" %c", &p->f);
+    printf("Insira um unsigned int: ");
+    scanf(" %u", &p->g);
+    printf("Insira um unsigned long: ");
+    scanf(" %ld", &p->h);
+
+}
+
+void imprime(struct tipos *p){
+    printf("        10        20        30        40        50        60        70\n1234567890123456789012345678901234567890123456789012345678901234567890\n");
+    printf("    %-10c%-10d%-20ld%-20f%lf\n", p->a, p->b, p->c, p->d, p->e);
+    printf("          %-20u%-20u%lu\n", p->f, p->g, p->h);
+
+}
+
 int main(void){
     setlocale(LC_ALL, "");
-    char op, *pa, a;
-    int *pb, b;
-    long *pc, c;
-    float *pd, d;
-    double *pe, e;
-    unsigned char *pf, f;
-    unsigned int *pg, g;
-    unsigned long *ph, h;
-
-    pa = &a;
-    pb = &b;
-    pc = &c;
-    pd = &d;
-    pe = &e;
-    pf = &f;
-    pg = &g;
-    ph = &h;
+    struct tipos v;
+    char op;
 
     do{
-        system("cls");
-
-        printf("Insira um caractere: ");
-        scanf(" %c", pa);
-        printf("Insira um inteiro: ");
-        scanf(" %d", pb);
-        printf("Insira um long: ");
-        scanf(" %ld", pc);
-        printf("Insira um float: ");
-        scanf(" %f", pd);
-        printf("Insira um double: ");
-        scanf(" %lf", pe);
-        printf("Insira um unsigned char: ");
-        scanf(" %c", pf);
-        printf("Insira um unsigned int: ");
-        scanf(" %d", pg);
-        printf("Insira um unsigned long: ");
-        scanf(" %ld", ph);
-
-        printf("        10        20        30        40        50        60\n123456789012345678901234567890123456789012345678901234567890\n");
-        printf("    %d%20ld%20d\n", *pb, *pc, *pg);
-        printf("    %10f%10lf%10c\n", *pd, *pe, *pa);
-        printf("         %ld%20lc\n", *ph, *pf);
+        entrada(&v);
+        imprime(&v);
 
         printf("Deseja continuar? (S/N): ");
         scanf(" %c", &op);
@@ -224,13 +226,240 @@ int main(void){
             exit(0);
         }
     }while(1);
-
+    
     return 0;
- }
+}
 #endif  //ex4
 #ifdef  ex5
+struct pessoa{
+	char nome[50];
+	char end[50];
+	char cidade[50];
+	char estado[3];
+	char cep[8];
+};
 
+void Cadastrar(struct pessoa *pp){
+	for(int i = 0; i < 4; i++){
+		printf("\nInsira o nome da pessoa %d: ", i+1);
+        gets((pp+i)->nome);
+        printf("Insira o endereço da pessoa %d: ", i+1);
+        gets((pp+i)->end);
+		printf("Insira a cidade da pessoa %d: ", i+1);
+        gets((pp+i)->cidade);
+        printf("Insira o estado da pessoa %d: ", i+1);
+        gets((pp+i)->estado);
+		printf("Insira o CEP da pessoa %d: ", i+1);
+        gets((pp+i)->cep);
+	}
+}
+
+void Consultar(struct pessoa *pp){
+	for(int i = 0; i < 4; i++){
+		printf("\nPessoa %d:\n", i+1);
+		printf("Nome: %s\n", (pp + i)->nome);
+		printf("Endereço: %s\n", (pp + i)->end);
+		printf("Cidade: %s\n", (pp + i)->cidade);
+		printf("Estado: %s\n", (pp + i)->estado);
+		printf("CEP: %s\n", (pp + i)->cep);
+	}
+	system("pause");
+}
+
+int main(void){
+	int op;
+    struct pessoa p[4];
+	setlocale(LC_ALL, "PORTUGUESE");
+
+	do{
+		system("cls");
+		printf("1 - Cadastrar\n");
+		printf("2 - Consultar\n");
+		printf("3 - Sair\n");
+		printf("Insira a opção desejada: ");
+		scanf(" %d", &op);
+        getchar();
+		
+        switch (op){
+		case 1:
+			Cadastrar(p);
+			break;
+
+		case 2:
+			Consultar(p);
+			break;
+		
+		case 3:
+			exit(0);
+			break;
+		
+		default:
+			printf("Opção inválida!\n");
+			break;
+		}
+
+	} while (1);
+
+	return 0;
+} 
 #endif  //ex5
 #ifdef  ex6
+struct pessoa{
+	char nome[50];
+	char end[50];
+	char cidade[50];
+	char estado[3];
+	char cep[8];
+};
 
+void Cadastrar(struct pessoa *pp){
+	for(int i = 0; i < 4; i++){
+		printf("\nInsira o nome da pessoa %d: ", i+1);
+        gets((pp+i)->nome);
+        printf("Insira o endereço da pessoa %d: ", i+1);
+        gets((pp+i)->end);
+		printf("Insira a cidade da pessoa %d: ", i+1);
+        gets((pp+i)->cidade);
+        printf("Insira o estado da pessoa %d: ", i+1);
+        gets((pp+i)->estado);
+		printf("Insira o CEP da pessoa %d: ", i+1);
+        gets((pp+i)->cep);
+	}
+}
+
+void Consultar(struct pessoa *pp){
+	for(int i = 0; i < 4; i++){
+		printf("\nPessoa %d:\n", i+1);
+		printf("Nome: %s\n", (pp + i)->nome);
+		printf("Endereço: %s\n", (pp + i)->end);
+		printf("Cidade: %s\n", (pp + i)->cidade);
+		printf("Estado: %s\n", (pp + i)->estado);
+		printf("CEP: %s\n", (pp + i)->cep);
+	}
+	system("pause");
+}
+
+void Pesquisar(struct pessoa *pp){
+    char nome[50], *str1, *str2;
+    str1 = nome;
+    
+    system("cls");
+    printf("Digite o nome a ser pesquisado: ");
+    gets(nome);
+
+    for(int i = 0; i < 4; i++, pp++){
+        str2 = pp->nome;
+        while(*str1 == *str2 && *str1 != '\0' && *str2 != '\0'){
+            str1++;
+            str2++;
+            
+            if(*str1 == '\0' && *str2 == '\0'){
+                printf("\nNome encontrado!\n");
+                printf("Nome: %s\n", pp->nome);
+                printf("Endereço: %s\n", pp->end);
+                printf("Cidade: %s\n", pp->cidade);
+                printf("Estado: %s\n", pp->estado);
+                printf("CEP: %s\n", pp->cep);
+                system("pause");
+                return;
+            }
+        }
+    }
+    printf("Nome não encontrado!\n");
+    system("pause");
+
+}
+
+void Alterar(struct pessoa *pp){
+    char nome[50], *str1, *str2;
+    str1 = nome;
+    
+    system("cls");
+    printf("Digite o nome a ser pesquisado: ");
+    gets(nome);
+
+    for(int i = 0; i < 4; i++, pp++){
+        str2 = pp->nome;
+        while(*str1 == *str2 && *str1 != '\0' && *str2 != '\0'){
+            str1++;
+            str2++;
+            
+            if(*str1 == '\0' && *str2 == '\0'){
+                printf("\nNome encontrado! Insira novos dados\n");
+                
+                printf("\nInsira o nome da pessoa %d: ", i+1);
+                gets((pp+i)->nome);
+                printf("Insira o endereço da pessoa %d: ", i+1);
+                gets((pp+i)->end);
+                printf("Insira a cidade da pessoa %d: ", i+1);
+                gets((pp+i)->cidade);
+                printf("Insira o estado da pessoa %d: ", i+1);
+                gets((pp+i)->estado);
+                printf("Insira o CEP da pessoa %d: ", i+1);
+                gets((pp+i)->cep);
+                system("pause");
+                return;
+            }
+        }
+    }
+    printf("Nome não encontrado!\n");
+    system("pause");
+
+}
+
+void Excluir(struct pessoa *pp){
+
+}
+
+int main(void){
+	int op;
+    struct pessoa p[4];
+	setlocale(LC_ALL, "PORTUGUESE");
+
+	do{
+		system("cls");
+		printf("1 - Cadastrar\n");
+		printf("2 - Consultar\n");
+        printf("3 - Pesquisar\n");
+        printf("4 - Alterar\n");
+        printf("5 - Excluir\n");
+		printf("6 - Sair\n");
+		printf("Insira a opção desejada: ");
+		scanf(" %d", &op);
+        getchar();
+		
+        switch (op){
+		case 1:
+			Cadastrar(p);
+			break;
+
+		case 2:
+			Consultar(p);
+			break;
+		
+        case 3:
+            Pesquisar(p);
+            break;
+
+        case 4:
+            Alterar(p);
+            break;
+
+        case 5:
+            Excluir(p);
+            break;
+
+		case 6:
+			exit(0);
+			break;
+		
+		default:
+			printf("Opção inválida!\n");
+			break;
+		}
+
+	} while (1);
+
+	return 0;
+} 
 #endif  //ex6
