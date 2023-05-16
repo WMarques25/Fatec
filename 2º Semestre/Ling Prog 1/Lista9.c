@@ -487,7 +487,6 @@ int main(void){
 		}
 
 	} while (1);
-
 	return 0;
 } 
 #endif  //ex6
