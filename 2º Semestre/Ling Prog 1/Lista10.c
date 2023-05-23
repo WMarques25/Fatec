@@ -75,6 +75,7 @@ typedef struct{
 
 void Inserir(Contato *p){
     for(int i = 0; i < 4; i++, p++){
+        system("cls");
         printf("Insira o %dº nome: ", i+1);
         scanf(" %s", p->nome);
         printf("Insira o telefone: ");
@@ -102,6 +103,7 @@ void Pesquisar(Contato *p){
     system("cls");
     printf("Digite o nome a ser pesquisado: ");
     gets(nome);
+    
 
     for(int i = 0; i < 4; i++, p++){
         str2 = p->nome;
@@ -234,6 +236,21 @@ void Excluir(Contato *p){
     system("pause");
 }
 
+void Sair(Contato *p1){
+    FILE *Contatos;
+
+    Contatos = fopen("contatos.txt", "w");
+    for(int i = 0; i < 4; i++, p1++){
+        fprintf(Contatos, "%s\n", p1->nome);
+        fprintf(Contatos, "%s\n", p1->telefone);
+        fprintf(Contatos, "%d\n", p1->aniversario.dia);
+        fprintf(Contatos, "%d\n", p1->aniversario.mes);
+    }
+
+    fclose(Contatos);
+    exit(0);
+}
+
 int main(void){
     setlocale(LC_ALL, "Portuguese");
     Contato p[4];
@@ -243,9 +260,10 @@ int main(void){
 
     if((Contatos = fopen("contatos.txt", "r")) == NULL){
         fclose(Contatos);
-        Contatos = fopen("contatos.txt", "x");
-    }else {
-        
+        Contatos = fopen("contatos.txt", "w");
+        fclose(Contatos);
+    }else{
+
         for(int i = 0; i < 4; i++, p1++){
             fscanf(Contatos, "%s", p1->nome);
             fscanf(Contatos, "%s", p1->telefone);
@@ -254,7 +272,6 @@ int main(void){
         }
         fclose(Contatos);
     }
-
     do{
         system("cls");
         printf("Agenda de contatos\n");
@@ -299,7 +316,7 @@ int main(void){
                 break;
 
             case 8:
-                exit(0);
+                Sair(p);
 
             default:
                 printf("Opção inválida!\n");
@@ -308,7 +325,8 @@ int main(void){
         }
     } while (op != 8);
 
-    // Gravando os dados no arquivo
+    return 0;
+
 }
 
 #endif // ex2
