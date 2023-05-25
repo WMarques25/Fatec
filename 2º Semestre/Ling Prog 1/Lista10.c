@@ -1,4 +1,4 @@
-#define ex2
+#define ex3
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -247,7 +247,7 @@ void Sair(Contato *p1){
     for(int i = 0; i < 4; i++, p1++){
         fwrite(p1->nome, sizeof(p1->nome), 1, Contatos);
         fwrite(p1->telefone, sizeof(p1->telefone), 1, Contatos);
-        fputs("\n"', Contatos);
+        fputs("\n", Contatos);
         fprintf(Contatos, "%d\n", p1->aniversario.dia);
         fprintf(Contatos, "%d\n", p1->aniversario.mes);
     }
@@ -338,6 +338,103 @@ int main(void){
 
 #endif // ex2
 #ifdef ex3
+typedef struct{
+    char nome[50];
+    char email[50];
+    char telefone[15];
+}Cliente;
+
+void Inserir(Cliente *p){
+    FILE *clientes;
+
+    clientes = fopen("clientes.txt", "a");
+    printf("Insira o nome do cliente: ");
+    gets(p->nome);
+    printf("Insira o email do cliente: ");
+    gets(p->email);
+    printf("Insira o telefone do cliente: ");
+    gets(p->telefone);
+
+    // fputs(p->nome, clientes);
+}
+
+void Listar(Cliente *p){
+    FILE *clientes;
+
+}
+
+void Pesquisar(Cliente *p){
+    FILE *clientes;
+
+}
+
+void Alterar(Cliente *p){
+    FILE *clientes;
+
+}
+
+void Excluir(Cliente *p){
+    FILE *clientes;
+
+}
+
+void Sair(Cliente *p){
+    FILE *clientes;
+
+}
+
+
+int main(void){
+    setlocale(LC_ALL, "Portuguese");
+    Cliente Cliente;
+    int op;
+
+    while (1){
+        system("cls");
+        printf("Cadastro de clientes\n");
+        printf("1 - Inserir cliente\n");
+        printf("2 - Listar todos os clientes\n");
+        printf("3 - Pesquisar um cliente pelo nome\n");
+        printf("4 - Alterar cliente\n");
+        printf("5 - Excluir cliente\n");
+        printf("6 - Sair\n");
+        printf("Digite a opção: ");
+        scanf(" %d", &op);
+        getchar();
+
+        switch(op){
+            case 1:
+                Inserir(&Cliente);
+                break;
+
+            case 2:
+                Listar(&Cliente);
+                break;
+
+            case 3:
+                Pesquisar(&Cliente);
+                break;
+
+            case 4:
+                Alterar(&Cliente);
+                break;
+
+            case 5:
+                Excluir(&Cliente);
+                break;
+
+            case 6:
+                Sair(&Cliente);
+
+            default:
+                printf("Opção inválida!\n");
+                system("pause");
+                break;
+        }        
+    }
+    
+}
+
 
 #endif // ex3
 #ifdef ex4
