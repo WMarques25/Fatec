@@ -355,16 +355,50 @@ void Inserir(Cliente *p){
     printf("Insira o telefone do cliente: ");
     gets(p->telefone);
 
-    // fputs(p->nome, clientes);
+    fputs(p->nome, clientes);
+    fputs("\n", clientes);
+    fputs(p->email, clientes);
+    fputs("\n", clientes);
+    fputs(p->telefone, clientes);
+    fputs("\n", clientes);
+
+    fclose(clientes);
 }
 
 void Listar(Cliente *p){
     FILE *clientes;
+    int i = 0;
 
+    clientes = fopen("clientes.txt", "r");
+
+    while(fgets(p->nome, 50, clientes) != NULL){
+        i++;
+        printf("Cliente %d\n", i);
+        printf("Nome: %s", p->nome);
+        fgets(p->email, 50, clientes);
+        printf("Email: %s", p->email);
+        fgets(p->telefone, 15, clientes);
+        printf("Telefone: %s", p->telefone);
+        printf("\n");
+
+    }
+
+    fclose(clientes);
+    system("pause");
 }
 
 void Pesquisar(Cliente *p){
     FILE *clientes;
+    char nome[50];
+
+    clientes = fopen("clientes.txt", "r");
+
+    printf("Digite o nome do cliente: ");
+    gets(nome);
+
+    while(fgets(p->nome, 50, clientes) != NULL){
+        if(){}
+    }
 
 }
 
