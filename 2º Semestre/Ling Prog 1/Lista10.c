@@ -355,13 +355,10 @@ void Inserir(Cliente *p){
     printf("Insira o telefone do cliente: ");
     gets(p->telefone);
 
-    fputs(p->nome, clientes);
-    fputs("\n", clientes);
-    fputs(p->email, clientes);
-    fputs("\n", clientes);
-    fputs(p->telefone, clientes);
-    fputs("\n", clientes);
-
+    fwrite(p->nome, sizeof(p->nome), 1, clientes);
+    fwrite(p->email, sizeof(p->email), 1, clientes);
+    fwrite(p->telefone, sizeof(p->telefone), 1, clientes);
+    
     fclose(clientes);
 }
 
@@ -371,13 +368,13 @@ void Listar(Cliente *p){
 
     clientes = fopen("clientes.txt", "r");
 
-    while(fgets(p->nome, 50, clientes) != NULL){
+    while(fgets(p->nome, sizeof(p->nome), clientes) != NULL){
         i++;
         printf("Cliente %d\n", i);
         printf("Nome: %s", p->nome);
-        fgets(p->email, 50, clientes);
+        fread(p->email, sizeof(p->email), 1, clientes);
         printf("Email: %s", p->email);
-        fgets(p->telefone, 15, clientes);
+        fread(p->telefone, sizeof(p->telefone), 1, clientes);
         printf("Telefone: %s", p->telefone);
         printf("\n");
 
@@ -390,6 +387,7 @@ void Listar(Cliente *p){
 void Pesquisar(Cliente *p){
     FILE *clientes;
     char nome[50];
+    char *n1, *n2;
 
     clientes = fopen("clientes.txt", "r");
 
@@ -397,19 +395,52 @@ void Pesquisar(Cliente *p){
     gets(nome);
 
     while(fgets(p->nome, 50, clientes) != NULL){
-        if(){}
+        n1 = &nome;
+        n2 = &p->nome;
+
+        while(*n1 == *n2 && *n1 != '\0' && *n2 != '\0'){
+            n1++;
+            n2++;
+            if(*n1 == '\0' && *n2 == '\0'){
+                printf("Nome: %s", p->nome);
+                fgets(p->email, 50, clientes);
+                printf("Email: %s", p->email);
+                fgets(p->telefone, 15, clientes);
+                printf("Telefone: %s", p->telefone);
+                printf("\n");
+                fclose(clientes);
+                system("pause");
+                return;
+            }
+            
+        }
     }
+
+    printf("Cliente não encontrado!\n");
+    system("pause");
+    fclose(clientes);
 
 }
 
 void Alterar(Cliente *p){
     FILE *clientes;
 
+    clientes = fopen("clientes.txt", "a");
+    gets(p->nome);
+    fprintf(clientes, "%s\n", p->nome);
+
+    fclose(clientes);
 }
 
 void Excluir(Cliente *p){
     FILE *clientes;
+    
+    clientes = fopen("clientes.txt", "r");
+    fgets(p->nome, 50, clientes);
+    fclose(clientes);
+    printf("%s", p->nome);
 
+    system("pause");
 }
 
 void Sair(Cliente *p){
