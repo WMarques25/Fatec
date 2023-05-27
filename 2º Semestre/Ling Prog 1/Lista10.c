@@ -347,6 +347,7 @@ typedef struct{
 void Inserir(Cliente *p){
     FILE *clientes;
 
+    system("cls");
     clientes = fopen("clientes.txt", "a");
     printf("Insira o nome do cliente: ");
     gets(p->nome);
@@ -366,17 +367,18 @@ void Listar(Cliente *p){
     FILE *clientes;
     int i = 0;
 
+    system("cls");
     clientes = fopen("clientes.txt", "r");
 
-    while(fgets(p->nome, sizeof(p->nome), clientes) != NULL){
+    while(fread(p->nome, sizeof(p->nome), 1, clientes) != NULL){
         i++;
         printf("Cliente %d\n", i);
         printf("Nome: %s", p->nome);
         fread(p->email, sizeof(p->email), 1, clientes);
-        printf("Email: %s", p->email);
+        printf("\nEmail: %s", p->email);
         fread(p->telefone, sizeof(p->telefone), 1, clientes);
-        printf("Telefone: %s", p->telefone);
-        printf("\n");
+        printf("\nTelefone: %s", p->telefone);
+        printf("\n\n");
 
     }
 
@@ -389,12 +391,13 @@ void Pesquisar(Cliente *p){
     char nome[50];
     char *n1, *n2;
 
+    system("cls");
     clientes = fopen("clientes.txt", "r");
 
     printf("Digite o nome do cliente: ");
     gets(nome);
 
-    while(fgets(p->nome, 50, clientes) != NULL){
+    while(fread(p->nome, sizeof(p->nome), 1, clientes) != NULL){
         n1 = &nome;
         n2 = &p->nome;
 
@@ -403,11 +406,11 @@ void Pesquisar(Cliente *p){
             n2++;
             if(*n1 == '\0' && *n2 == '\0'){
                 printf("Nome: %s", p->nome);
-                fgets(p->email, 50, clientes);
-                printf("Email: %s", p->email);
-                fgets(p->telefone, 15, clientes);
-                printf("Telefone: %s", p->telefone);
-                printf("\n");
+                fread(p->email, sizeof(p->email), 1, clientes);
+                printf("\nEmail: %s", p->email);
+                fread(p->telefone, sizeof(p->telefone), 1, clientes);
+                printf("\nTelefone: %s", p->telefone);
+                printf("\n\n");
                 fclose(clientes);
                 system("pause");
                 return;
@@ -422,14 +425,60 @@ void Pesquisar(Cliente *p){
 
 }
 
-void Alterar(Cliente *p){
+void Alterar(Cliente *p, Cliente cliente){
     FILE *clientes;
+    int i = 0;
+    char nome[50];
+    char *n1, *n2;
 
-    clientes = fopen("clientes.txt", "a");
-    gets(p->nome);
-    fprintf(clientes, "%s\n", p->nome);
+    system("cls");
+    clientes = fopen("clientes.txt", "r");
 
+    printf("Digite o nome do cliente: ");
+    gets(nome);
+
+    while(fread(p->nome, sizeof(p->nome), 1, clientes) != NULL){
+        i++;
+        n1 = &nome;
+        n2 = &p->nome;
+
+        while(*n1 == *n2 && *n1 != '\0' && *n2 != '\0'){
+            n1++;
+            n2++;
+            if(*n1 == '\0' && *n2 == '\0'){
+                printf("Cliente encontrado!\n\n");
+                printf("Nome: %s", p->nome);
+                fread(p->email, sizeof(p->email), 1, clientes);
+                printf("\nEmail: %s", p->email);
+                fread(p->telefone, sizeof(p->telefone), 1, clientes);
+                printf("\nTelefone: %s", p->telefone);
+                printf("\n\n");
+
+                fseek(clientes, -(sizeof(cliente)*2), 1);
+                printf("Insira o novo nome do cliente: ");
+                gets(p->nome);
+                printf("Insira o novo email do cliente: ");
+                gets(p->email);
+                printf("Insira o novo telefone do cliente: ");
+                gets(p->telefone);
+
+                fwrite(p->nome, sizeof(p->nome), 1, clientes);
+                fwrite(p->email, sizeof(p->email), 1, clientes);
+                fwrite(p->telefone, sizeof(p->telefone), 1, clientes);
+                printf("Cliente alterado com sucesso!\n");
+
+                fclose(clientes);
+                system("pause");
+                return;
+            }
+            
+        }
+    }
+
+    printf("Cliente não encontrado!\n");
+    system("pause");
     fclose(clientes);
+
 }
 
 void Excluir(Cliente *p){
@@ -481,7 +530,7 @@ int main(void){
                 break;
 
             case 4:
-                Alterar(&Cliente);
+                Alterar(&Cliente, Cliente);
                 break;
 
             case 5:
