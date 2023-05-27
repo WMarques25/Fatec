@@ -432,7 +432,7 @@ void Alterar(Cliente *p, Cliente cliente){
     char *n1, *n2;
 
     system("cls");
-    clientes = fopen("clientes.txt", "r");
+    clientes = fopen("clientes.txt", "r+");
 
     printf("Digite o nome do cliente: ");
     gets(nome);
@@ -454,7 +454,7 @@ void Alterar(Cliente *p, Cliente cliente){
                 printf("\nTelefone: %s", p->telefone);
                 printf("\n\n");
 
-                fseek(clientes, -(sizeof(cliente)*2), 1);
+                fseek(clientes, -sizeof(cliente), 1);
                 printf("Insira o novo nome do cliente: ");
                 gets(p->nome);
                 printf("Insira o novo email do cliente: ");
