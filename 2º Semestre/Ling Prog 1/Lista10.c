@@ -1,4 +1,4 @@
-#define ex3
+#define ex4
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -348,6 +348,7 @@ void Inserir(Cliente *p){
     FILE *clientes;
 
     system("cls");
+    
     clientes = fopen("clientes.txt", "a");
     printf("Insira o nome do cliente: ");
     gets(p->nome);
@@ -371,6 +372,11 @@ void Listar(Cliente *p){
     clientes = fopen("clientes.txt", "r");
 
     while(fread(p->nome, sizeof(p->nome), 1, clientes) != NULL){
+        if(p->nome[0] == '*'){
+            fseek(clientes, sizeof(p->email) + sizeof(p->telefone), SEEK_CUR);
+            continue;
+        }
+
         i++;
         printf("Cliente %d\n", i);
         printf("Nome: %s", p->nome);
@@ -380,6 +386,9 @@ void Listar(Cliente *p){
         printf("\nTelefone: %s", p->telefone);
         printf("\n\n");
 
+    }
+    if(i == 0){
+        printf("Não há clientes cadastrados!\n");
     }
 
     fclose(clientes);
@@ -401,6 +410,11 @@ void Pesquisar(Cliente *p){
         n1 = &nome;
         n2 = &p->nome;
 
+        if(*n2 == '*'){
+            fseek(clientes, sizeof(p->email) + sizeof(p->telefone), SEEK_CUR);
+            continue;
+        }
+
         while(*n1 == *n2 && *n1 != '\0' && *n2 != '\0'){
             n1++;
             n2++;
@@ -417,6 +431,7 @@ void Pesquisar(Cliente *p){
             }
             
         }
+        fseek(clientes, sizeof(p->email) + sizeof(p->telefone), SEEK_CUR);
     }
 
     printf("Cliente não encontrado!\n");
@@ -425,7 +440,7 @@ void Pesquisar(Cliente *p){
 
 }
 
-void Alterar(Cliente *p, Cliente cliente){
+void Alterar(Cliente *p){
     FILE *clientes;
     int i = 0;
     char nome[50];
@@ -442,6 +457,11 @@ void Alterar(Cliente *p, Cliente cliente){
         n1 = &nome;
         n2 = &p->nome;
 
+        if(*n2 == '*'){
+            fseek(clientes, sizeof(p->email) + sizeof(p->telefone), SEEK_CUR);
+            continue;
+        }
+
         while(*n1 == *n2 && *n1 != '\0' && *n2 != '\0'){
             n1++;
             n2++;
@@ -454,7 +474,7 @@ void Alterar(Cliente *p, Cliente cliente){
                 printf("\nTelefone: %s", p->telefone);
                 printf("\n\n");
 
-                fseek(clientes, -sizeof(cliente), 1);
+                fseek(clientes, -sizeof(*p), 1);
                 printf("Insira o novo nome do cliente: ");
                 gets(p->nome);
                 printf("Insira o novo email do cliente: ");
@@ -473,6 +493,7 @@ void Alterar(Cliente *p, Cliente cliente){
             }
             
         }
+        fseek(clientes, sizeof(p->email) + sizeof(p->telefone), SEEK_CUR);
     }
 
     printf("Cliente não encontrado!\n");
@@ -483,17 +504,61 @@ void Alterar(Cliente *p, Cliente cliente){
 
 void Excluir(Cliente *p){
     FILE *clientes;
-    
-    clientes = fopen("clientes.txt", "r");
-    fgets(p->nome, 50, clientes);
-    fclose(clientes);
-    printf("%s", p->nome);
+    int i = 0;
+    char nome[50];
+    char *n1, *n2;
 
+    system("cls");
+    clientes = fopen("clientes.txt", "r+");
+
+    printf("Digite o nome do cliente: ");
+    gets(nome);
+
+    while(fread(p->nome, sizeof(p->nome), 1, clientes) != '\0'){
+        i++;
+        n1 = &nome;
+        n2 = &p->nome;
+
+        if(*n2 == '*'){
+            fseek(clientes, sizeof(p->email) + sizeof(p->telefone), SEEK_CUR);
+            continue;
+        }
+
+        while(*n1 == *n2 && *n1 != '\0' && *n2 != '\0'){
+            n1++;
+            n2++;
+            if(*n1 == '\0' && *n2 == '\0'){
+                printf("Cliente encontrado!\n\n");
+                printf("Nome: %s", p->nome);
+                fread(p->email, sizeof(p->email), 1, clientes);
+                printf("\nEmail: %s", p->email);
+                fread(p->telefone, sizeof(p->telefone), 1, clientes);
+                printf("\nTelefone: %s", p->telefone);
+                printf("\n\n");
+
+                fseek(clientes, -sizeof(*p), 1);
+                
+                p->nome[0] = '*';
+                fwrite(p->nome, sizeof(p->nome), 1, clientes);
+                printf("Cliente excluido com sucesso!\n");
+
+                fclose(clientes);
+                system("pause");
+                return;
+            }
+            
+        }
+        fseek(clientes, sizeof(p->email) + sizeof(p->telefone), SEEK_CUR);
+    }
+
+    printf("Cliente não encontrado!\n");
     system("pause");
+    fclose(clientes);
+
 }
 
-void Sair(Cliente *p){
-    FILE *clientes;
+void Sair(){
+    exit(0);
 
 }
 
@@ -530,7 +595,7 @@ int main(void){
                 break;
 
             case 4:
-                Alterar(&Cliente, Cliente);
+                Alterar(&Cliente);
                 break;
 
             case 5:
@@ -538,7 +603,7 @@ int main(void){
                 break;
 
             case 6:
-                Sair(&Cliente);
+                Sair();
 
             default:
                 printf("Opção inválida!\n");
@@ -552,5 +617,143 @@ int main(void){
 
 #endif // ex3
 #ifdef ex4
+typedef struct{
+    int codigo;
+    char nome[50];
+    int quantidade;
+}Mercadoria;
 
+void Incliur(Mercadoria *p){
+    FILE *Dispensa;
+    int i = 0;
+    int codigo, x;
+
+    system("cls");
+    Dispensa = fopen("dispensa.txt", "r+");
+    printf("Digite o código da mercadoria: ");
+    scanf(" %d", &codigo);
+    getchar();
+
+    // while(fread(p->codigo, sizeof(p->codigo), 1, Dispensa) != '\0'){
+    // while((p->codigo = getc(Dispensa)) != EOF){
+        while((fscanf(Dispensa,"%d ", p->codigo)) != EOF){
+        i++;
+        if(codigo == p->codigo){
+            printf("Código já cadastrado!\n");
+            fclose(Dispensa);
+            system("pause");
+            return;
+        }
+        fseek(Dispensa, sizeof(p->nome) + sizeof(p->quantidade), SEEK_CUR);
+        getc(Dispensa);
+    }
+
+    fseek(Dispensa, 0, SEEK_END);
+    p->codigo = codigo;
+    printf("Digite o nome da mercadoria: ");
+    gets(p->nome);
+    printf("Digite a quantidade da mercadoria: ");
+    scanf(" %d", &p->quantidade);
+
+    // fwrite(p->codigo, sizeof(p->codigo), 1, Dispensa);
+    // putc(p->codigo, Dispensa);
+    fprintf(Dispensa, "%d ", p->codigo);
+    fwrite(p->nome, sizeof(p->nome), 1, Dispensa);
+    // fwrite(p->quantidade, sizeof(p->quantidade), 1, Dispensa);
+    // putc(p->quantidade, Dispensa);
+    fprintf(Dispensa, "%d ", p->quantidade);
+    putc('\n', Dispensa);
+    printf("\nMercadoria cadastrada com sucesso!\n");
+
+    fclose(Dispensa);
+    system("pause");
+
+}
+void Listar(Mercadoria *p){
+    FILE *Dispensa;
+    
+    system("cls");
+    Dispensa = fopen("test.txt", "w");
+    putc(10, Dispensa);
+    putc(2, Dispensa);
+    putc(15, Dispensa);
+
+    fclose(Dispensa);
+    system("pause");
+
+    Dispensa = fopen("test.txt", "r");
+
+    printf("%d\n", getc(Dispensa));
+    printf("%d\n", getc(Dispensa));
+    printf("%d\n", getc(Dispensa));
+
+    fclose(Dispensa);
+    system("pause");
+}
+void Pesquisar(Mercadoria *p){}
+void ListarIndisponiveis(Mercadoria *p){}
+void AlterarQuantidade(Mercadoria *p){}
+void Alterar(Mercadoria *p){}
+void Excluir(Mercadoria *p){}
+void Sair(){}
+int main(void){
+    setlocale(LC_ALL, "Portuguese");
+    Mercadoria Mercadoria;
+    int op;
+
+    while (1){
+        system("cls");
+        printf("Dispensa\n");
+        printf("1 - Incluir mercadoria\n");
+        printf("2 - Listar todas as mercadorias\n");
+        printf("3 - Pesquisar uma mercadoria pela descrição\n");
+        printf("4 - Listar as mercadorias não disponíveis\n");
+        printf("5 - Alterar a quantidade atual\n");
+        printf("6 - Alterar mercadoria\n");
+        printf("7 - Excluir mercadoria\n");
+        printf("8 - Sair\n");
+        printf("Digite a opção: ");
+        scanf(" %d", &op);
+        getchar();
+
+        switch(op){
+            case 1:
+                Incliur(&Mercadoria);
+                break;
+
+            case 2:
+                Listar(&Mercadoria);
+                break;
+
+            case 3:
+                Pesquisar(&Mercadoria);
+                break;
+
+            case 4:
+                ListarIndisponiveis(&Mercadoria);
+                break;
+
+            case 5:
+                AlterarQuantidade(&Mercadoria);
+                break;
+
+            case 6:
+                Alterar(&Mercadoria);
+                break;
+
+            case 7:
+                Excluir(&Mercadoria);
+                break;
+
+            case 8:
+                Sair();
+
+            default:
+                printf("Opção inválida!\n");
+                system("pause");
+                break;
+        }        
+    }
+    
+}
 #endif // ex4
