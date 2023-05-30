@@ -699,7 +699,14 @@ void Sair(){}
 int main(void){
     setlocale(LC_ALL, "Portuguese");
     Mercadoria Mercadoria;
+    FILE *Dispensa;
     int op;
+
+    if((Dispensa = fopen("dispensa.txt", "r")) == NULL){
+        fclose(Dispensa);
+        Dispensa = fopen("dispensa.txt", "w");
+        fclose(Dispensa);
+    }
 
     while (1){
         system("cls");
