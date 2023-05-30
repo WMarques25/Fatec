@@ -625,7 +625,6 @@ typedef struct{
 
 void Incliur(Mercadoria *p){
     FILE *Dispensa;
-    int i = 0;
     int codigo;
 
     system("cls");
@@ -633,10 +632,20 @@ void Incliur(Mercadoria *p){
     printf("Digite o código da mercadoria: ");
     scanf("%d", &codigo);
     getchar();
+    if(codigo <= 0){
+        printf("Código inválido!\n");
+        fclose(Dispensa);
+        system("pause");
+        return;
+    }
 
     fseek(Dispensa, 0, SEEK_SET);
     while(fread(p, sizeof(*p), 1, Dispensa) != 0){
-        
+        if(p->codigo <= 0){
+            getc(Dispensa);
+            continue;
+        }
+
         if(codigo == p->codigo){
             printf("Código já cadastrado!\n");
             fclose(Dispensa);
@@ -667,6 +676,10 @@ void Listar(Mercadoria *p){
     system("cls");
 
     while(fread(p, sizeof(*p), 1, Dispensa) != 0){
+        if(p->codigo <= 0){
+            getc(Dispensa);
+            continue;
+        }
         printf("Código: %d\n", p->codigo);
         printf("Nome: %s\n", p->nome);
         printf("Quantidade: %d\n\n", p->quantidade);
@@ -688,6 +701,10 @@ void Pesquisar(Mercadoria *p){
     gets(pesquisa);
 
     while(fread(p, sizeof(*p), 1, Dispensa) != 0){
+        if(p->codigo <= 0){
+            getc(Dispensa);
+            continue;
+        }
         n1 = &pesquisa;
         n2 = &p->nome;
 
@@ -717,6 +734,11 @@ void ListarIndisponiveis(Mercadoria *p){
     system("cls");
 
     while(fread(p, sizeof(*p), 1, Dispensa) != 0){
+        if(p->codigo <= 0){
+            getc(Dispensa);
+            continue;
+        }
+
         if(p->quantidade == 0){
             printf("Código: %d\n", p->codigo);
             printf("Nome: %s\n", p->nome);
@@ -739,6 +761,12 @@ void AlterarQuantidade(Mercadoria *p){
     printf("Digite o código da mercadoria: ");
     scanf("%d", &codigo);
     getchar();
+    if(codigo <= 0){
+        printf("Código inválido!\n");
+        fclose(Dispensa);
+        system("pause");
+        return;
+    }
 
     fseek(Dispensa, 0, SEEK_SET);
     while(fread(p, sizeof(*p), 1, Dispensa) != 0){
@@ -786,6 +814,12 @@ void Alterar(Mercadoria *p){
     printf("Digite o código da mercadoria: ");
     scanf("%d", &codigo);
     getchar();
+    if(codigo <= 0){
+        printf("Código inválido!\n");
+        fclose(Dispensa);
+        system("pause");
+        return;
+    }
 
     fseek(Dispensa, 0, SEEK_SET);
     while(fread(p, sizeof(*p), 1, Dispensa) != 0){
@@ -823,8 +857,47 @@ void Alterar(Mercadoria *p){
     fclose(Dispensa);
     system("pause");
 }
-void Excluir(Mercadoria *p){}
-void Sair(){}
+void Excluir(Mercadoria *p){
+    FILE *Dispensa;
+    int codigo;
+
+    system("cls");
+    Dispensa = fopen("dispensa.txt", "r+");
+
+    printf("Digite o código da mercadoria: ");
+    scanf("%d", &codigo);
+    getchar();
+    if(codigo <= 0){
+        printf("Código inválido!\n");
+        fclose(Dispensa);
+        system("pause");
+        return;
+    }
+
+    fseek(Dispensa, 0, SEEK_SET);
+    while(fread(p, sizeof(*p), 1, Dispensa) != 0){
+        
+        if(codigo == p->codigo){
+            printf("Código encontrado!\n");
+            printf("Código: %d\n", p->codigo);
+            printf("Nome: %s\n", p->nome);
+            printf("Quantidade: %d\n\n", p->quantidade);
+
+            p->codigo = -1;
+            p->nome[0] = '\0';
+            p->quantidade = NULL;
+
+            fseek(Dispensa, -sizeof(*p), SEEK_CUR);
+            fwrite(p, sizeof(*p), 1, Dispensa);
+            printf("Mercadoria excluída com sucesso!\n");
+            fclose(Dispensa);
+            system("pause");
+            return;
+        }
+        getc(Dispensa);
+    }
+}
+
 int main(void){
     setlocale(LC_ALL, "");
     Mercadoria Mercadoria;
@@ -882,7 +955,7 @@ int main(void){
                 break;
 
             case 8:
-                Sair();
+                exit(0);
 
             default:
                 printf("Opção inválida!\n");
