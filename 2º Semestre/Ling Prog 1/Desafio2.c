@@ -343,13 +343,14 @@ void AlterarDados(Livro *livros){
                 printf("Insira o novo autor: ");
                 gets(livros->autor);
                 printf("Insira o novo preço: ");
-                scanf(" %f", &livros->preco);
+                scanf("%f", &livros->preco);
                 getchar();
                 printf("Insira a nova quantidade: ");
-                scanf(" %d", &livros->quantidade);
+                scanf("%d", &livros->quantidade);
                 getchar();
                 fseek(arq, -sizeof(*livros), SEEK_CUR);
                 fwrite(livros, sizeof(*livros), 1, arq);
+                putc('\n', arq);
                 fclose(arq);
                 printf("Dados alterados com sucesso!\n");
                 system("pause");
