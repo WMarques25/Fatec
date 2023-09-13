@@ -147,7 +147,6 @@ struct Fila
     int Fila[5];
     int i;
     int j;
-    int k;
 }Fila;
 
 int main(void){
