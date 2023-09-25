@@ -1,5 +1,5 @@
 /*
-2) Implemente uma Lista Encadeada contendo nomes de pessoas [ 10 posições]. - DESAFIO
+2) Implemente uma Lista Encadeada contendo nomes de pessoas [ 10 posições].
 Em seguida:
 a)  remova um nome especifico informado.
 b) insira um novo nome na mesma posição onde o nome anterior foi removido.
