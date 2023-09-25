@@ -1,105 +1,95 @@
-// 1) Implemente através de um algoritmo o exemplo de Lista Encadeada descrito nos slides de 11 a 16.
+/*
+2) Implemente uma Lista Encadeada contendo nomes de pessoas [ 10 posi��es]. - DESAFIO
+Em seguida:
+a)  remova um nome especifico informado.
+b) insira um novo nome na mesma posi��o onde o nome anterior foi removido.
+
+OBS: Isto vale para qualquer quantidade de elementos removidos ou inseridos na Lista.
+*/
 
 #include <stdio.h>
 #include <locale.h>
 #include <stdlib.h>
 #include <string.h>
 
-// Definição da estrutura do nó da lista
-struct Lista {
-    char nome[10];
-    struct Lista* prox;
-};
+typedef struct lista{
+    char nome[20];
+    struct lista *prox;
+}Lista;
 
-// Função para criar um novo nó
-struct Lista* inserir(const char* nome) {
-    struct Lista* novo = (struct Lista*)malloc(sizeof(struct Lista));
-    if (novo == NULL) {
-        printf("Erro: Falha na alocação de memória\n");
-        exit(1);
+Lista *remover(Lista *l, char nome[20]){
+
+    Lista *ant = NULL;
+    Lista *p = l;
+    while(p != NULL && strcmp(p->nome, nome) != 0){
+        ant = p;
+        p = p->prox;
     }
-    strncpy(novo->nome, nome, sizeof(novo->nome) - 1);
-    novo->nome[sizeof(novo->nome) - 1] = '\0'; // Garante que a string seja terminada corretamente
-    novo->prox = NULL;
-    return novo;
+    if(p == NULL){
+        return l;
+    }
+    if(ant == NULL){
+        l = p->prox;
+    }else{
+        ant->prox = p->prox;
+    }
+    return l;
 }
 
-// Função para imprimir a lista
-void imprimir(struct Lista* cabeca) {
-    struct Lista* atual = cabeca;
-    while (atual != NULL) {
-        printf("%s -> ", atual->nome);
-        atual = atual->prox;
+void imprimir(Lista *l){
+    Lista *p;
+    printf("Lista: \n");
+    for(p = l; p != NULL; p = p->prox){
+        printf("%s ", p->nome);
     }
-    printf("NULL\n");
+    printf("\n");
 }
 
-// Função para remover um nó com um nome específico
-void remover(struct Lista** cabeca, const char* nome) {
-    struct Lista* atual = *cabeca;
-    struct Lista* ant = NULL;
-
-    // Procurar o nó com o nome especificado
-    while (atual != NULL && strcmp(atual->nome, nome) != 0) {
-        ant = atual;
-        atual = atual->prox;
+Lista *inserirPosicao(Lista *l, char nome[20], int posicao){
+    Lista *novo = (Lista*)malloc(sizeof(Lista));
+    Lista *p = l;
+    Lista *ant = NULL;
+    int i = 0;
+    strcpy(novo->nome, nome);
+    while(p != NULL && i < posicao){
+        ant = p;
+        p = p->prox;
+        i++;
     }
-
-    // Se o nome não foi encontrado, não faz nada
-    if (atual == NULL) {
-        printf("Nome %s não encontrado na lista.\n", nome);
-        return;
+    if(p == NULL){
+        return l;
     }
-
-    // Remove o nó
-    if (ant == NULL) {
-        // O nó a ser removido é o primeiro nó
-        *cabeca = atual->prox;
-    } else {
-        ant->prox = atual->prox;
+    if(ant == NULL){
+        l = novo;
+    }else{
+        ant->prox = novo;
     }
-
-    free(atual);
+    novo->prox = p;
+    return l;
 }
 
-int main() {
-    setlocale(LC_ALL, "");
-    // Criando nós
-    struct Lista* cabeca = inserir("Anta");
-    struct Lista* atual = cabeca;
+Lista A[10] = { { "Jo�o", &A[1] }, { "Maria", &A[2] }, { "Jos�", &A[3] },
+                { "Ana", &A[4] }, { "Pedro", &A[5] }, { "Paulo", &A[6] },
+                { "Carlos", &A[7] }, { "Lucas", &A[8] }, { "Marcos", &A[9] }, { "Mateus", NULL } };
 
-    // Construindo a lista conforme os dados fornecidos
-    const char* nomes[] = { "Tatu", "Cotia", "Paca", "Prea" };
-    int prox[] = { 2, 5, 1, -1 }; // Usamos -1 para indicar NULL
-
-    for (int i = 0; i < 4; i++) {
-        int proxIndex = prox[i] - 1; // Convertendo para índice de array (1-based para 0-based)
-        struct Lista* novo = inserir(nomes[i]);
-        atual->prox = novo;
-        atual = novo;
-
-        if (proxIndex == -1) {
-            break;
-        }
-    }
-
-    // Imprimindo a lista
-    printf("Lista: ");
-    imprimir(cabeca);
-
-    // Removendo o nó com nome "Paca" (por exemplo)
-    const char* nomeARemover = "Paca";
-    remover(&cabeca, nomeARemover);
-    printf("Lista após a remoção do nome %s: ", nomeARemover);
-    imprimir(cabeca);
-
-    // Liberando a memória alocada
-    atual = cabeca;
-    while (atual != NULL) {
-        struct Lista* temp = atual;
-        atual = atual->prox;
-        free(temp);
-    }
+int main(){
+    setlocale(LC_ALL, "Portuguese");
+    int opcao, posicao;
+    char nome[20];
+    Lista *l = NULL;
+    l = &A[0];
+    
+    system("cls");
+    imprimir(l);
+    printf("\n");
+    printf("Removendo o nome 'Pedro'.\n");
+    l = remover(l, "Pedro");
+    imprimir(l);
+    printf("\n");
+    printf("Inserindo o nome 'Leticia' na posi��o 4.\n");
+    l = inserirPosicao(l, "Leticia", 4);
+    imprimir(l);
+    printf("\n");
 
     return 0;
 }
