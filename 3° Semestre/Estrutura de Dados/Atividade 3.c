@@ -1,10 +1,9 @@
 /*
-2) Implemente uma Lista Encadeada contendo nomes de pessoas [ 10 posiÁıes].
+2) Implemente uma Lista Encadeada contendo nomes de pessoas [ 10 posi√ß√µes]. - DESAFIO
 Em seguida:
 a)  remova um nome especifico informado.
-b) insira um novo nome na mesma posiÁ„o onde o nome anterior foi removido.
-
-OBS: Isto vale para qualquer quantidade de elementos removidos ou inseridos na Lista.
+b) insira um novo nome na mesma posi√ß√£o onde o nome anterior foi removido.
+OBS: Isto vale para qualquer quantidade de elementos removidos ou inseridos na Lista.   
 */
 
 #include <stdio.h>
@@ -17,15 +16,21 @@ typedef struct lista{
     struct lista *prox;
 }Lista;
 
-Lista *remover(Lista *l, char nome[20]){
+int n = 0;
 
+Lista *remover(Lista *l, char nome[20]){
     Lista *ant = NULL;
     Lista *p = l;
+    n = 0;
     while(p != NULL && strcmp(p->nome, nome) != 0){
         ant = p;
         p = p->prox;
+        n++;
     }
     if(p == NULL){
+        system("cls");
+        printf("\n\tN√£o Encontrado\n");
+        n = -1;
         return l;
     }
     if(ant == NULL){
@@ -68,28 +73,56 @@ Lista *inserirPosicao(Lista *l, char nome[20], int posicao){
     return l;
 }
 
-Lista A[10] = { { "Jo„o", &A[1] }, { "Maria", &A[2] }, { "JosÈ", &A[3] },
+Lista A[10] = { { "Jo√£o", &A[1] }, { "Maria", &A[2] }, { "Jos√©", &A[3] },
                 { "Ana", &A[4] }, { "Pedro", &A[5] }, { "Paulo", &A[6] },
                 { "Carlos", &A[7] }, { "Lucas", &A[8] }, { "Marcos", &A[9] }, { "Mateus", NULL } };
 
 int main(){
     setlocale(LC_ALL, "Portuguese");
-    int opcao, posicao;
+    int opcao;
     char nome[20];
     Lista *l = NULL;
     l = &A[0];
-    
-    system("cls");
-    imprimir(l);
-    printf("\n");
-    printf("Removendo o nome 'Pedro'.\n");
-    l = remover(l, "Pedro");
-    imprimir(l);
-    printf("\n");
-    printf("Inserindo o nome 'Leticia' na posiÁ„o 4.\n");
-    l = inserirPosicao(l, "Leticia", 4);
-    imprimir(l);
-    printf("\n");
+
+    do{
+        system("cls");
+        imprimir(l);
+        printf("\n");
+
+        printf("1 - Alterar\n2 - Sair\n");
+        scanf("%d", &opcao);
+        getchar();
+
+        switch (opcao){
+        case 1:
+            printf("\nDigite o nome para remover: ");
+            scanf("%s", &nome[0]);
+            getchar();
+            printf("Removendo o nome '%s'.\n", &nome[0]);
+            l = remover(l, &nome[0]);
+
+            if(n == -1)
+                break;
+            imprimir(l);
+
+            printf("\nDigite o novo nome para inserir: ");
+            scanf("%s", &nome[0]);
+            getchar();
+            printf("Inserindo '%s' na posi√ß√£o %d", &nome[0], n);
+            l = inserirPosicao(l, &nome[0], n);
+            break;
+
+        case 2:
+            exit(0);
+            break;
+
+        default:
+            printf("\nOp√ß√£o Inv√°lida\n");
+            break;
+        }
+        imprimir(l);
+        system("pause");
+    }while(1);
 
     return 0;
 }
