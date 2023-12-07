@@ -3,8 +3,7 @@
 #include <locale.h>
 
 int p;
-int main(void)
-{
+int main(void){
     setlocale(LC_ALL, "");
     do{
     printf("T�st�\n");
@@ -83,8 +82,7 @@ int main(void)
 
     }while(p==0);
 }
-ex1()
-{
+ex1(){
     setlocale(LC_ALL, "Portuguese");
     int a,s,x;
     char z;
@@ -104,8 +102,7 @@ ex1()
     printf("\n\n\t\tFIM\n\n");
     p=0;
 }
-ex2()
-{
+ex2(){
     setlocale(LC_ALL, "Portuguese");
     float x;
     char z;
@@ -122,8 +119,7 @@ ex2()
     printf("\n\n\tFIM\n\n");
     p=0;
 }
-ex3()
-{
+ex3(){
     setlocale(LC_ALL, "Portuguese");
     float x;
     char z;
@@ -147,8 +143,7 @@ ex3()
     printf("\n\n\tFIM\n");
     p=0;
 }
-ex4()
-{
+ex4(){
         setlocale(LC_ALL, "Portuguese");
     float x,i;
     int n;
@@ -188,8 +183,7 @@ ex4()
     printf("\n\n\tFIM\n");
     p=0;
 }
-ex5()
-{
+ex5(){
     float vfab, imp, luc;
     char zn;
 
@@ -244,8 +238,7 @@ ex5()
    printf("\nfim \n");
     p=0;
 }
-ex6()
-{
+ex6(){
     float valor;
     char zn;
 
@@ -287,8 +280,7 @@ ex6()
    printf("\nfim \n");
     p=0;
 }
-ex7()
-{
+ex7(){
     float n1, n2, n3, n4, ma;
     char zn;
 
