@@ -143,8 +143,238 @@ fun ex6(teclado: Scanner): Boolean {
 }
 
 fun ex7(teclado: Scanner): Boolean {
+    var n1: Double
+    var n2: Double
+    var n3: Double
+    var n4: Double
 
+    println("Digite a nota da primeira avaliação: ")
+    do {
+        n1 = teclado.nextDouble()
+        if (n1 < 0 || n1 > 10){
+            println("Valor invalido")
+        }
+    }while (n1 < 0 || n1 > 10)
+
+    println("Digite a nota da segunda avaliação: ")
+    do {
+        n2 = teclado.nextDouble()
+        if (n2 < 0 || n2 > 10){
+            println("Valor invalido")
+        }
+    }while (n2 < 0 || n2 > 10)
+
+    println("Digite a nota da terceira avaliação: ")
+    do {
+        n3 = teclado.nextDouble()
+        if (n3 < 0 || n3 > 10) {
+            println("Valor invalido")
+        }
+    }while (n3 < 0 || n3 > 10)
+
+    println("Digite a nota da quarta avaliação: ")
+    do {
+        n4 = teclado.nextDouble()
+        if (n4 < 0 || n4 > 10) {
+            println("Valor invalido")
+        }
+    }while (n4 < 0 || n4 > 10)
+
+    val media: Double = (n1+n2+n3+n4)/4
+    println("A media do aluno é $media")
+    if (media >= 6){
+        println("O aluno foi aprovado")
+    } else {
+        println("O aluno foi reprovado")
+    }
+
+    println("Deseja voltar ao menu? (S/N)")
+    return teclado.next().equals("s", true)
 }
+
+fun ex8(teclado: Scanner): Boolean {
+    var n1: Double
+    var n2: Double
+    var n3: Double
+    var n4: Double
+    var n5: Double
+
+    do{
+        println("Digite um valor entre 10 e 25: ")
+        do {
+            n1 = teclado.nextDouble()
+            if (n1 <= 10 || n1 >= 25) {
+                println("Valor invalido")
+            }
+        } while (n1 <= 10 || n1 >= 25)
+
+        println("Digite um valor positivo: ")
+        do {
+            n2 = teclado.nextDouble()
+            if (n2 < 0) {
+                println("Valor invalido")
+            }
+        } while (n2 < 0)
+
+        n3 = n1 * n2
+        n4 = n1 * n2 * n3
+        n5 = (n1 * n1) + (n2 * n2) + (n3 * n3) + (n4 * n4)
+
+        if (n5 < 50000) {
+            println("O valor de $n5 é menor que 50.000")
+            println("Por favor, digite novos valores")
+            println("Pressione enter para continuar")
+            teclado.nextLine()
+        } else {
+            println("O valor de $n5 é maior que 50.000")
+            println("Pressione enter para continuar")
+            teclado.nextLine()
+        }
+    }while (n5 < 50000)
+
+    println("Deseja voltar ao menu? (S/N)")
+    return teclado.next().equals("s", true)
+}
+
+fun ex9(teclado: Scanner): Boolean {
+    var n1: Int
+    var n2: Int
+
+    do {
+        println("Digite o primeiro numero: ")
+        n1 = teclado.nextInt()
+        if (n1 <= 0) {
+            println("Valor invalido")
+        }
+    } while (n1 <= 0)
+
+    do {
+        println("Digite o segundo numero: ")
+        n2 = teclado.nextInt()
+        if (n2 <= 0) {
+            println("Valor invalido")
+        }
+    } while (n2 <= 0)
+
+    if (n1 % n2 == 0 || n2 % n1 == 0){
+        println("Os numeros são multiplos")
+    } else {
+        println("Os numeros não são multiplos")
+    }
+
+    println("Deseja voltar ao menu? (S/N)")
+    return teclado.next().equals("s", true)
+}
+
+fun ex10(teclado: Scanner): Boolean {
+    var valor: Double
+
+    do {
+        println("Digite o valor do produto: ")
+        valor = teclado.nextDouble()
+        if (valor <= 0) {
+            println("Valor invalido")
+        }
+    } while (valor <= 0)
+
+    if (valor < 100){
+        println("Preço reajustado: R$${valor*1.1}")
+    }else{
+        println("Preço reajustado: R$${valor*1.2}")
+    }
+
+    println("Deseja voltar ao menu? (S/N)")
+    return teclado.next().equals("s", true)
+}
+
+fun ex11(teclado: Scanner): Boolean {
+
+    println("Digite o primeiro numero: ")
+    val n1: Int = teclado.nextInt()
+    println("Digite o segundo numero: ")
+    val n2: Int = teclado.nextInt()
+
+    if (n1 > n2){
+        println("$n1 > $n2")
+    } else if (n1 < n2){
+        println("$n2 > $n1")
+    } else {
+        println("$n1 = $n2")
+    }
+
+    println("Deseja voltar ao menu? (S/N)")
+    return teclado.next().equals("s", true)
+}
+
 fun ex12(teclado: Scanner): Boolean {
-    TODO("Not yet implemented")
+    var n1: Double
+    var n2: Double
+    var n3: Double
+    var mediaExercicios: Double
+    val conceito: String
+
+    println("Digite sua ID: ")
+    val id: Int = teclado.nextInt()
+
+    do {
+        println("Digite a nota da primeira avaliação: ")
+        n1 = teclado.nextDouble()
+        if (n1 < 0 || n1 > 10) {
+            println("Valor invalido")
+        }
+    } while (n1 < 0 || n1 > 10)
+
+    do {
+        println("Digite a nota da segunda avaliação: ")
+        n2 = teclado.nextDouble()
+        if (n2 < 0 || n2 > 10) {
+            println("Valor invalido")
+        }
+    } while (n2 < 0 || n2 > 10)
+
+    do {
+        println("Digite a nota da terceira avaliação: ")
+        n3 = teclado.nextDouble()
+        if (n3 < 0 || n3 > 10) {
+            println("Valor invalido")
+        }
+    } while (n3 < 0 || n3 > 10)
+
+    do {
+        println("Digite a media dos exercicios: ")
+        mediaExercicios = teclado.nextDouble()
+        if (mediaExercicios < 0 || mediaExercicios > 10) {
+            println("Valor invalido")
+        }
+    } while (mediaExercicios < 0 || mediaExercicios > 10)
+
+    val mediaAproveitamento: Double = (n1 + n2 * 2 + n3 * 3 + mediaExercicios) / 7
+
+    conceito = if (mediaAproveitamento >= 9){
+        "A"
+    } else if (mediaAproveitamento >= 7.5){
+        "B"
+    } else if (mediaAproveitamento >= 6){
+        "C"
+    } else if (mediaAproveitamento >= 4){
+        "D"
+    } else {
+        "E"
+    }
+
+    println("ID: $id")
+    println("Nota da primeira avaliação: $n1")
+    println("Nota da segunda avaliação: $n2")
+    println("Nota da terceira avaliação: $n3")
+    println("Media dos exercicios: $mediaExercicios")
+    println("Media de aproveitamento: $mediaAproveitamento")
+    println("Conceito: $conceito")
+
+    when (conceito){
+        "A", "B", "C" -> println("APROVADO")
+        else -> println("REPROVADO")
+    }
+
+    println("Deseja voltar ao menu? (S/N)")
+    return teclado.next().equals("s", true)
 }

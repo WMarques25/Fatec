@@ -351,9 +351,8 @@ ex7(){
    printf("\nfim \n");
     p=0;
 }
-ex8()
-{
-       float n1, n2, n3, n4, n5;
+ex8(){
+    float n1, n2, n3, n4, n5;
     char zn, x;
 
     setlocale(LC_ALL, "Portuguese");
@@ -407,8 +406,7 @@ ex8()
     printf("\n\tFIM");
     p=0;
 }
-ex9()
-{
+ex9(){
     int a, b;
     char zn;
     setlocale(LC_ALL, "Portuguese");
@@ -436,8 +434,7 @@ ex9()
     printf("\n\tFIM");
     p=0;
 }
-ex10()
-{
+ex10(){
     float valor;
     char zn;
     setlocale(LC_ALL, "Portuguese");
@@ -469,8 +466,7 @@ ex10()
     printf("\n\tFIM");
     p=0;
 }
-ex11()
-{
+ex11(){
 //se��o de Declara��es das vari�veis
 int n1, n2;
 char zn;
@@ -500,8 +496,7 @@ char zn;
     printf("\n\tFIM");
     p=0;
 }
-ex12()
-{
+ex12(){
 //se��o de Declara��es das vari�veis
 int id;
 float n1, n2, n3, me, ma;
@@ -527,7 +522,6 @@ char x, zn;
          scanf("%f", &n1);
          getchar();
       }
-
 
    //N2
    printf("Insira a nota da Segunda Avalia��o:");
