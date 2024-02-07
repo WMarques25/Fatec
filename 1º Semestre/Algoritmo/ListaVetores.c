@@ -1,4 +1,4 @@
-#define ex11
+#define ex6
 #include <stdio.h>
 #include <stdlib.h>
 #include <locale.h>
@@ -6,13 +6,11 @@
 #include <string.h>
 
 #ifdef ex1
-int main(void)
-{
+int main(void){
     setlocale(LC_ALL,"");
     float v[15];
     int i;
-    for(i=0;i<15;i++)
-    {
+    for(i=0;i<15;i++)    {
         printf("Digite o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %f",&v[i]);
     }
@@ -34,12 +32,10 @@ int main(void)
 }
 #endif // ex1
 #ifdef ex2
-int main(void)
-{
+int main(void){
     setlocale(LC_ALL,"");
     int A[12],i=0,x=0;
-    for(i=0;i<12;i++)
-    {
+    for(i=0;i<12;i++)    {
         printf("Insira o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %d",&A[i]);
         while(A[i]<=0)
@@ -66,8 +62,7 @@ int main(void)
 }
 #endif // ex2
 #ifdef ex3
-int main(void)
-{
+int main(void){
     setlocale(LC_ALL,"");
     int A[8],B[8],i;
     for(i=0;i<8;i++)
@@ -85,15 +80,13 @@ int main(void)
 }
 #endif // ex3
 #ifdef ex4
-int main(void)
-{
+int main(void){
     setlocale(LC_ALL,"");
     float A[6],somq=0;
     int i;
     do{
         system("cls");
-        for(i=0;i<6;i++)
-        {
+        for(i=0;i<6;i++)        {
             printf("Insira o %dï¿½ nï¿½mero: ",i+1);
             scanf(" %f",&A[i]);
             while(A[i]>=0)
@@ -115,19 +108,16 @@ int main(void)
 }
 #endif // ex4
 #ifdef ex5
-int main(void)
-{
+int main(void){
     setlocale(LC_ALL, "");
     float n[10],maior=0;
     int i,x=0,s=0;
 
-    for(i=0;i<10;i++)
-    {
+    for(i=0;i<10;i++)    {
         do{
         printf("Digite o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %f",&n[i]);
-        if(n[i]<0)
-        {
+        if(n[i]<0)        {
             printf("Apenas nï¿½meros positivos!");
         }
         }while(n[i]<0);
@@ -183,8 +173,7 @@ int A[15],B[15];
 int i,y,z=0;
 char xx;
 
-int main(void)
-{
+int main(void){
     setlocale(LC_ALL,"");
     for(i=0;i<15;i++)
     {
@@ -236,16 +225,13 @@ int A[999],B[999];
 int i=0,y=0,z=0;
 char xx;
 
-int main(void)
-{
+int main(void){
     setlocale(LC_ALL,"portuguese");
-    for(;;)
-    {
+    for(;;){
         do{
         printf("Digite o %dï¿½ nï¿½mero: ",i+1);
         scanf(" %d",&A[z]);
-        if((A[z]<=4)||(A[z]>20))
-        {
+        if((A[z]<=4)||(A[z]>20)){
             printf("\tDigite um nï¿½mero maior que 4 e menor ou igual a 20.\n");
         }
         }while((A[z]<=4)||(A[z]>20));
@@ -263,15 +249,13 @@ int main(void)
         i++;
     }
 
-    for(i;i>=0;i--)
-    {
+    for(i;i>=0;i--){
         B[y]=A[i];
        // printf("%d | %d\n",B[y],A[i]);
         y++;
     }
     printf("A[%d] = {",z+1);
-    for(i=0;i<=z;i++)
-    {
+    for(i=0;i<=z;i++){
         printf(" %d ,",A[i]);
     }
     printf("\b}\n");
@@ -371,7 +355,7 @@ int i=0,n1=0,n2=0;
 float ScanP(void){
     float X;
     do{
-        printf("Insira o %dº valor: ",i+1);
+        printf("Insira o %dï¿½ valor: ",i+1);
         scanf(" %f",&X);
         if(X<0)
         {
@@ -396,7 +380,7 @@ int main(void)
     printf("No vetor A[10] existem %d valores maiores que 4.",n1);
     if (n1>0)
     {
-        printf("\b, nas posições:\n");
+        printf("\b, nas posiï¿½ï¿½es:\n");
         for(i=0;i<10;i++)
         {
             if (A[i]>4)
@@ -410,7 +394,7 @@ int main(void)
     printf("\nNo vetor B[10] existem %d valores maiores que 4.",n2);
     if (n2>0)
     {
-        printf("\b, nas posições:\n");
+        printf("\b, nas posiï¿½ï¿½es:\n");
         for(i=0;i<10;i++)
         {
             if (B[i]>4)
@@ -437,11 +421,11 @@ void Tabuada(int x)
 int main(void)
 {
     setlocale(LC_ALL, "");
-    printf("Insira o número que deseja a tabuada: ");
+    printf("Insira o nï¿½mero que deseja a tabuada: ");
     scanf(" %d", &x);
     Tabuada(x);
     
-    printf("A tabuada de %d é:\n", x);
+    printf("A tabuada de %d ï¿½:\n", x);
     for ( i = 0; i < 10; i++)
     {
          printf("%d X %d = %d\n", i+1, x, A[i]);
@@ -459,7 +443,7 @@ int main(void)
     do{
         system("cls");
         setlocale(LC_ALL, "");
-        printf("Insira as temperaturas referentes aos meses o ano. (°C)\n\n");
+        printf("Insira as temperaturas referentes aos meses o ano. (ï¿½C)\n\n");
         for(i=0;i<12;i++)
         {
             printf("%s: ", M[i]);
@@ -473,17 +457,17 @@ int main(void)
         }
         med = med/12;
         system("cls");
-        printf("As temperaturas do ano são:\n");
+        printf("As temperaturas do ano sï¿½o:\n");
         for(i=0;i<12;i++)
         {
-            printf("%s: %g°C, ", M[i], T[i]);
+            printf("%s: %gï¿½C, ", M[i], T[i]);
         }
         printf("\b.\n");
-        printf("A menor temperatura é de %s = %g°C.\n", M[min], T[min]);
-        printf("A maior temperatura é de %s = %g°C.\n", M[max], T[max]);
-        printf("A média das temperaturas é: %.2g°C.\n\n", med);
+        printf("A menor temperatura ï¿½ de %s = %gï¿½C.\n", M[min], T[min]);
+        printf("A maior temperatura ï¿½ de %s = %gï¿½C.\n", M[max], T[max]);
+        printf("A mï¿½dia das temperaturas ï¿½: %.2gï¿½C.\n\n", med);
 
-        printf("Deseja fazer outra verificação? ('S' = Sim)\n");
+        printf("Deseja fazer outra verificaï¿½ï¿½o? ('S' = Sim)\n");
         scanf(" %c", &x);
         x = toupper(x);
     }while(x == 'S');
