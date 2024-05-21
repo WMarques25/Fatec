@@ -1,0 +1,24 @@
+server:
+    port: 8080
+
+spring:
+    datasource:
+        platform: postgres
+        url: jdbc:postgresql://localhost:5432/postgres
+        username: postgres
+        password: admin
+        driver-ClassName: org.postgresql.Driver
+        initialization-mode: always
+        initialize: true
+        schema: classpath:/schema-postgresql.sql
+
+    jpa: 
+        hibernate:
+            ddl-auto: create-drop
+            generate-ddl: true
+
+    sql:
+        init:
+            schema-locations: classpath:/schema-postgresql.sql
+
+
