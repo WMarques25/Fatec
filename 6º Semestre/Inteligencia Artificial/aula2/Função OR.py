@@ -15,7 +15,7 @@ def dot(v: Vector, w: Vector) -> float:
 assert dot([1, 2, 3], [4, 5, 6]) == 32
 
 def step_function(x):
-    return 1 if x >= 1.5 else 0
+    return 1 if x >= 1 else 0
 
 def perceptron_output(weights, bias, x):
     calculation = dot(weights, x) + bias
@@ -34,8 +34,8 @@ saida1 = perceptron_output(weights, bias, x1)
 saida2 = perceptron_output(weights, bias, x2)
 saida3 = perceptron_output(weights, bias, x3)
 
-print("PERCEPTRON IMPLEMENTANDO FUNÇÃO AND")
-print("0 AND 0 =", saida0)
-print("0 AND 1 =", saida1)
-print("1 AND 0 =", saida2)
-print("1 AND 1 =", saida3)
+print("PERCEPTRON IMPLEMENTANDO FUNÇÃO OR")
+print("0 OR 0 =", saida0)
+print("0 OR 1 =", saida1)
+print("1 OR 0 =", saida2)
+print("1 OR 1 =", saida3)
