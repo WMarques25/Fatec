@@ -7,3 +7,5 @@
 - Procedural / Estrutural / Imperativo
 - P.O.O.
 - Funcional
+
+## Read Eval Loop Print -> RELP
