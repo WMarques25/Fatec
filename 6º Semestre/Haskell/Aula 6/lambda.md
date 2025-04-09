@@ -6,14 +6,18 @@
 
 ### Função de Alta Ordem recebe Funções como parametros => JAVA = .map() -- IMUTABILIDADE
 
-### Tecnica de para reduzir o numero de entradas da função para 
+### Currying - Tecnica de para reduzir o numero de entradas da função
+    > somarTresNum :: Int -> Int -> Int -> Int
+    > somarTresNum x y z = x+y+z
 
+    > somarCurr :: Int -> Int
+    > somarCurr = somarTresNum 4 5
     > ghci> :t (+)
     > (+) :: Num a => a -> a -> a
     > ghci> :t (+1)
     > (+1) :: Num a => a -> a
 
-### Compreenção de Listas = map + filter
+### Compreensão de Listas = map + filter
 
 > `$`-> equivale a ( )
     
@@ -48,4 +52,45 @@
             ehCrianca x = x < 13
             ehAdolescente = idade < 18 
 
-# Recursão
+---
+    > map (+2) [1..5]
+    [3,4,5,6,7]
+
+## função infixa . (ponto)
+
+    > (contar . traseira) "Haskell"
+    6
+
+## função $ -> ( )
+## função |>  (&)
+    > (|>) :: a -> (a -> b) -> b
+    > (|>) x f = f x
+---
+    > func :: String -> String
+    > func x = x ++ (tail (take 3 (reverse x)))
+    ---
+    > funcI :: String -> String
+    > funcI x = x
+         |> reverse
+         |> take 3
+         |> tail
+         |> (x ++)
+
+## guards |
+    > imc p a
+        | p/(a*a) <= 18.5 = "Abaixo do peso"
+        | p/(a*a) < 25.0 = "Peso ideal"
+        | p/(a*a) <= 30 = "Acima do peso"
+        | otherwise = "Obesidade"
+---
+    > imc p a
+        | valorImc <= 18.5 = "Abaixo do peso"
+        | valorImc < 25.0 = "Peso ideal"
+        | valorImc <= 30 = "Acima do peso"
+        | otherwise = "Obesidade"
+        where
+        valorImc = p/(a*a)
+---
+    > fat n
+        | n <= 1 = 1
+        | otherwise = n*fat(n-1)
