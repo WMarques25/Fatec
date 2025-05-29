@@ -10,6 +10,5 @@ import Yesod.Core
 
 import Add
 import Home
-import Pagina
 
 mkYesodDispatch "App" resourcesApp
